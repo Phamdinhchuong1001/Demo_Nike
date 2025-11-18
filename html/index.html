@@ -47,80 +47,90 @@
 
     <!-- Header Start -->
     <div class="container-fluid p-0">
-    <nav class="navbar navbar-expand-lg navbar-dark px-lg-5">
-        <a href="../html/index.html" class="navbar-brand ms-4 ms-lg-0">
-            <img src="../assets/images/index/Logo_NIKE_web.png" alt="Nike Logo" style="height: 50px;">
-        </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
-            data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            
-            <div class="navbar-nav mx-auto p-4 p-lg-0">
-                <a href="../html/index.html" class="nav-item nav-link active">Trang Chủ</a>
+        <nav class="navbar navbar-expand-lg navbar-dark px-lg-5">
+            <a href="../html/index.html" class="navbar-brand ms-4 ms-lg-0">
+                <img src="../assets/images/index/Logo_NIKE_web.png" alt="Nike Logo" style="height: 50px;">
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
 
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">THỂ THAO NAM</a>
-                    <div class="dropdown-menu m-0">
-                        <a href="#" class="dropdown-item">Giày Nam</a>
-                        <a href="#" class="dropdown-item">Quần Áo Nam</a>
-                        <a href="#" class="dropdown-item">Phụ Kiện Nam</a>
+                <div class="navbar-nav mx-auto p-4 p-lg-0">
+                    <a href="../html/index.html" class="nav-item nav-link active">Trang Chủ</a>
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">THỂ THAO NAM</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="#" class="dropdown-item">Giày Nam</a>
+                            <a href="#" class="dropdown-item">Quần Áo Nam</a>
+                            <a href="#" class="dropdown-item">Phụ Kiện Nam</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">THỂ THAO NỮ</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="#" class="dropdown-item">Giày Nữ</a>
+                            <a href="#" class="dropdown-item">Quần Áo Nữ</a>
+                            <a href="#" class="dropdown-item">Phụ Kiện Nữ</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">TRẺ EM</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="#" class="dropdown-item">Bé Trai</a>
+                            <a href="#" class="dropdown-item">Bé Gái</a>
+                            <a href="#" class="dropdown-item">Phụ Kiện Trẻ Em</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">GIẢM GIÁ</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="#" class="dropdown-item">Sale Giày</a>
+                            <a href="#" class="dropdown-item">Sale Quần Áo</a>
+                            <a href="#" class="dropdown-item">Tất Cả Sale</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">THỂ THAO NỮ</a>
-                    <div class="dropdown-menu m-0">
-                        <a href="#" class="dropdown-item">Giày Nữ</a>
-                        <a href="#" class="dropdown-item">Quần Áo Nữ</a>
-                        <a href="#" class="dropdown-item">Phụ Kiện Nữ</a>
+                <div class="d-flex align-items-center ms-auto me-4">
+                    <form class="d-flex me-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control rounded-pill" placeholder="Search"
+                                style="width: 150px;">
+                            <span class="input-group-text border-0 bg-transparent text-white position-absolute end-0"
+                                style="z-index: 1;">
+                                <i class="fa fa-magnifying-glass"></i>
+                            </span>
+                        </div>
+                    </form>
+
+                    <a href="#" class="text-white me-3 fs-5"><i class="fa fa-heart"></i></a>
+                    <a href="#" class="text-white me-3 fs-5"><i class="fa fa-bag-shopping"></i></a>
+                    <div class="user-control d-flex align-items-center">
+                        <a href="../html/login.html" class="text-white me-3 fs-5" id="userLink">
+                            <i class="fa fa-user" id="userIcon"></i>
+                        </a>
+
+                        <span id="userNameDisplay" style="display: none;" class="fw-bold text-white me-3"></span>
+
+                        <button id="logoutButton" class="btn btn-sm btn-outline-light d-none">Đăng xuất</button>
                     </div>
                 </div>
 
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">TRẺ EM</a>
-                    <div class="dropdown-menu m-0">
-                        <a href="#" class="dropdown-item">Bé Trai</a>
-                        <a href="#" class="dropdown-item">Bé Gái</a>
-                        <a href="#" class="dropdown-item">Phụ Kiện Trẻ Em</a>
-                    </div>
-                </div>
-
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">GIẢM GIÁ</a>
-                    <div class="dropdown-menu m-0">
-                        <a href="#" class="dropdown-item">Sale Giày</a>
-                        <a href="#" class="dropdown-item">Sale Quần Áo</a>
-                        <a href="#" class="dropdown-item">Tất Cả Sale</a>
-                    </div>
-                </div>
             </div>
-            
-            <div class="d-flex align-items-center ms-auto me-4">
-                <form class="d-flex me-3">
-                    <div class="input-group">
-                        <input type="text" class="form-control rounded-pill" placeholder="Search" style="width: 150px;">
-                        <span class="input-group-text border-0 bg-transparent text-white position-absolute end-0" style="z-index: 1;">
-                             <i class="fa fa-magnifying-glass"></i>
-                        </span>
-                    </div>
-                </form>
-                
-                <a href="#" class="text-white me-3 fs-5"><i class="fa fa-heart"></i></a>
-                <a href="#" class="text-white me-3 fs-5"><i class="fa fa-bag-shopping"></i></a>
-                <a href="#" class="text-white fs-5"><i class="fa fa-user"></i></a>
-            </div>
+        </nav>
 
+        <div class="header-video-banner">
+            <video class="w-100" loop muted autoplay playsinline>
+                <source src="../assets/videos/banner-1.mp4" type="video/mp4">
+            </video>
         </div>
-    </nav>
-
-    <div class="header-video-banner">
-        <video class="w-100" loop muted autoplay playsinline>
-            <source src="../assets/videos/banner-1.mp4" type="video/mp4">
-        </video>
     </div>
-</div>
     <!-- Header End -->
 
 
@@ -285,39 +295,44 @@
 
     <!-- Banner Start -->
     <div class="container-fluid py-5">
-    <div class="container py-5">
-        <div class="row align-items-center mb-4">
-            <div class="col-6">
-                <h2 class="text-uppercase mb-0">Bài Viết Gần Đây</h2>
-            </div>
-        </div>
-
-        <div class="row g-4">
-            
-            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="blog-item bg-light p-3 rounded">
-                    <img class="img-fluid w-100 mb-4" src="../assets/images/index/post-thumbnail-1.jpg" alt="5 Cách Chọn Giày Chạy Bộ">
-                    <a class="d-block h5 text-uppercase mb-3" href="#!">5 Cách Chọn Giày Chạy Bộ Phù Hợp Cho Người Mới</a>
+        <div class="container py-5">
+            <div class="row align-items-center mb-4">
+                <div class="col-6">
+                    <h2 class="text-uppercase mb-0">Bài Viết Gần Đây</h2>
                 </div>
             </div>
 
-            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="blog-item bg-light p-3 rounded">
-                    <img class="img-fluid w-100 mb-4" src="../assets/images/index/post-thumbnail-2.jpg" alt="Phụ Kiện Thể Thao">
-                    <a class="d-block h5 text-uppercase mb-3" href="#!">Phụ Kiện Thể Thao Không Thể Thiếu</a>
-                </div>
-            </div>
+            <div class="row g-4">
 
-            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="blog-item bg-light p-3 rounded">
-                    <img class="img-fluid w-100 mb-4" src="../assets/images/index/post-thumbnail-3.jpg" alt="Trang Phục Tập Luyện">
-                    <a class="d-block h5 text-uppercase mb-3" href="#!">Trang Phục Tập Luyện Thoải Mái Nhất Cho Nữ</a>
+                <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="blog-item bg-light p-3 rounded">
+                        <img class="img-fluid w-100 mb-4" src="../assets/images/index/post-thumbnail-1.jpg"
+                            alt="5 Cách Chọn Giày Chạy Bộ">
+                        <a class="d-block h5 text-uppercase mb-3" href="#!">5 Cách Chọn Giày Chạy Bộ Phù Hợp Cho Người
+                            Mới</a>
+                    </div>
                 </div>
-            </div>
 
+                <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="blog-item bg-light p-3 rounded">
+                        <img class="img-fluid w-100 mb-4" src="../assets/images/index/post-thumbnail-2.jpg"
+                            alt="Phụ Kiện Thể Thao">
+                        <a class="d-block h5 text-uppercase mb-3" href="#!">Phụ Kiện Thể Thao Không Thể Thiếu</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="blog-item bg-light p-3 rounded">
+                        <img class="img-fluid w-100 mb-4" src="../assets/images/index/post-thumbnail-3.jpg"
+                            alt="Trang Phục Tập Luyện">
+                        <a class="d-block h5 text-uppercase mb-3" href="#!">Trang Phục Tập Luyện Thoải Mái Nhất Cho
+                            Nữ</a>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
-</div>
     <!-- Banner End -->
 
 
@@ -381,89 +396,100 @@
 
     <!-- Testimonial Start -->
     <div class="container-fluid py-5">
-    <div class="container py-5">
-        <div class="p-5 rounded wow fadeInUp" data-wow-delay="0.1s" style="border: 1px solid #dee2e6;background: white;">
-            <div class="row g-5 align-items-center">
-                
-                <div class="col-lg-7">
-                    <h2 class="display-5 text-dark mb-4">Tải Ứng Dụng NIKE Store</h2>
-                    <p class="fs-5 text-dark mb-4">Đặt hàng trực tuyến dễ dàng, nhanh chóng và tin cậy.</p>
-                    
-                    <div class="d-flex align-items-center">
-                        <a href="#!" target="_blank" class="me-3">
-                            <img src="../assets/images/index/img-app-store.png" alt="Download on the App Store" style="width: 180px;">
-                        </a>
-                        <a href="#!" target="_blank">
-                            <img src="../assets/images/index/img-google-play.png" alt="Get it on Google Play" style="width: 180px;">
-                        </a>
+        <div class="container py-5">
+            <div class="p-5 rounded wow fadeInUp" data-wow-delay="0.1s"
+                style="border: 1px solid #dee2e6;background: white;">
+                <div class="row g-5 align-items-center">
+
+                    <div class="col-lg-7">
+                        <h2 class="display-5 text-dark mb-4">Tải Ứng Dụng NIKE Store</h2>
+                        <p class="fs-5 text-dark mb-4">Đặt hàng trực tuyến dễ dàng, nhanh chóng và tin cậy.</p>
+
+                        <div class="d-flex align-items-center">
+                            <a href="#!" target="_blank" class="me-3">
+                                <img src="../assets/images/index/img-app-store.png" alt="Download on the App Store"
+                                    style="width: 180px;">
+                            </a>
+                            <a href="#!" target="_blank">
+                                <img src="../assets/images/index/img-google-play.png" alt="Get it on Google Play"
+                                    style="width: 180px;">
+                            </a>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="col-lg-5 text-center">
-                    <img class="img-fluid" src="../assets/images/index/banner-onlineapp.jpg" alt="Minh họa điện thoại ứng dụng Nike" style="max-height: 450px;">
+
+                    <div class="col-lg-5 text-center">
+                        <img class="img-fluid" src="../assets/images/index/banner-onlineapp.jpg"
+                            alt="Minh họa điện thoại ứng dụng Nike" style="max-height: 450px;">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
     <!-- Testimonial End -->
 
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer py-5 wow fadeIn" data-wow-delay="0.1s">
-    <div class="container py-5">
-        
-        <div class="row g-5">
-            
-            <div class="col-lg-3 col-md-6">
-                <a href="../html/index.html">
-                    <img src="../assets/images/index/Logo_NIKE_web.png" alt="Logo Nike" style="height: 60px; margin-bottom: 20px;">
-                </a>
-                
-                <div class="d-flex mt-3">
-                    <a class="btn btn-outline-light btn-social" href="https://web.facebook.com/nike/?locale=vi_VN&_rdc=1&_rdr#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/nike/"><i class="fab fa-instagram"></i></a>
-                    <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/user/nike"><i class="fab fa-youtube"></i></a>
+        <div class="container py-5">
+
+            <div class="row g-5">
+
+                <div class="col-lg-3 col-md-6">
+                    <a href="../html/index.html">
+                        <img src="../assets/images/index/Logo_NIKE_web.png" alt="Logo Nike"
+                            style="height: 60px; margin-bottom: 20px;">
+                    </a>
+
+                    <div class="d-flex mt-3">
+                        <a class="btn btn-outline-light btn-social"
+                            href="https://web.facebook.com/nike/?locale=vi_VN&_rdc=1&_rdr#"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/nike/"><i
+                                class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/user/nike"><i
+                                class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-uppercase text-light mb-4">VỀ CHÚNG TÔI</h5>
+                    <a class="btn btn-link" href="#!">Giới thiệu</a>
+                    <a class="btn btn-link" href="#!">Điều khoản</a>
+                    <a class="btn btn-link" href="#!">Tin tức Thể thao</a>
+                    <a class="btn btn-link" href="#!">Thương hiệu</a>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-uppercase text-light mb-4">LIÊN KẾT NHANH</h5>
+                    <a class="btn btn-link" href="#!">Chương trình khuyến mãi</a>
+                    <a class="btn btn-link" href="#!">Mã giảm giá</a>
+                    <a class="btn btn-link" href="#!">Hệ thống cửa hàng</a>
+                    <a class="btn btn-link" href="#!">Thông tin chung</a>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-uppercase text-light mb-4">ĐĂNG KÝ NHẬN TIN</h5>
+                    <p>Đăng ký nhận bản tin của chúng tôi để nhận thông tin về các ưu đãi lớn.</p>
+                    <div class="position-relative w-100">
+                        <input class="form-control border-0 bg-transparent w-100 py-3 ps-4 pe-5" type="text"
+                            placeholder="Địa chỉ Email">
+                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Đăng
+                            Ký</button>
+                    </div>
                 </div>
             </div>
-            
-            <div class="col-lg-2 col-md-6">
-                <h5 class="text-uppercase text-light mb-4">VỀ CHÚNG TÔI</h5>
-                <a class="btn btn-link" href="#!">Giới thiệu</a>
-                <a class="btn btn-link" href="#!">Điều khoản</a>
-                <a class="btn btn-link" href="#!">Tin tức Thể thao</a>
-                <a class="btn btn-link" href="#!">Thương hiệu</a>
-            </div>
-            
-            <div class="col-lg-3 col-md-6">
-                <h5 class="text-uppercase text-light mb-4">LIÊN KẾT NHANH</h5>
-                <a class="btn btn-link" href="#!">Chương trình khuyến mãi</a>
-                <a class="btn btn-link" href="#!">Mã giảm giá</a>
-                <a class="btn btn-link" href="#!">Hệ thống cửa hàng</a>
-                <a class="btn btn-link" href="#!">Thông tin chung</a>
-            </div>
+        </div>
 
-            <div class="col-lg-4 col-md-6">
-                <h5 class="text-uppercase text-light mb-4">ĐĂNG KÝ NHẬN TIN</h5>
-                <p>Đăng ký nhận bản tin của chúng tôi để nhận thông tin về các ưu đãi lớn.</p>
-                <div class="position-relative w-100">
-                    <input class="form-control border-0 bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Địa chỉ Email">
-                    <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Đăng Ký</button>
+        <div class="container-fluid copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a href="#">NIKE Store Việt Nam</a>, Mọi Quyền Được Bảo Lưu.
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="container-fluid copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a href="#">NIKE Store Việt Nam</a>, Mọi Quyền Được Bảo Lưu.
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
     <!-- Footer End -->
 
 
@@ -482,6 +508,7 @@
 
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
+    <script src="../js/index_logic.js"></script>
 </body>
 
 </html>
