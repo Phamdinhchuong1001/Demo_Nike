@@ -1,31 +1,39 @@
 document.addEventListener('DOMContentLoaded', function() {
     const isLoggedIn = sessionStorage.getItem('isLoggedIn');
     const userName = sessionStorage.getItem('loggedInUser');
-    const userIcon = document.getElementById('userIcon');
-    const userLink = document.getElementById('userLink');
-    const userNameDisplay = document.getElementById('userNameDisplay');
-    const logoutButton = document.getElementById('logoutButton');
+
+    // Lấy các phần tử HTML cần thiết
+    const userLink = document.getElementById('userLink'); // Link/Icon Đăng nhập
+    const userDropdownContainer = document.getElementById('userDropdownContainer'); // Container Dropdown
+    const userNameDisplay = document.getElementById('userNameDisplay'); // Element hiển thị tên trong Dropdown
+    const logoutButton = document.getElementById('logoutButton'); // Nút Đăng xuất
 
     if (isLoggedIn === 'true' && userName) {
-        // Đã đăng nhập: Ẩn Icon, hiện Tên và Nút Đăng xuất
-        if (userIcon) userIcon.style.display = 'none';
-        if (userLink) userLink.href = '#'; // Hoặc link đến trang profile
+        // --- TRẠNG THÁI ĐÃ ĐĂNG NHẬP ---
+        
+        // 1. Ẩn Link/Icon Đăng nhập
+        if (userLink) userLink.style.display = 'none';
+
+        // 2. Hiện Dropdown Menu và Cập nhật Tên
+        if (userDropdownContainer) userDropdownContainer.style.display = 'block'; // Hiển thị Dropdown
+        
         if (userNameDisplay) {
-            userNameDisplay.textContent = 'Xin chào, ' + userName; // Hiển thị tên
-            userNameDisplay.style.display = 'inline';
+            userNameDisplay.textContent = userName; // Hiển thị tên
+            // Đảm bảo Dropdown toggle vẫn hoạt động (class 'nav-link dropdown-toggle' trong HTML đã lo)
         }
-        if (logoutButton) {
-            logoutButton.classList.remove('d-none');
-        }
+
     } else {
-        // Chưa đăng nhập: Hiện Icon, ẩn Tên và Nút Đăng xuất
-        if (userIcon) userIcon.style.display = 'inline';
-        if (userLink) userLink.href = 'login.html';
-        if (userNameDisplay) userNameDisplay.style.display = 'none';
-        if (logoutButton) logoutButton.classList.add('d-none');
+        // --- TRẠNG THÁI CHƯA ĐĂNG NHẬP ---
+        
+        // 1. Hiện Link/Icon Đăng nhập
+        if (userLink) userLink.style.display = 'block'; 
+
+        // 2. Ẩn Dropdown Menu
+        if (userDropdownContainer) userDropdownContainer.style.display = 'none';
+        
     }
 
-    // Xử lý nút Đăng xuất
+    // Xử lý nút Đăng xuất (Logic vẫn giữ nguyên)
     if (logoutButton) {
         logoutButton.addEventListener('click', function() {
             sessionStorage.removeItem('isLoggedIn');

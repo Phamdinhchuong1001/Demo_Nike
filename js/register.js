@@ -2,6 +2,7 @@ document.getElementById('registerButton').addEventListener('click', function(e) 
     e.preventDefault();
 
     const username = document.getElementById('username').value.trim();
+    const phone = document.getElementById('phone').value.trim();
     const email = document.getElementById('regEmail').value.trim();
     const password = document.getElementById('regPassword').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
@@ -12,7 +13,7 @@ document.getElementById('registerButton').addEventListener('click', function(e) 
     message.style.color = 'red';
 
     // 1. Kiểm tra trường rỗng
-    if (!username || !email || !password || !confirmPassword) {
+    if (!username || !email || !password || !confirmPassword || !phone) {
         message.textContent = 'Vui lòng điền đầy đủ thông tin.';
         return;
     }
@@ -46,6 +47,7 @@ document.getElementById('registerButton').addEventListener('click', function(e) 
 
     const user = {
         username: username,
+        phone: phone,
         email: email,
         password: password 
     };

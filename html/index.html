@@ -116,9 +116,24 @@
                             <i class="fa fa-user" id="userIcon"></i>
                         </a>
 
-                        <span id="userNameDisplay" style="display: none;" class="fw-bold text-white me-3"></span>
-
-                        <button id="logoutButton" class="btn btn-sm btn-outline-light d-none">Đăng xuất</button>
+                        <div class="nav-item dropdown" id="userDropdownContainer" style="display: none;">
+                            <a class="nav-link dropdown-toggle text-white fw-bold me-3 p-0" href="#"
+                                id="userNameDisplay" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                style="font-size: 1.25rem;">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userNameDisplay">
+                                <li><a class="dropdown-item" href="donhang.html">Đơn hàng</a></li>
+                                <li><a class="dropdown-item" href="lichsumuahang.html">Lịch sử mua hàng</a></li>
+                                <li><a class="dropdown-item" href="profile.html">Hồ sơ</a></li>
+                                <li><a class="dropdown-item" href="muceuyeu.html">Mục yêu thích</a></li>
+                                <li><a class="dropdown-item" href="caidat.html">Cài đặt</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><button class="dropdown-item" id="logoutButton" type="button">Đăng xuất</button>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 

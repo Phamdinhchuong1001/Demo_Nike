@@ -9,6 +9,7 @@ document.getElementById('loginButton').addEventListener('click', function(e) {
     message.style.color = 'red';
 
     // 1. Lấy thông tin người dùng từ Local Storage
+    // Key lưu trữ là 'user_' + email
     const storedUser = localStorage.getItem('user_' + email);
     
     if (!storedUser) {
@@ -27,6 +28,9 @@ document.getElementById('loginButton').addEventListener('click', function(e) {
         // LƯU TRẠNG THÁI: Lưu trạng thái đăng nhập và tên người dùng vào Session Storage
         sessionStorage.setItem('isLoggedIn', 'true');
         sessionStorage.setItem('loggedInUser', user.username);
+        
+        // **[CẬP NHẬT]** Lưu EMAIL để Profile có thể truy xuất dữ liệu chi tiết
+        sessionStorage.setItem('loggedInUserEmail', user.email); 
         
         // Chuyển hướng sang trang index
         setTimeout(() => {

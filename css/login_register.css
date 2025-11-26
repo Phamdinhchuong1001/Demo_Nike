@@ -107,3 +107,6 @@ body {
     height: 100px; 
     width: auto; 
 }
+ a {
+        color: red;
+    }
