@@ -1,0 +1,67 @@
+/* Custom Styles for Product Listing (Add to your style.css) */
+
+/* Ensure the main content uses light text on dark background */
+.bg-dark, .text-light {
+    color: #f8f9fa !important; /* Light text */
+    background-color: #000000 !important; /* Dark background from footer/header */
+}
+
+/* Style for product item */
+.product-item {
+    background-color: transparent; /* Background should be transparent or dark */
+    border: none;
+    transition: transform 0.3s ease; /* Animation for hover effect */
+    cursor: pointer;
+}
+
+.product-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.product-item img {
+    /* Optional: Slight border radius for images */
+    border-radius: 0;
+}
+
+.product-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Ensure filter links are visible and styled */
+#filterSidebar a {
+    color: #f8f9fa !important; /* White/Light text */
+    /* Add a slight hover effect for filter links */
+    transition: color 0.2s ease;
+}
+
+#filterSidebar a:hover {
+    color: #aaa !important; /* Slight grey on hover */
+}
+
+/* Style for checkboxes in filter */
+.form-check-input:checked {
+    background-color: #fff; /* White checkmark background */
+    border-color: #fff;
+}
+.form-check-input {
+    background-color: #343a40; /* Darker background for unchecked */
+    border: 1px solid #6c757d;
+}
+
+.form-check-label {
+    color: #f8f9fa;
+}
+
+/* Specific product details styling */
+.text-danger {
+    color: #e51d27 !important; /* Use a Nike red/bright color if available, otherwise default red */
+}
+.text-muted {
+    color: #adb5bd !important;
+}
+
+/* Filter Sidebar Toggle Transition (to ensure smooth collapse/expand) */
+.filter-hidden {
+    display: none;
+}

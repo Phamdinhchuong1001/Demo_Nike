@@ -1,43 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <title>Hồ sơ người dùng - NIKE</title>
+     <meta charset="utf-8">
+    <title>NIKE - chi tiết sản phẩm</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
+    <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
+    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;700&family=Work+Sans:wght@400;600&display=swap"
         rel="stylesheet">
 
+    <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
+    <!-- Libraries Stylesheet -->
     <link href="../lib/animate/animate.min.css" rel="stylesheet">
     <link href="../lib/lightbox/css/lightbox.min.css" rel="stylesheet">
     <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
+    <!-- Customized Bootstrap Stylesheet -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Template Stylesheet -->
     <link href="../css/style.css" rel="stylesheet">
-
-    <link href="../css/profile.css" rel="stylesheet">
+    <link href="../css/product_detail.css" rel="stylesheet">
 </head>
-
 <body>
-
+    <!-- Spinner Start -->
     <div id="spinner"
         class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
     </div>
+    <!-- Spinner End -->
+
+
+    <!-- Header Start -->
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-lg-5">
             <a href="../html/index.html" class="navbar-brand ms-4 ms-lg-0">
@@ -101,7 +108,7 @@
                         </div>
                     </form>
 
-                    <a href="#" class="text-white me-3 fs-5"><i class="fa fa-heart"></i></a>
+                    <a href="favorite.html" class="text-white me-3 fs-5"><i class="fa fa-heart"></i></a>
                     <a href="#" class="text-white me-3 fs-5"><i class="fa fa-bag-shopping"></i></a>
                     <div class="user-control d-flex align-items-center">
                         <a href="../html/login.html" class="text-white me-3 fs-5" id="userLink">
@@ -132,89 +139,108 @@
             </div>
         </nav>
     </div>
+    <!-- Header End -->
+
+
     <div class="container py-5">
-        <div class="profile-card">
-
-            <ul class="nav profile-nav mb-4">
-                <li class="nav-item">
-                    <a class="nav-link active" id="infoTabLink" href="#"><i class="fa fa-user me-2"></i>THÔNG TIN CÁ NHÂN</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="updateTabLink" href="#"><i class="fa fa-edit me-2"></i>CẬP NHẬT THÔNG TIN</a>
-                </li>
-            </ul>
-            <hr>
-
-            <div class="profile-content-wrapper">
-                <div class="tab-content active" id="personalInfoTab">
-                    <div class="row pt-4">
-                        <div class="col-lg-4 text-center border-end">
-                            <img src="../assets/images/profile/avatar.jpg" alt="Avatar" class="profile-avatar mb-3" id="displayAvatar">
-                            <h4 class="fw-bold" id="userNameProfile"></h4>
-                            <p class="text-muted" id="userEmailBasic"></p>
-                            <p class="text-muted">VIỆT NAM</p>
+    <div class="row g-5">
+        
+        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+            <div class="row g-2">
+                
+                <div class="col-2">
+                    <div id="thumbnail-gallery" class="d-flex flex-column gap-2">
                         </div>
+                </div>
 
-                        <div class="col-lg-8 ps-5">
-                            <div class="profile-info-item">
-                                <span class="profile-info-label">Họ và tên</span>
-                                <span class="profile-info-separator">:</span>
-                                <span class="profile-info-value" id="nameDetail"></span>
-                            </div>
+                <div class="col-10">
+                    <div id="product-gallery-container" class="position-relative">
+                        <img id="main-product-image" class="img-fluid w-100" src="" alt="Ảnh sản phẩm chính">
+                    </div>
+                </div>
 
-                            <div class="profile-info-item">
-                                <span class="profile-info-label">Email</span>
-                                <span class="profile-info-separator">:</span>
-                                <span class="profile-info-value" id="userEmailDetail"></span>
-                            </div>
+            </div>
+        </div>
 
-                            <div class="profile-info-item">
-                                <span class="profile-info-label">Email xác thực</span>
-                                <span class="profile-info-separator">:</span>
-                                <span class="status-pending">Hoạt động</span>
-                            </div>
+        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s">
+            
+            <p id="product-category" class="text-muted mb-1 fw-bold small"></p>
+            <h1 id="product-name" class="fw-bolder mb-2 display-6"></h1>
+            <p id="product-gender" class="text-white-50 mb-3 small"></p>
+            <p id="product-price" class="fs-4 fw-bold mb-4"></p>
 
-                            <div class="profile-info-item">
-                                <span class="profile-info-label">Số điện thoại</span>
-                                <span class="profile-info-separator">:</span>
-                                <span class="profile-info-value" id="userPhoneDetail"></span>
-                            </div>
+            <div id="product-colors" class="mb-4" style="display: none;">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h5 class="fw-bold m-0">Màu sắc: <span id="current-color" class="fw-normal text-muted"></span></h5>
+                </div>
+                <div id="color-options-container" class="d-flex gap-2 mt-2">
+                    </div>
+            </div>
 
-                            <div class="profile-info-item">
-                                <span class="profile-info-label">Số điện thoại xác thực</span>
-                                <span class="profile-info-separator">:</span>
-                                <span class="status-active">Hoạt động</span>
+            <div class="mb-4">
+                <div id="size-options-container" class="d-flex flex-wrap gap-2">
+                    </div>
+                <p id="size-error" class="text-danger mt-2" style="display: none;">Vui lòng chọn một kích thước.</p>
+            </div>
+
+            <div class="d-grid gap-3 mb-5">
+                <button id="add-to-bag-btn" class="btn btn-primary btn-lg py-3 rounded-pill fw-bold" type="button">Thêm vào Giỏ</button>
+                <button id="favorite-btn" class="btn btn-outline-light btn-lg py-3 rounded-pill fw-bold" type="button">
+                    Yêu thích <i class="fa fa-heart ms-2"></i>
+                </button>
+            </div>
+            
+            <div class="mt-4 border-top pt-4">
+                <div class="d-flex align-items-center mb-3">
+                    <i class="fa fa-truck-fast fs-4 me-3 text-primary"></i>
+                    <div>
+                        <h6 class="fw-bold m-0">Giao hàng Miễn phí</h6>
+                        <p class="text-muted m-0 small">Hoàn trả dễ dàng trong 30 ngày.</p>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <i class="fa fa-shield-halved fs-4 me-3 text-primary"></i>
+                    <div>
+                        <h6 class="fw-bold m-0">Thanh toán An toàn</h6>
+                        <p class="text-muted m-0 small">Bảo mật giao dịch của bạn tuyệt đối.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="accordion accordion-dark" id="productDetailAccordion">
+                
+                <div class="accordion-item bg-dark border-bottom border-secondary">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button bg-dark text-white fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Mô Tả Sản Phẩm
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#productDetailAccordion">
+                        <div class="accordion-body text-white-50" id="product-description">
                             </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item bg-dark border-bottom border-secondary">
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#productDetailAccordion">
+                        <div class="accordion-body text-white-50">
+                            <p>Đây là khu vực hiển thị các đánh giá chi tiết của khách hàng. Chúng tôi sẽ thêm logic để hiển thị các đánh giá thực tế sau.</p>
+                            <a href="#" class="text-white text-decoration-underline small">Xem tất cả đánh giá</a>
                         </div>
                     </div>
                 </div>
-                
-                <div class="tab-content" id="updateInfoTab">
-                    <form class="p-4" id="updateProfileForm">
-                        <div class="mb-4 text-center">
-                            <img src="../assets/images/profile/avatar.jpg" alt="Avatar" class="profile-avatar-large mb-3" id="previewAvatar">
-                            <input type="file" class="form-control mb-2 w-75 mx-auto" id="avatarInput" accept="image/*">
-                            <small class="form-text text-muted">Chọn ảnh đại diện mới.</small>
-                        </div>
 
-                        <div class="mb-3">
-                            <label for="fullNameInput" class="form-label fw-bold">Họ và tên</label>
-                            <input type="text" class="form-control" id="fullNameInput" placeholder="Nhập họ và tên mới" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="phoneNumberInput" class="form-label fw-bold">Số điện thoại</label>
-                            <input type="tel" class="form-control" id="phoneNumberInput" placeholder="Nhập số điện thoại mới" required>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-dark mt-3">Lưu Thay Đổi</button>
-                        <button type="button" class="btn btn-secondary mt-3" id="cancelUpdateButton">Hủy</button>
-                    </form>
-                </div>
             </div>
-
         </div>
     </div>
+
+
+</div>
+    <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer py-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
 
@@ -276,17 +302,23 @@
             </div>
         </div>
     </div>
+    <!-- Footer End -->
+
+
+
+    <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../lib/wow/wow.min.js"></script>
-    <script src="../lib/easing/easing.min.js"></script>
-    <script src="../lib/waypoints/waypoints.min.js"></script>
-    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="../lib/lightbox/js/lightbox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../lib/wow/wow.min.js"></script>
+    <script src="../lib/easing/easing.min.js"></script>
+    <script src="../lib/waypoints/waypoints.min.js"></script>
+    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../lib/lightbox/js/lightbox.min.js"></script>
 
-    <script src="../js/main.js"></script>
-    <script src="../js/index_logic.js"></script>
-    <script src="../js/profile_logic.js"></script>
+        <script src="../js/main.js"></script>
+    <script src="../js/index_logic.js"></script>
+    <script src="../js/product_data.js"></script>     <script src="../js/product_logic.js"></script>
+    <script src="../js/product_detail_logic.js"></script>
+
 </body>
-
 </html>
