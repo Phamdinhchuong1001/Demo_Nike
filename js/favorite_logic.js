@@ -1,11 +1,6 @@
-// favorite_logic.js
-
 (function ($) {
     "use strict";
-
-    // ... (Giữ nguyên các code khởi tạo WOW và các lib khác nếu có) ...
-
-    // Back to top button
+    // Chức năng nút "Back to top"
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
             $('.back-to-top').fadeIn('slow');
@@ -19,35 +14,39 @@
     });
 
 
-    // --- HÀM HELPERS (Vanilla JS để đồng bộ với logic Yêu thích) ---
+    // --- HÀM HELPERS ---
 
-    // Hàm Helper để lấy tên người dùng hiện tại
-    function getCurrentUsername() {
-        const loggedInUser = localStorage.getItem('loggedInUser'); 
-        return loggedInUser ? JSON.parse(loggedInUser).username : null; 
+    // Lấy ID người dùng hiện tại (là Email) từ sessionStorage.
+    function getCurrentUserId() {
+        return sessionStorage.getItem('loggedInUserEmail'); 
     }
 
-    // Hàm lấy danh sách yêu thích của người dùng
-    function getFavoritesByUsername(username) {
-        const favoritesKey = `favorites_${username}`;
+    // Lấy danh sách sản phẩm yêu thích của người dùng dựa trên ID (Email) từ localStorage.
+    function getFavoritesByUserId(userId) {
+        const favoritesKey = `favorites_${userId}`;
         const favoritesJson = localStorage.getItem(favoritesKey);
-        return favoritesJson ? JSON.parse(favoritesJson) : [];
+        try {
+            return favoritesJson ? JSON.parse(favoritesJson) : [];
+        } catch (e) {
+            console.error("Lỗi phân tích JSON cho mục yêu thích:", e);
+            return [];
+        }
     }
 
-    // Hàm lưu danh sách yêu thích
-    function saveFavoritesByUsername(username, favorites) {
-        const favoritesKey = `favorites_${username}`;
+    // Lưu danh sách sản phẩm yêu thích vào localStorage cho người dùng cụ thể.
+    function saveFavoritesByUserId(userId, favorites) {
+        const favoritesKey = `favorites_${userId}`;
         localStorage.setItem(favoritesKey, JSON.stringify(favorites));
     }
 
-    // Hàm xóa sản phẩm khỏi danh sách yêu thích
-    function removeFavoriteProduct(username, productId) {
-        let favorites = getFavoritesByUsername(username);
+    // Xóa một sản phẩm cụ thể khỏi danh sách yêu thích của người dùng.
+    function removeFavoriteProduct(userId, productId) {
+        let favorites = getFavoritesByUserId(userId);
         favorites = favorites.filter(item => item.id !== productId);
-        saveFavoritesByUsername(username, favorites);
+        saveFavoritesByUserId(userId, favorites);
     }
 
-    // Hàm helper để định dạng giá (Giả định formatCurrency đã tồn tại hoặc dùng toLocaleString)
+    // Định dạng giá tiền thành định dạng tiền tệ (VND).
     function formatCurrency(price) {
         if (typeof price === 'number') {
             return price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
@@ -55,39 +54,51 @@
         return price; 
     }
 
-    // --- LOGIC HIỂN THỊ DANH SÁCH YÊU THÍCH (MỚI) ---
+    // --- LOGIC HIỂN THỊ DANH SÁCH YÊU THÍCH ---
 
+    // Xử lý logic và hiển thị danh sách sản phẩm yêu thích lên giao diện.
+    // Bao gồm kiểm tra trạng thái đăng nhập và danh sách rỗng.
     function displayFavorites() {
-        const username = getCurrentUsername();
+        const userId = getCurrentUserId();
         const $container = $('#favorite-products');
         const $emptyMessage = $('#empty-favorite-message');
 
-        $container.empty(); // Xóa nội dung cũ
+        $container.empty();
+        $emptyMessage.removeClass('d-none').hide(); 
 
-        // Trường hợp 1: Chưa đăng nhập
-        if (!username) {
+        // Hiển thị thông báo nếu chưa đăng nhập.
+        if (!userId) {
             $emptyMessage.show();
             $emptyMessage.html(`
-                <i class="fa fa-user-lock fa-5x text-secondary mb-3"></i>
-                <h3 class="text-white">Bạn chưa đăng nhập!</h3>
-                <p class="text-muted">Vui lòng đăng nhập để xem hoặc lưu Mục Yêu Thích.</p>
-                <a href="../html/login.html" class="btn btn-primary mt-3 py-2 px-4">Đăng nhập ngay</a>
+                <div class="text-center p-5">
+                    <i class="fa fa-user-lock fa-5x text-secondary mb-3"></i>
+                    <h3 class="text-white mt-3">Bạn chưa đăng nhập!</h3>
+                    <p class="text-muted">Vui lòng đăng nhập để xem hoặc lưu Mục Yêu Thích cá nhân của bạn.</p>
+                    <a href="../html/login.html" class="btn btn-primary mt-3 py-2 px-4">Đăng nhập ngay</a>
+                </div>
             `);
-            return;
+            return; 
         }
 
-        const favorites = getFavoritesByUsername(username);
+        const favorites = getFavoritesByUserId(userId);
 
-        // Trường hợp 2: Danh sách trống
+        // Hiển thị thông báo nếu danh sách yêu thích trống.
         if (favorites.length === 0) {
             $emptyMessage.show();
-            // Đảm bảo nội dung thông báo trống mặc định (nếu đã có trong HTML) được giữ lại
+            $emptyMessage.html(`
+                <div class="text-center p-5">
+                    <i class="fa fa-heart-broken fa-5x text-secondary mb-3"></i>
+                    <h3 class="text-white mt-3">Mục Yêu Thích trống!</h3>
+                    <p class="text-muted">Hãy lướt qua các sản phẩm và thêm những món bạn thích vào đây nhé.</p>
+                    <a href="../html/index.html" class="btn btn-primary mt-3 py-2 px-4">Khám phá ngay</a>
+                </div>
+            `);
             return; 
         }
 
         $emptyMessage.hide();
 
-        // Trường hợp 3: Hiển thị sản phẩm
+        // Lặp qua danh sách và tạo HTML cho từng sản phẩm.
         favorites.forEach(product => {
             const productHtml = `
                 <div class="col-lg-4 col-md-6 wow fadeInUp product-item" data-product-id="${product.id}">
@@ -108,21 +119,20 @@
             $container.append(productHtml);
         });
 
-        // Gán sự kiện cho nút xóa sau khi đã chèn HTML
+        // Gán sự kiện click cho nút xóa sản phẩm khỏi mục yêu thích.
         $container.off('click', '.btn-remove').on('click', '.btn-remove', function() {
             const productId = $(this).data('product-id');
             if (confirm('Bạn có chắc chắn muốn xóa sản phẩm này khỏi mục yêu thích?')) {
-                removeFavoriteProduct(username, productId);
+                removeFavoriteProduct(userId, productId);
                 displayFavorites(); // Tải lại danh sách để cập nhật giao diện
             }
         });
         
-        // TODO: Gán sự kiện cho nút Thêm vào giỏ hàng (nếu cần)
+        // TODO: Cần gán sự kiện cho nút Thêm vào giỏ hàng tại đây.
     }
     
-    // Khởi chạy khi DOM đã sẵn sàng
+    // Khởi chạy logic hiển thị danh sách yêu thích khi DOM đã tải xong.
     $(document).ready(function() {
-        // Tải và hiển thị danh sách yêu thích
         displayFavorites(); 
     });
 

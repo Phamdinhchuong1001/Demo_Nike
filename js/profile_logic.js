@@ -3,14 +3,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const isLoggedIn = sessionStorage.getItem('isLoggedIn');
     const userEmail = sessionStorage.getItem('loggedInUserEmail'); 
     
-    // Kiểm tra bảo mật: Nếu chưa đăng nhập, chuyển hướng người dùng
+    // Kiểm tra bảo mật (tạm thời comment để test)
     if (isLoggedIn !== 'true' || !userEmail) {
         // alert('Vui lòng đăng nhập để truy cập Hồ sơ.');
-        // window.location.href = 'login.html'; // Tạm thời comment để test
+        // window.location.href = 'login.html'; 
         // return; 
     }
 
-    // 2. Định nghĩa các DOM elements và Dữ liệu người dùng
+    // 2. Định nghĩa các DOM elements và Dữ liệu người dùng (giả lập)
     const infoTabLink = document.getElementById('infoTabLink');
     const updateTabLink = document.getElementById('updateTabLink');
     const personalInfoTab = document.getElementById('personalInfoTab');
@@ -22,12 +22,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const previewAvatar = document.getElementById('previewAvatar');
     const cancelUpdateButton = document.getElementById('cancelUpdateButton');
     const displayAvatar = document.getElementById('displayAvatar');
+    const logoutButton = document.getElementById('logoutButton');
     
-    // Giả lập dữ liệu người dùng (ưu tiên Local Storage)
     let userData = {
-        username: sessionStorage.getItem('loggedInUser') || 'Chương', // Tên mặc định
-        email: userEmail || 'chuong@gmail.com', // Email mặc định
-        phone: '0819009239', 
+        username: sessionStorage.getItem('loggedInUser') || 'Tên Người Dùng', 
+        email: userEmail || 'user@example.com', 
+        phone: '', 
         avatar: '../assets/images/profile/avatar.jpg'
     };
 
@@ -44,7 +44,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-    // Hàm cập nhật hiển thị thông tin
+    /**
+     * Cập nhật hiển thị thông tin cá nhân trên cả hai tab (Thông tin và Form chỉnh sửa).
+     */
     function updateDisplayInfo() {
         document.getElementById('userNameProfile').textContent = userData.username;
         document.getElementById('userEmailBasic').textContent = userData.email;
@@ -52,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('userEmailDetail').textContent = userData.email;
         document.getElementById('userPhoneDetail').textContent = userData.phone;
         
-        // Cập nhật ảnh đại diện ở cả 2 tab
+        // Cập nhật ảnh đại diện
         displayAvatar.src = userData.avatar;
         previewAvatar.src = userData.avatar;
 
@@ -66,7 +68,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 3. Logic Chuyển Tab với Animation
     
-    // Hàm chuyển sang tab Thông tin cá nhân
+    /**
+     * Chuyển sang tab Thông tin cá nhân (Info).
+     */
     function showPersonalInfoTab() {
         // Cập nhật trạng thái active của nav link
         infoTabLink.classList.add('active');
@@ -79,14 +83,16 @@ document.addEventListener('DOMContentLoaded', function() {
         updateInfoTab.classList.remove('slide-in', 'active');
         updateInfoTab.classList.add('slide-out'); // Ẩn Update
 
-        // Sau khi animation kết thúc, dọn dẹp class để sẵn sàng cho lần sau
+        // Dọn dẹp class sau animation
         setTimeout(() => {
             updateInfoTab.classList.remove('slide-out');
             personalInfoTab.classList.remove('slide-out');
         }, 500);
     }
 
-    // Hàm chuyển sang tab Cập nhật thông tin
+    /**
+     * Chuyển sang tab Cập nhật thông tin (Update Form).
+     */
     function showUpdateInfoTab() {
         // Cập nhật trạng thái active của nav link
         updateTabLink.classList.add('active');
@@ -104,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
         previewAvatar.src = userData.avatar;
     }
     
-    // Gắn sự kiện click
+    // Gắn sự kiện click chuyển tab
     infoTabLink.addEventListener('click', function(e) {
         e.preventDefault();
         showPersonalInfoTab();
@@ -133,26 +139,25 @@ document.addEventListener('DOMContentLoaded', function() {
     updateProfileForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        // 1. Cập nhật dữ liệu từ form
+        // Cập nhật dữ liệu từ form
         userData.username = fullNameInput.value;
         userData.phone = phoneNumberInput.value;
         
         const saveProfile = () => {
-             // 2. Lưu dữ liệu mới vào Local Storage
+             // Lưu dữ liệu mới vào Local Storage (dùng Base64 cho avatar)
             localStorage.setItem('user_' + userData.email, JSON.stringify(userData));
             
-            // 3. Cập nhật hiển thị và chuyển tab
+            // Cập nhật hiển thị và chuyển tab
             updateDisplayInfo();
             showPersonalInfoTab();
             alert('Cập nhật thông tin thành công!');
         };
 
-        // Xử lý ảnh đại diện (giả lập việc lưu ảnh)
+        // Xử lý lưu ảnh đại diện (Base64)
         if (avatarInput.files.length > 0) {
             const file = avatarInput.files[0];
             const reader = new FileReader();
             reader.onload = function(event) {
-                // Lưu Base64 string của ảnh vào userData
                 userData.avatar = event.target.result;
                 saveProfile();
             };
@@ -162,17 +167,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Xử lý nút Hủy
+    // Xử lý nút Hủy: Quay lại tab thông tin cá nhân và reset form.
     cancelUpdateButton.addEventListener('click', function() {
-        // Đặt lại giá trị form về dữ liệu hiện tại (nếu người dùng đã thay đổi trước khi hủy)
+        // Đặt lại giá trị form về dữ liệu hiện tại (userData)
         updateDisplayInfo(); 
         // Quay lại tab thông tin cá nhân
         showPersonalInfoTab();
     });
-    // ⭐ PHẦN BỔ SUNG CHO LOGOUT:
-    const logoutButton = document.getElementById('logoutButton');
-    //
-    // ⭐ 5. LOGIC ĐĂNG XUẤT ⭐
+    
+    // 5. LOGIC ĐĂNG XUẤT
     
     /**
      * Xử lý đăng xuất: Xóa session và chuyển hướng về trang chủ.
@@ -192,5 +195,4 @@ document.addEventListener('DOMContentLoaded', function() {
     if (logoutButton) {
         logoutButton.addEventListener('click', handleLogout);
     }
-    // ⭐ KẾT THÚC LOGIC ĐĂNG XUẤT ⭐
 });

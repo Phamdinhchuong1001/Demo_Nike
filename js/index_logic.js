@@ -1,39 +1,40 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Lấy trạng thái đăng nhập và tên người dùng từ sessionStorage.
     const isLoggedIn = sessionStorage.getItem('isLoggedIn');
     const userName = sessionStorage.getItem('loggedInUser');
 
-    // Lấy các phần tử HTML cần thiết
-    const userLink = document.getElementById('userLink'); // Link/Icon Đăng nhập
-    const userDropdownContainer = document.getElementById('userDropdownContainer'); // Container Dropdown
-    const userNameDisplay = document.getElementById('userNameDisplay'); // Element hiển thị tên trong Dropdown
-    const logoutButton = document.getElementById('logoutButton'); // Nút Đăng xuất
+    // Lấy các phần tử HTML cần thiết cho giao diện người dùng
+    const userLink = document.getElementById('userLink');
+    const userDropdownContainer = document.getElementById('userDropdownContainer');
+    const userNameDisplay = document.getElementById('userNameDisplay');
+    const logoutButton = document.getElementById('logoutButton');
 
+    // Cập nhật giao diện dựa trên trạng thái đăng nhập
     if (isLoggedIn === 'true' && userName) {
-        // --- TRẠNG THÁI ĐÃ ĐĂNG NHẬP ---
+        // --- TRẠNG THÁI ĐÃ ĐĂNG NHẬP: Ẩn link đăng nhập, hiện dropdown user ---
         
-        // 1. Ẩn Link/Icon Đăng nhập
+        // Ẩn Link/Icon Đăng nhập
         if (userLink) userLink.style.display = 'none';
 
-        // 2. Hiện Dropdown Menu và Cập nhật Tên
-        if (userDropdownContainer) userDropdownContainer.style.display = 'block'; // Hiển thị Dropdown
+        // Hiện Dropdown Menu và Cập nhật Tên người dùng
+        if (userDropdownContainer) userDropdownContainer.style.display = 'block';
         
         if (userNameDisplay) {
-            userNameDisplay.textContent = userName; // Hiển thị tên
-            // Đảm bảo Dropdown toggle vẫn hoạt động (class 'nav-link dropdown-toggle' trong HTML đã lo)
+            userNameDisplay.textContent = userName;
         }
 
     } else {
-        // --- TRẠNG THÁI CHƯA ĐĂNG NHẬP ---
+        // --- TRẠNG THÁI CHƯA ĐĂNG NHẬP: Hiện link đăng nhập, ẩn dropdown user ---
         
-        // 1. Hiện Link/Icon Đăng nhập
+        // Hiện Link/Icon Đăng nhập
         if (userLink) userLink.style.display = 'block'; 
 
-        // 2. Ẩn Dropdown Menu
+        // Ẩn Dropdown Menu
         if (userDropdownContainer) userDropdownContainer.style.display = 'none';
         
     }
 
-    // Xử lý nút Đăng xuất (Logic vẫn giữ nguyên)
+    // Gán sự kiện cho nút Đăng xuất: Xóa dữ liệu phiên và tải lại trang.
     if (logoutButton) {
         logoutButton.addEventListener('click', function() {
             sessionStorage.removeItem('isLoggedIn');

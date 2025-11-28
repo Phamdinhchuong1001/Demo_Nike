@@ -1,50 +1,49 @@
-// product_detail_logic.js
+// --- HÀM HELPERS CHO LOGIC YÊU THÍCH CÁ NHÂN HÓA ---
 
-// --- PHẦN 1: HÀM HELPERS CHO LOGIC YÊU THÍCH ---
-
-// Hàm Helper để lấy tên người dùng hiện tại từ LocalStorage (Đã thêm TRY...CATCH)
-function getCurrentUsername() {
-    const loggedInUser = localStorage.getItem('loggedInUser'); 
-    if (loggedInUser) {
-        try {
-            // Đảm bảo dữ liệu là JSON hợp lệ và lấy username
-            return JSON.parse(loggedInUser).username; 
-        } catch (e) {
-            console.error("Lỗi phân tích JSON cho 'loggedInUser'. Vui lòng kiểm tra logic đăng nhập:", e);
-            // THÊM: Hiện thông báo cảnh báo để dễ dàng debug
-            // alert("Cảnh báo: Dữ liệu đăng nhập bị lỗi. Vui lòng đăng nhập lại."); 
-            return null; // Trả về null nếu có lỗi phân tích JSON
-        }
-    }
-    return null; 
+/**
+ * Lấy ID người dùng hiện tại (Email) từ Session Storage.
+ * @returns {string | null} Email người dùng hoặc null nếu chưa đăng nhập.
+ */
+function getCurrentUserId() {
+    return sessionStorage.getItem('loggedInUserEmail'); 
 }
 
-// Hàm lấy danh sách yêu thích của người dùng
-function getFavoritesByUsername(username) {
-    const favoritesKey = `favorites_${username}`;
+/**
+ * Lấy danh sách sản phẩm yêu thích của một người dùng cụ thể từ Local Storage.
+ * @param {string} userId - Email của người dùng.
+ * @returns {Array<Object>} Mảng chứa các đối tượng sản phẩm yêu thích.
+ */
+function getFavoritesByUserId(userId) {
+    const favoritesKey = `favorites_${userId}`;
     const favoritesJson = localStorage.getItem(favoritesKey);
-    return favoritesJson ? JSON.parse(favoritesJson) : [];
+    try {
+        return favoritesJson ? JSON.parse(favoritesJson) : [];
+    } catch (e) {
+        console.error("Lỗi phân tích JSON cho mục yêu thích:", e);
+        return [];
+    }
 }
 
-// Hàm lưu danh sách yêu thích
-function saveFavoritesByUsername(username, favorites) {
-    const favoritesKey = `favorites_${username}`;
+/**
+ * Lưu danh sách sản phẩm yêu thích mới cho người dùng vào Local Storage.
+ * @param {string} userId - Email của người dùng.
+ * @param {Array<Object>} favorites - Danh sách sản phẩm yêu thích mới.
+ */
+function saveFavoritesByUserId(userId, favorites) {
+    const favoritesKey = `favorites_${userId}`;
     localStorage.setItem(favoritesKey, JSON.stringify(favorites));
 }
 
 // -----------------------------------------------------------------------
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Biến để theo dõi kích thước được chọn
     let selectedSize = null; 
-    let currentProduct = null; // Biến toàn cục cục bộ để lưu sản phẩm đang xem
+    let currentProduct = null; 
 
-    // --- LOGIC TẢI TRANG CHÍNH ---
-
+    // Hàm khởi tạo trang: Lấy ID sản phẩm, tải dữ liệu chi tiết và thiết lập các sự kiện.
     function initializeProductPage() {
-        // KIỂM TRA ĐẢM BẢO DỮ LIỆU ĐÃ ĐƯỢC TẢI TỪ product_data.js
         if (typeof productsData === 'undefined' || typeof formatCurrency === 'undefined') {
-            console.error("Lỗi: Không tìm thấy productsData hoặc formatCurrency. Đảm bảo product_data.js đã được nhúng trước product_detail_logic.js.");
+            console.error("Lỗi: Không tìm thấy productsData hoặc formatCurrency.");
             document.getElementById('product-name').textContent = "Lỗi tải dữ liệu.";
             return;
         }
@@ -58,31 +57,22 @@ document.addEventListener('DOMContentLoaded', () => {
             currentProduct = product; 
             loadProductDetails(product);
             setupAddToCartButton();
-            setupFavoriteButton(); 
-            loadRelatedProducts(relatedProductsData); 
+            setupFavoriteButton(); // Thiết lập logic nút Yêu thích
         } else {
             document.getElementById('product-name').textContent = "Không tìm thấy sản phẩm.";
         }
         
-        // GỌI HÀM CẬP NHẬT TRẠNG THÁI HEADER TẠI ĐÂY ĐỂ ĐỒNG BỘ
+        // Cập nhật trạng thái Đăng nhập/Đăng xuất trên Header.
         updateHeaderLoginStatus(); 
     }
     
-    // --- CÁC HÀM XỬ LÝ CHÍNH (GIỮ NGUYÊN) ---
-
-    // ... (loadProductDetails, loadThumbnails, loadSizeOptions, loadColorOptions, loadRelatedProducts, setupAddToCartButton GIỮ NGUYÊN) ...
-
-    /**
-     * Tải và hiển thị thông tin sản phẩm chính
-     */
+    // Tải và hiển thị thông tin chi tiết của sản phẩm lên giao diện.
     function loadProductDetails(product) {
-        // 1. Cập nhật thông tin cơ bản
         document.getElementById('product-name').textContent = product.name;
         document.getElementById('product-category').textContent = product.category;
         document.getElementById('product-gender').textContent = product.gender || '';
         document.getElementById('product-description').innerHTML = product.description.replace(/\n/g, '<br>');
 
-        // Xử lý giá (Sử dụng formatCurrency từ file product_data.js)
         let priceHtml = '';
         if (product.originalPrice && product.price < product.originalPrice) {
             priceHtml = `
@@ -94,24 +84,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         document.getElementById('product-price').innerHTML = priceHtml;
         
-        // 2. Tải ảnh chính
         const mainImage = document.getElementById('main-product-image');
         mainImage.src = product.images[0];
         mainImage.alt = product.name;
 
-        // 3. Tải và thiết lập Gallery ảnh thu nhỏ
         loadThumbnails(product.images, mainImage);
-
-        // 4. Tải Tùy chọn Kích thước
         loadSizeOptions(product.sizes);
-        
-        // 5. Tải Tùy chọn Màu sắc
         loadColorOptions(product.colors);
     }
     
-    /**
-     * Tạo và hiển thị các ảnh thu nhỏ
-     */
+    // Tải và thiết lập sự kiện click cho các ảnh thumbnail.
     function loadThumbnails(images, mainImage) {
         const thumbnailContainer = document.getElementById('thumbnail-gallery');
         thumbnailContainer.innerHTML = '';
@@ -134,9 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /**
-     * Tạo và hiển thị các tùy chọn kích thước
-     */
+    // Tải và thiết lập sự kiện chọn size cho sản phẩm.
     function loadSizeOptions(sizes) {
         const sizeContainer = document.getElementById('size-options-container');
         sizeContainer.innerHTML = '';
@@ -166,9 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    /**
-     * Tạo và hiển thị các tùy chọn màu sắc
-     */
+    // Tải và thiết lập sự kiện chọn màu (nếu có).
     function loadColorOptions(colors) {
         const colorContainer = document.getElementById('color-options-container');
         const currentColorSpan = document.getElementById('current-color');
@@ -196,7 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                     colorDiv.classList.add('active');
                     currentColorSpan.textContent = color.name;
-                    // TODO: Thêm logic thay đổi toàn bộ chi tiết sản phẩm/ảnh khi chuyển màu thực tế
                 });
                 
                 colorContainer.appendChild(colorDiv);
@@ -204,41 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    /**
-     * Tải và hiển thị các sản phẩm liên quan
-     */
-    function loadRelatedProducts(products) {
-        const container = document.getElementById('you-might-also-like-container');
-        if (!container) return;
-        container.innerHTML = '';
-
-        products.forEach(product => {
-            const productCol = document.createElement('div');
-            const detailLink = `product_detail.html?id=${product.id}`; 
-            
-            productCol.classList.add('col-lg-3', 'col-md-6', 'wow', 'fadeInUp');
-            productCol.setAttribute('data-wow-delay', '0.1s');
-
-            const genderDisplay = product.gender || 'Giày Thể Thao';
-
-            productCol.innerHTML = `
-                <div class="product-item bg-dark text-center border p-3 rounded-3" style="border-color: #343a40!important;">
-                    <a href="${detailLink}">
-                        <img class="img-fluid mb-3 rounded-3" src="${product.images?.[0]}" alt="${product.name}">
-                    </a>
-                    <h6 class="fw-bold">${product.name}</h6>
-                    <p class="text-muted small mb-2">${genderDisplay}</p>
-                    <h5 class="fw-bold text-primary">${formatCurrency(product.price)}</h5>
-                    <a href="${detailLink}" class="btn btn-outline-light btn-sm rounded-pill mt-2">Xem chi tiết</a>
-                </div>
-            `;
-            container.appendChild(productCol);
-        });
-    }
-    
-    /**
-     * Xử lý nút "Thêm vào Giỏ"
-     */
+    // Thiết lập sự kiện cho nút "Thêm vào giỏ hàng", bao gồm kiểm tra chọn size.
     function setupAddToCartButton() {
         const addToCartBtn = document.getElementById('add-to-bag-btn');
         if (!addToCartBtn) return;
@@ -255,64 +198,63 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
-    // --- HÀM CẬP NHẬT TRẠNG THÁI HEADER (MỚI) ---
-
+    // Cập nhật trạng thái hiển thị của liên kết/dropdown người dùng trên Header.
     function updateHeaderLoginStatus() {
-        const username = getCurrentUsername();
+        const userId = getCurrentUserId(); 
+        const username = sessionStorage.getItem('loggedInUser'); 
+        
         const userLink = document.getElementById('userLink');
         const userIcon = document.getElementById('userIcon');
         const userDropdownContainer = document.getElementById('userDropdownContainer');
         const userNameDisplay = document.getElementById('userNameDisplay');
         const logoutButton = document.getElementById('logoutButton');
 
-        if (username) {
-            // Đã đăng nhập
+        if (userId && username) { 
+            // Đã đăng nhập: Ẩn link, hiện dropdown user.
             if (userLink) userLink.style.display = 'none';
-            if (userIcon) userIcon.classList.replace('fa-user', 'fa-user-circle'); // Tùy chọn: đổi icon
+            if (userIcon) userIcon.classList.replace('fa-user', 'fa-user-circle'); 
             if (userDropdownContainer) userDropdownContainer.style.display = 'block';
             if (userNameDisplay) userNameDisplay.textContent = username;
         } else {
-            // Chưa đăng nhập
+            // Chưa đăng nhập: Hiện link, ẩn dropdown user.
             if (userLink) userLink.style.display = 'block';
             if (userIcon) userIcon.classList.replace('fa-user-circle', 'fa-user');
             if (userDropdownContainer) userDropdownContainer.style.display = 'none';
         }
         
-        // Thiết lập logic Đăng xuất
+        // Thiết lập logic Đăng xuất: Xóa dữ liệu phiên và tải lại trang.
         if (logoutButton) {
             logoutButton.addEventListener('click', () => {
-                localStorage.removeItem('loggedInUser');
+                sessionStorage.removeItem('isLoggedIn');
+                sessionStorage.removeItem('loggedInUser');
+                sessionStorage.removeItem('loggedInUserEmail'); // Xóa ID/Email
                 alert('Bạn đã đăng xuất thành công.');
                 window.location.reload(); 
             });
         }
     }
     
-    // --- XỬ LÝ NÚT YÊU THÍCH (GIỮ NGUYÊN LOGIC CỦA BẠN) ---
-    
-    /**
-     * Xử lý nút "Yêu thích"
-     */
+    // Thiết lập logic cho nút "Yêu thích": Thêm/Xóa sản phẩm khỏi danh sách yêu thích cá nhân.
     function setupFavoriteButton() {
         const favoriteBtn = document.getElementById('favorite-btn');
         if (!favoriteBtn || !currentProduct) return;
         
-        // 1. Hàm cập nhật trạng thái nút
+        // Cập nhật trạng thái nút (Đã thích / Chưa thích).
         function updateFavoriteButtonState() {
-            const username = getCurrentUsername();
+            const userId = getCurrentUserId();
             
-            // Nếu chưa đăng nhập, chỉ hiển thị trạng thái mặc định
-            if (!username) {
+            if (!userId) {
+                // Chưa đăng nhập: hiển thị trạng thái mặc định (chưa thích).
                 favoriteBtn.innerHTML = `Yêu thích <i class="fa fa-heart ms-2"></i>`;
-                favoriteBtn.classList.remove('btn-light', 'btn-primary');
+                favoriteBtn.classList.remove('btn-light');
                 favoriteBtn.classList.add('btn-outline-light');
                 return;
             }
 
-            const favorites = getFavoritesByUsername(username);
+            const favorites = getFavoritesByUserId(userId);
             const isFavorite = favorites.some(item => item.id === currentProduct.id);
 
+            // Cập nhật giao diện nút dựa trên trạng thái yêu thích.
             favoriteBtn.classList.toggle('btn-light', isFavorite);
             favoriteBtn.classList.toggle('btn-outline-light', !isFavorite);
             
@@ -323,25 +265,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
         updateFavoriteButtonState(); // Cập nhật trạng thái ban đầu
         
-        // 2. Xử lý sự kiện click
         favoriteBtn.addEventListener('click', () => {
-            const username = getCurrentUsername();
-            if (!username) {
-                // **ĐÂY LÀ CHỖ HIỂN THỊ ALERT CỦA BẠN**
+            const userId = getCurrentUserId(); 
+            
+            // Kiểm tra đăng nhập trước khi thao tác.
+            if (!userId) {
                 alert('Vui lòng đăng nhập để thêm sản phẩm vào mục yêu thích.');
                 return;
             }
             
-            let favorites = getFavoritesByUsername(username);
+            let favorites = getFavoritesByUserId(userId);
             const productID = currentProduct.id;
             const existingIndex = favorites.findIndex(item => item.id === productID);
 
             if (existingIndex > -1) {
-                // Xóa (Unfavorite)
+                // Xóa sản phẩm khỏi danh sách (Unfavorite).
                 favorites.splice(existingIndex, 1);
                 alert(`Đã xóa "${currentProduct.name}" khỏi mục yêu thích.`);
             } else {
-                // Thêm vào
+                // Thêm sản phẩm vào danh sách.
                 const favoriteItem = {
                     id: currentProduct.id,
                     name: currentProduct.name,
@@ -354,7 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert(`Đã thêm "${currentProduct.name}" vào mục yêu thích.`);
             }
 
-            saveFavoritesByUsername(username, favorites);
+            saveFavoritesByUserId(userId, favorites);
             updateFavoriteButtonState(); // Cập nhật lại nút sau khi thao tác
         });
     }

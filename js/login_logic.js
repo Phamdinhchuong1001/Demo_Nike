@@ -1,3 +1,4 @@
+// Xử lý sự kiện khi người dùng nhấn nút Đăng nhập
 document.getElementById('loginButton').addEventListener('click', function(e) {
     e.preventDefault();
 
@@ -8,10 +9,10 @@ document.getElementById('loginButton').addEventListener('click', function(e) {
     message.textContent = '';
     message.style.color = 'red';
 
-    // 1. Lấy thông tin người dùng từ Local Storage
-    // Key lưu trữ là 'user_' + email
+    // Lấy thông tin người dùng đã đăng ký từ Local Storage bằng email làm key.
     const storedUser = localStorage.getItem('user_' + email);
     
+    // Kiểm tra tồn tại người dùng.
     if (!storedUser) {
         message.textContent = 'Lỗi: Email hoặc Mật khẩu không chính xác.';
         return;
@@ -19,26 +20,24 @@ document.getElementById('loginButton').addEventListener('click', function(e) {
 
     const user = JSON.parse(storedUser);
 
-    // 2. Kiểm tra mật khẩu
+    // So sánh mật khẩu nhập vào với mật khẩu đã lưu trữ.
     if (user.password === password) {
-        // Đăng nhập thành công
+        // Đăng nhập thành công: Lưu trạng thái và thông tin người dùng vào Session Storage.
         message.style.color = 'green';
         message.textContent = 'Đăng nhập thành công! Đang chuyển hướng...';
         
-        // LƯU TRẠNG THÁI: Lưu trạng thái đăng nhập và tên người dùng vào Session Storage
         sessionStorage.setItem('isLoggedIn', 'true');
         sessionStorage.setItem('loggedInUser', user.username);
-        
-        // **[CẬP NHẬT]** Lưu EMAIL để Profile có thể truy xuất dữ liệu chi tiết
+        // Lưu Email để sử dụng cho các chức năng yêu cầu ID người dùng (ví dụ: giỏ hàng, yêu thích).
         sessionStorage.setItem('loggedInUserEmail', user.email); 
         
-        // Chuyển hướng sang trang index
+        // Chuyển hướng đến trang chính sau 1.5 giây.
         setTimeout(() => {
             window.location.href = '../html/index.html'; 
         }, 1500);
 
     } else {
-        // Sai mật khẩu
+        // Sai mật khẩu.
         message.textContent = 'Lỗi: Email hoặc Mật khẩu không chính xác.';
     }
 });

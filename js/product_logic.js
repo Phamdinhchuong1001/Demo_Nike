@@ -4,20 +4,21 @@
 
 // Khởi tạo trạng thái lọc và sắp xếp
 let currentFilters = {
-    category: '', // Ví dụ: 'Running'
-    price: 'all', // Ví dụ: '1000000-3000000'
+    // Loại sản phẩm chính: 'Giày' hoặc 'Quần Áo'
+    productType: 'Giày', 
+    
+    category: '', 
+    price: 'all', 
     status: [], // Ví dụ: ['sale', 'new']
-    size: null, // Ví dụ: 42
+    size: null, 
 };
 
-let currentSort = 'newest'; // newest, price-asc, price-desc
+let currentSort = 'newest'; 
 
 
 // =======================================================
 // 2. HÀM TẠO VÀ HIỂN THỊ SẢN PHẨM (RENDER)
 // =======================================================
-
-// *** formatCurrency ĐÃ ĐƯỢC CHUYỂN SANG product_data.js ***
 
 /**
  * Tạo HTML cho một sản phẩm.
@@ -40,7 +41,7 @@ function createProductHtml(product) {
 
     // Xử lý giá (sử dụng formatCurrency từ product_data.js)
     let priceHtml = '';
-    // Kiểm tra product.originalPrice và product.status.includes('sale') để hiển thị giá sale
+    // Hiển thị giá sale nếu có
     if (product.originalPrice && product.status?.includes('sale') && product.price < product.originalPrice) {
         priceHtml = `
             <p class="fw-bold m-0 text-danger">${formatCurrency(product.price)}</p>
@@ -50,7 +51,7 @@ function createProductHtml(product) {
         priceHtml = `<p class="fw-bold m-0">${formatCurrency(product.price)}</p>`;
     }
 
-    // Lấy ảnh đầu tiên hoặc ảnh mặc định (đã cập nhật để dùng images[0] nếu có, hoặc imageUrl nếu dùng cấu trúc cũ)
+    // Lấy ảnh đầu tiên hoặc ảnh mặc định
     const imageUrl = product.images?.[0] || product.imageUrl; 
     
     // Tạo HTML tổng thể cho sản phẩm
@@ -94,6 +95,7 @@ function renderProducts(products) {
     new WOW().init();
 }
 
+
 // =======================================================
 // 3. HÀM LỌC VÀ SẮP XẾP CHÍNH
 // =======================================================
@@ -106,42 +108,47 @@ function renderProducts(products) {
 function applyFilters(data) {
     return data.filter(product => {
         let isMatch = true;
+        
+        // LỌC 0: LỌC THEO LOẠI SẢN PHẨM (Giày/Quần Áo) - ĐIỀU KIỆN CHÍNH
+        if (currentFilters.productType && product.productType !== currentFilters.productType) {
+            return false; 
+        }
 
-        // 1. Lọc theo Danh mục (Category)
-        // Lưu ý: Category trong product_data.js là 'Giày Nam | Hàng Mới Về', 
-        // nhưng dữ liệu giả mới của bạn là 'Lifestyle'. Tôi sẽ dùng 'Lifestyle'.
-        if (currentFilters.category && product.category !== currentFilters.category) {
+        // LỌC 1: Lọc theo Danh mục (Category/product.type)
+        if (currentFilters.category && product.type !== currentFilters.category) {
             isMatch = false;
         }
 
-        // 2. Lọc theo Giá (Price Range)
+        // LỌC 2: Lọc theo Giá (Price Range)
         if (isMatch && currentFilters.price !== 'all') {
             const [min, max] = currentFilters.price.split('-').map(Number);
-            if (product.price < min || product.price > max) {
+            if (product.price < min || product.price > max) { 
                 isMatch = false;
             }
         }
 
-        // 3. Lọc theo Trạng thái (Status/Sale)
+        // LỌC 3: Lọc theo Trạng thái (Status/Sale)
         if (isMatch && currentFilters.status.length > 0) {
-            // Kiểm tra xem sản phẩm có bất kỳ trạng thái nào trong mảng `currentFilters.status` không
             const hasRequiredStatus = currentFilters.status.some(status => product.status?.includes(status));
             if (!hasRequiredStatus) {
                 isMatch = false;
             }
         }
 
-        // 4. Lọc theo Kích thước (Size)
+        // LỌC 4: Lọc theo Kích thước (Size) và trạng thái có sẵn
         if (isMatch && currentFilters.size !== null) {
-            // Cấu trúc product_data.js cũ dùng mảng số ([40, 41]), cấu trúc chi tiết dùng mảng object.
-            // Để tương thích, ta phải kiểm tra cả 2 trường hợp.
             let hasSize = false;
-            if (Array.isArray(product.sizes) && product.sizes.every(s => typeof s === 'number')) {
-                 // Trường hợp mảng số: [40, 41, 42]
-                hasSize = product.sizes.includes(currentFilters.size);
-            } else if (Array.isArray(product.sizes) && product.sizes.every(s => typeof s === 'object')) {
-                // Trường hợp mảng object: [{ size: 35.5, available: true }]
-                hasSize = product.sizes.some(sizeItem => sizeItem.size === currentFilters.size && sizeItem.available);
+            const targetSize = currentFilters.size; 
+
+            if (Array.isArray(product.sizes)) {
+                 // Kiểm tra trong mảng sizes của sản phẩm
+                 hasSize = product.sizes.some(sizeItem => {
+                    const itemSize = String(sizeItem.size).toUpperCase(); 
+                    const filterSize = String(targetSize).toUpperCase();
+                    
+                    // Lọc theo kích thước VÀ trạng thái có sẵn (available: true)
+                    return itemSize === filterSize && sizeItem.available;
+                 });
             }
             
             if (!hasSize) {
@@ -154,12 +161,12 @@ function applyFilters(data) {
 }
 
 /**
- * Thực hiện sắp xếp sản phẩm dựa trên trạng thái `currentSort`.
+ * Thực hiện sắp xếp sản phẩm dựa trên trạng thái `currentSort` (Giá tăng/giảm, Mới nhất).
  * @param {Array<Object>} products - Mảng sản phẩm đã được lọc.
  * @returns {Array<Object>} Mảng sản phẩm đã được sắp xếp.
  */
 function applySorting(products) {
-    const sortedProducts = [...products]; // Tạo bản sao để không thay đổi mảng gốc
+    const sortedProducts = [...products]; // Tạo bản sao
 
     switch (currentSort) {
         case 'price-asc':
@@ -170,7 +177,7 @@ function applySorting(products) {
             break;
         case 'newest':
         default:
-            // Giữ nguyên thứ tự trong mảng gốc (Giả định là newest)
+            // Giữ nguyên thứ tự ban đầu
             break;
     }
     return sortedProducts;
@@ -180,9 +187,8 @@ function applySorting(products) {
  * Hàm tổng hợp: Lọc, sắp xếp và render lại.
  */
 function updateProductDisplay() {
-    // SỬ DỤNG productsData TỪ product_data.js
     if (typeof productsData === 'undefined') {
-        console.error("Lỗi: productsData chưa được tải. Đảm bảo product_data.js được nhúng trước.");
+        console.error("Lỗi: productsData chưa được tải.");
         return;
     }
     
@@ -192,14 +198,87 @@ function updateProductDisplay() {
 }
 
 // =======================================================
-// 4. LOGIC GẮN SỰ KIỆN (EVENT LISTENERS)
+// 4. HÀM TIỆN ÍCH CHUYỂN ĐỔI LOẠI SẢN PHẨM
+// =======================================================
+
+/**
+ * Xác định loại sản phẩm ('Giày' hoặc 'Quần Áo') dựa trên URL hiện tại.
+ * @returns {string} 'Giày' hoặc 'Quần Áo'.
+ */
+function getInitialProductType() {
+    const pathname = window.location.pathname.toLowerCase(); 
+    
+    if (pathname.includes('ao')) {
+        return 'Quần Áo'; 
+    } else if (pathname.includes('giay')) {
+        return 'Giày';
+    }
+    
+    return 'Giày'; 
+}
+
+
+/**
+ * Thiết lập loại sản phẩm chính và reset các bộ lọc khác.
+ * @param {string} type - 'Giày' hoặc 'Quần Áo'.
+ */
+function setProductType(type) {
+    if (currentFilters.productType === type) return; // Không làm gì nếu loại sản phẩm không đổi
+
+    currentFilters.productType = type;
+    
+    // Reset các bộ lọc khác khi chuyển đổi loại sản phẩm
+    currentFilters.category = '';
+    currentFilters.price = 'all';
+    currentFilters.status = [];
+    currentFilters.size = null; 
+    currentSort = 'newest';
+    
+    // Cập nhật giao diện bộ lọc và hiển thị sản phẩm
+    resetFilterUI();
+    updateProductDisplay();
+}
+
+/**
+ * Hàm reset giao diện bộ lọc về trạng thái mặc định.
+ */
+function resetFilterUI() {
+    // Reset Category, Price, Status, Size, Sort By Dropdown
+    document.querySelectorAll('#categoryFilter a').forEach(a => a.classList.remove('active-filter'));
+    document.querySelectorAll('#priceFilter input[type="radio"]').forEach(radio => radio.checked = radio.value === 'all');
+    document.querySelectorAll('#saleFilter input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
+    document.querySelectorAll('#sizeFilter .size-btn').forEach(btn => {
+        btn.classList.remove('active', 'btn-light');
+        btn.classList.add('btn-outline-light');
+    });
+
+    const sortByDropdown = document.getElementById('sortByDropdown');
+    if (sortByDropdown) {
+        sortByDropdown.textContent = 'Sắp Xếp Theo'; 
+    }
+}
+
+// =======================================================
+// 5. LOGIC GẮN SỰ KIỆN (EVENT LISTENERS)
 // =======================================================
 
 document.addEventListener('DOMContentLoaded', function () {
-    // --- Khởi tạo lần đầu ---
+    // KHỞI TẠO: Thiết lập loại sản phẩm ban đầu và hiển thị.
+    currentFilters.productType = getInitialProductType(); 
     updateProductDisplay();
+    
+    // Logic Gắn sự kiện cho nút chuyển đổi loại sản phẩm (Giày/Quần Áo)
+    document.getElementById('shoesTab')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        setProductType('Giày');
+    });
 
-    // --- Logic Ẩn/Hiện Bộ Lọc ---
+    document.getElementById('apparelTab')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        setProductType('Quần Áo');
+    });
+
+    // Logic Ẩn/Hiện Bộ Lọc (Sidebar) và điều chỉnh kích thước lưới sản phẩm.
     const toggleButton = document.getElementById('hideFiltersToggle');
     const filterSidebar = document.getElementById('filterSidebar')?.parentElement;
     const productGridContainer = document.getElementById('productGridContainer');
@@ -220,7 +299,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Optional: Add basic chevron rotation for filter toggles
+    // Tùy chọn: Thêm xoay biểu tượng chevron khi mở/đóng bộ lọc (Collapse).
     document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(toggler => {
         toggler.addEventListener('click', function() {
             const icon = this.querySelector('.fa-chevron-down');
@@ -230,13 +309,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // --- Logic Lọc theo Danh mục (Category) ---
+    // Logic Lọc theo Danh mục (Category)
     document.querySelectorAll('#categoryFilter a').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const category = this.getAttribute('data-filter-value');
             
-            // Toggle active class 
             document.querySelectorAll('#categoryFilter a').forEach(a => a.classList.remove('active-filter'));
             this.classList.add('active-filter');
 
@@ -245,7 +323,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // --- Logic Lọc theo Giá (Price) ---
+    // Logic Lọc theo Giá (Price)
     document.querySelectorAll('#priceFilter input[type="radio"]').forEach(radio => {
         radio.addEventListener('change', function() {
             currentFilters.price = this.value;
@@ -253,7 +331,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // --- Logic Lọc theo Trạng thái (Status) ---
+    // Logic Lọc theo Trạng thái (Status)
     document.querySelectorAll('#saleFilter input[type="checkbox"]').forEach(checkbox => {
         checkbox.addEventListener('change', function() {
             const statusValue = this.value;
@@ -268,12 +346,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
     
-    // --- Logic Lọc theo Kích thước (Size) ---
+    // Logic Lọc theo Kích thước (Size)
     document.querySelectorAll('#sizeFilter .size-btn').forEach(button => {
         button.addEventListener('click', function() {
-            // Dùng parseFloat để tương thích với các size thập phân (ví dụ: 35.5)
-            const size = parseFloat(this.getAttribute('data-size')); 
-            
+            const size = this.getAttribute('data-size'); 
             const isActive = this.classList.contains('active');
             
             // Xóa active của tất cả các nút
@@ -282,10 +358,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
             if (isActive) {
-                // Nếu đang active thì hủy chọn
+                // Hủy chọn
                 currentFilters.size = null;
             } else {
-                // Nếu chưa active thì chọn
+                // Chọn size mới
                 this.classList.remove('btn-outline-light');
                 this.classList.add('active', 'btn-light');
                 currentFilters.size = size;
@@ -294,7 +370,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // --- Logic Sắp xếp (Sort By) ---
+    // Logic Sắp xếp (Sort By)
     document.querySelectorAll('#sortByDropdown + .dropdown-menu a').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();

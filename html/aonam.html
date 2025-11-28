@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>NIKE - Giày Thể Thao Nam</title>
+    <title>NIKE - Quần Áo Thể Thao Nam</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Giày thể thao Nike nam, running, lifestyle, basketball" name="keywords">
-    <meta content="Mua sắm giày thể thao nam Nike mới nhất, đa dạng mẫu mã và phong cách." name="description">
+    <meta content="Quần áo thể thao Nike nam, áo thun, áo khoác, quần short, quần dài" name="keywords">
+    <meta content="Mua sắm quần áo thể thao nam Nike mới nhất, đa dạng mẫu mã và phong cách." name="description">
 
     <link href="img/favicon.ico" rel="icon">
 
@@ -54,7 +54,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">THỂ THAO NAM</a>
                         <div class="dropdown-menu m-0">
                             <a href="../html/giaynam.html" class="dropdown-item">Giày Nam</a>
-                            <a href="../html/aonam.html" class="dropdown-item">Quần Áo Nam</a>
+                            <a href="../html/aonam.html" class="dropdown-item **active**">Quần Áo Nam</a>
                             <a href="#" class="dropdown-item">Phụ Kiện Nam</a>
                         </div>
                     </div>
@@ -133,7 +133,7 @@
     <div class="container-fluid py-5 bg-dark text-light">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center mb-4 wow fadeIn" data-wow-delay="0.1s">
-                <h2 class="text-uppercase fw-bold m-0">Giày Thể Thao Nam</h2>
+                <h2 class="text-uppercase fw-bold m-0">Quần Áo THỂ THAO Nam</h2>
                 <div class="d-flex align-items-center">
                     <a href="javascript:void(0);" id="hideFiltersToggle"
                         class="text-light me-3 text-decoration-underline" style="cursor: pointer;">Ẩn Bộ Lọc</a>
@@ -157,16 +157,23 @@
                     <div id="filterSidebar" class="wow slideInLeft" data-wow-delay="0.2s">
                         <div class="mb-4" id="categoryFilter">
                             <ul class="list-unstyled fw-bold" data-filter-group="category">
-                                <li><a href="#" class="text-light d-block py-1 text-decoration-none" data-filter-value="Lifestyle">Phong cách sống (Lifestyle)</a></li>
-                                <li><a href="#" class="text-light d-block py-1 text-decoration-none" data-filter-value="Jordan">Jordan</a></li>
-                                <li><a href="#" class="text-light d-block py-1 text-decoration-none" data-filter-value="Running">Chạy Bộ (Running)</a></li>
-                                <li><a href="#" class="text-light d-block py-1 text-decoration-none" data-filter-value="Basketball">Bóng Rổ (Basketball)</a></li>
-                                <li><a href="#" class="text-light d-block py-1 text-decoration-none" data-filter-value="Football">Bóng Đá (Football)</a></li>
-                                <li><a href="#" class="text-light d-block py-1 text-decoration-none" data-filter-value="Training">Tập Luyện và Phòng Gym</a></li>
-                                <li><a href="#" class="text-light d-block py-1 text-decoration-none" data-filter-value="Golf">Golf</a></li>
-                                <li><a href="#" class="text-light d-block py-1 text-decoration-none" data-filter-value="Tennis">Tennis</a></li>
-                                <li><a href="#" class="text-light d-block py-1 text-decoration-none" data-filter-value="Athletics">Điền Kinh (Athletics)</a></li>
-                                <li><a href="#" class="text-light d-block py-1 text-decoration-none" data-filter-value="Walking">Đi Bộ (Walking)</a></li>
+                                <li><a href="#" class="text-light d-block py-1 text-decoration-none"
+                                        data-filter-value="T-Shirt">Áo Thun (T-Shirt)</a></li>
+
+                                <li><a href="#" class="text-light d-block py-1 text-decoration-none"
+                                        data-filter-value="Áo Khoác">Áo Khoác</a></li>
+
+                                <li><a href="#" class="text-light d-block py-1 text-decoration-none"
+                                        data-filter-value="Quần Short">Quần Short</a></li>
+
+                                <li><a href="#" class="text-light d-block py-1 text-decoration-none"
+                                        data-filter-value="Quần Dài">Quần Dài</a></li>
+
+                                <li><a href="#" class="text-light d-block py-1 text-decoration-none"
+                                        data-filter-value="Running">Chạy Bộ (Running)</a></li>
+
+                                <li><a href="#" class="text-light d-block py-1 text-decoration-none"
+                                        data-filter-value="Basketball">Bóng Rổ (Basketball)</a></li>
                             </ul>
                         </div>
 
@@ -179,31 +186,31 @@
                             </a>
                             <div class="collapse show mt-2" id="priceFilter" data-filter-group="price">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="priceRange" id="priceUnder1M"
-                                        value="0-1000000">
-                                    <label class="form-check-label" for="priceUnder1M">
-                                        Dưới 1.000.000₫
+                                    <input class="form-check-input" type="radio" name="priceRange" id="priceUnder500K"
+                                        value="0-500000">
+                                    <label class="form-check-label" for="priceUnder500K">
+                                        Dưới 500.000₫
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="priceRange" id="price1to3M"
+                                    <input class="form-check-input" type="radio" name="priceRange" id="price500Kto1M"
+                                        value="500000-1000000">
+                                    <label class="form-check-label" for="price500Kto1M">
+                                        500.000₫ - 1.000.000₫
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="priceRange" id="price1Mto3M"
                                         value="1000000-3000000">
-                                    <label class="form-check-label" for="price1to3M">
+                                    <label class="form-check-label" for="price1Mto3M">
                                         1.000.000₫ - 3.000.000₫
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="priceRange" id="price3to5M"
-                                        value="3000000-5000000">
-                                    <label class="form-check-label" for="price3to5M">
-                                        3.000.000₫ - 5.000.000₫
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="priceRange" id="priceOver5M"
-                                        value="5000000-999999999">
-                                    <label class="form-check-label" for="priceOver5M">
-                                        Trên 5.000.000₫
+                                    <input class="form-check-input" type="radio" name="priceRange" id="priceOver3M"
+                                        value="3000000-999999999">
+                                    <label class="form-check-label" for="priceOver3M">
+                                        Trên 3.000.000₫
                                     </label>
                                 </div>
                                 <div class="form-check">
@@ -253,14 +260,20 @@
                             </a>
                             <div class="collapse show mt-2" id="sizeFilter" data-filter-group="size">
                                 <div class="d-flex flex-wrap gap-2">
-                                    <button type="button" class="btn btn-outline-light btn-sm size-btn" data-size="38">38</button>
-                                    <button type="button" class="btn btn-outline-light btn-sm size-btn" data-size="39">39</button>
-                                    <button type="button" class="btn btn-outline-light btn-sm size-btn" data-size="40">40</button>
-                                    <button type="button" class="btn btn-outline-light btn-sm size-btn" data-size="41">41</button>
-                                    <button type="button" class="btn btn-outline-light btn-sm size-btn" data-size="42">42</button>
-                                    <button type="button" class="btn btn-outline-light btn-sm size-btn" data-size="43">43</button>
-                                    <button type="button" class="btn btn-outline-light btn-sm size-btn" data-size="44">44</button>
-                                    <button type="button" class="btn btn-outline-light btn-sm size-btn" data-size="45">45</button>
+                                    <button type="button" class="btn btn-outline-light btn-sm size-btn"
+                                        data-size="XS">XS</button>
+                                    <button type="button" class="btn btn-outline-light btn-sm size-btn"
+                                        data-size="S">S</button>
+                                    <button type="button" class="btn btn-outline-light btn-sm size-btn"
+                                        data-size="M">M</button>
+                                    <button type="button" class="btn btn-outline-light btn-sm size-btn"
+                                        data-size="L">L</button>
+                                    <button type="button" class="btn btn-outline-light btn-sm size-btn"
+                                        data-size="XL">XL</button>
+                                    <button type="button" class="btn btn-outline-light btn-sm size-btn"
+                                        data-size="2XL">2XL</button>
+                                    <button type="button" class="btn btn-outline-light btn-sm size-btn"
+                                        data-size="3XL">3XL</button>
                                 </div>
                             </div>
                         </div>
@@ -268,7 +281,7 @@
                 </div>
                 <div class="col-lg-9" id="productGridContainer">
                     <div class="row g-4 product-grid" id="productGrid">
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -332,18 +345,17 @@
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../lib/wow/wow.min.js"></script>
-    <script src="../lib/easing/easing.min.js"></script>
-    <script src="../lib/waypoints/waypoints.min.js"></script>
-    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="../lib/lightbox/js/lightbox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../lib/wow/wow.min.js"></script>
+    <script src="../lib/easing/easing.min.js"></script>
+    <script src="../lib/waypoints/waypoints.min.js"></script>
+    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../lib/lightbox/js/lightbox.min.js"></script>
 
-    <script src="../js/main.js"></script>
-    <script src="../js/index_logic.js"></script> 
-    <script src="../js/product_data.js"></script>     <script src="../js/product_logic.js"></script> 
-</body>
-</html>
+    <script src="../js/main.js"></script>
+    <script src="../js/index_logic.js"></script>
+    <script src="../js/product_data.js"></script>
+    <script src="../js/product_logic.js"></script>
 </body>
 
 </html>
