@@ -208,7 +208,9 @@ function updateProductDisplay() {
 function getInitialProductType() {
     const pathname = window.location.pathname.toLowerCase(); 
     
-    if (pathname.includes('ao')) {
+    if (pathname.includes('phukien')) { // <-- THÊM ĐOẠN NÀY
+        return 'Phụ Kiện'; 
+    } else if (pathname.includes('ao')) {
         return 'Quần Áo'; 
     } else if (pathname.includes('giay')) {
         return 'Giày';

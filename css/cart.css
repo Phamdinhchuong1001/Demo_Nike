@@ -1,0 +1,124 @@
+/* Tùy chỉnh màu sắc và font cho giống giao diện Nike */
+body {
+    background-color: #f7f7f7; /* Nền trắng/xám nhẹ */
+    color: #111; /* Màu chữ đen */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.cart-header {
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+
+.summary-header {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/* Kiểu dáng cho khung sản phẩm */
+.cart-item-card {
+    background-color: #fff;
+    border: none;
+    padding: 20px 0;
+    border-bottom: 1px solid #e0e0e0; /* Đường kẻ dưới sản phẩm */
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    background-color: #f7f7f7; /* Nền xám nhẹ cho ảnh */
+}
+
+/* Chi tiết sản phẩm */
+.product-details h5 {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.product-details p {
+    color: #707070;
+    margin-bottom: 2px;
+}
+
+.product-price {
+    font-weight: 500;
+    font-size: 1.1rem;
+    text-align: right;
+}
+
+/* Nút Tăng/Giảm/Yêu thích */
+.quantity-control button,
+.favorite-btn {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #e0e0e0;
+    background-color: #fff;
+    color: #111;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.quantity-control button:hover,
+.favorite-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.quantity-control input {
+    width: 40px;
+    height: 40px;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    border-left: none;
+    border-right: none;
+    text-align: center;
+    font-weight: 600;
+}
+.quantity-control .input-group-text { /* Để căn giữa số lượng */
+    padding: 0; 
+}
+
+
+/* Cảnh báo */
+.warning-text {
+    color: #905a00;
+    font-weight: 500;
+    margin-top: 15px;
+}
+
+/* Phần Summary */
+.summary-box {
+    background-color: #fff;
+    padding: 20px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+.summary-row.total {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 15px;
+    margin-top: 15px;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* Nút Thanh toán */
+.checkout-btn {
+    background-color: #111;
+    color: #fff;
+    border: 1px solid #111;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+}
+
+.checkout-btn:hover {
+    background-color: #555;
+    border: 1px solid #555;
+    color: #fff;
+}

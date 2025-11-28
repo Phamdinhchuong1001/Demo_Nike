@@ -5,7 +5,7 @@ function formatCurrency(amount) {
 
 // Mảng Dữ liệu Sản phẩm Mẫu (productsData): Chứa thông tin chi tiết của tất cả sản phẩm.
 const productsData = [
-    // === SẢN PHẨM GIÀY NAM ===
+    //========================================= === SẢN PHẨM GIÀY NAM ===========================================================
     {
         id: 'field-general-black',
         name: 'Nike Air Force 1',
@@ -219,7 +219,7 @@ const productsData = [
             '../assets/images/product/men/product_detail_clothes/ao3_1.avif',
             '../assets/images/product/men/product_detail_clothes/ao3_2.avif',
             '../assets/images/product/men/product_detail_clothes/ao3_3.avif',
-            
+
         ],
         sizes: [
             { size: 'M', available: true },
@@ -250,7 +250,7 @@ const productsData = [
             { size: 'L', available: true },
             { size: 'XL', available: false }
         ],
-    }, 	
+    },
     {
         id: 'tech-fleece-hoodie-black',
         name: 'Nike Pro',
@@ -299,6 +299,48 @@ const productsData = [
             { size: 'XL', available: false }
         ],
     },
+
+    // ============================================== SẢN PHẨM PHỤ KIỆN NAM ====================================================
+    {
+        id: 'sportswear-essentials-backpack',
+        name: 'Nike Sportswear Essentials Backpack',
+        productType: 'Phụ Kiện', // <--- ĐIỂM QUAN TRỌNG: Gán loại sản phẩm là 'Phụ Kiện'
+        type: 'Túi & Ba Lô',
+        category: "Phụ Kiện Nam | Ba Lô",
+        gender: 'Cho Nam',
+        price: 1599000,
+        originalPrice: null,
+        status: ["new"],
+        description: 'Ba lô thiết yếu cho các hoạt động thể thao, có ngăn đựng laptop.',
+        images: [
+            '../assets/images/product/men/accessory/pk1.avif', // Thay bằng đường dẫn ảnh phụ kiện
+            '../assets/images/product/men/accessory/bag_1_detail.avif',
+        ],
+        sizes: [
+            { size: 'OS', available: true }, // Phụ kiện thường là One Size (OS)
+        ],
+    },
+    {
+        id: 'dri-fit-adv-tennis-hat',
+        name: 'Nike Dri-FIT ADV Hat',
+        productType: 'Phụ Kiện', // <--- ĐIỂM QUAN TRỌNG
+        type: 'Mũ & Phụ kiện đầu',
+        category: "Phụ Kiện Nam | Mũ",
+        gender: 'Cho Nam',
+        price: 750000,
+        originalPrice: 900000,
+        status: ["sale"],
+        description: 'Mũ tennis công nghệ Dri-FIT ADV giúp thấm hút mồ hôi và thoáng khí.',
+        images: [
+            '../assets/images/product/men/accessory/hat_1.avif', // Thay bằng đường dẫn ảnh phụ kiện
+            '../assets/images/product/men/accessory/hat_1_detail.avif',
+        ],
+        sizes: [
+            { size: 'S/M', available: true },
+            { size: 'M/L', available: true },
+        ],
+    },
+    // Thêm các sản phẩm phụ kiện khác ở đây...
 ];
 
 // Dữ liệu giả định cho các sản phẩm liên quan (Sử dụng 4 sản phẩm cuối cùng).
