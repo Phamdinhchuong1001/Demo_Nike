@@ -6,7 +6,7 @@
 let currentFilters = {
     // Loại sản phẩm chính: 'Giày' hoặc 'Quần Áo'
     productType: 'Giày', 
-    
+    gender: 'Nam', // 'Nam', 'Nữ'
     category: '', 
     price: 'all', 
     status: [], // Ví dụ: ['sale', 'new']
@@ -113,6 +113,10 @@ function applyFilters(data) {
         if (currentFilters.productType && product.productType !== currentFilters.productType) {
             return false; 
         }
+        // LỌC 0.5: LỌC THEO GIỚI TÍNH (Nam/Nữ) - ĐIỀU KIỆN PHỤ
+        if (currentFilters.gender && product.gender !== currentFilters.gender) {
+            return false; 
+        }
 
         // LỌC 1: Lọc theo Danh mục (Category/product.type)
         if (currentFilters.category && product.type !== currentFilters.category) {
@@ -214,12 +218,19 @@ function getInitialProductType() {
         return 'Quần Áo'; 
     } else if (pathname.includes('giay')) {
         return 'Giày';
+    }else if(pathname.includes('giay nu')) { 
+        return 'Giày Nữ'; 
     }
     
     return 'Giày'; 
 }
-
-
+function getInitialGender() {
+    const pathname = window.location.pathname.toLowerCase();
+    if (pathname.includes('nu')) {
+        return 'Nữ';
+    }
+    return 'Nam';
+}
 /**
  * Thiết lập loại sản phẩm chính và reset các bộ lọc khác.
  * @param {string} type - 'Giày' hoặc 'Quần Áo'.
@@ -267,6 +278,7 @@ function resetFilterUI() {
 document.addEventListener('DOMContentLoaded', function () {
     // KHỞI TẠO: Thiết lập loại sản phẩm ban đầu và hiển thị.
     currentFilters.productType = getInitialProductType(); 
+    currentFilters.gender = getInitialGender();
     updateProductDisplay();
     
     // Logic Gắn sự kiện cho nút chuyển đổi loại sản phẩm (Giày/Quần Áo)
