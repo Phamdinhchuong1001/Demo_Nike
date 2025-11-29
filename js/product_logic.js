@@ -218,10 +218,7 @@ function getInitialProductType() {
         return 'Quần Áo'; 
     } else if (pathname.includes('giay')) {
         return 'Giày';
-    }else if(pathname.includes('giay nu')) { 
-        return 'Giày Nữ'; 
     }
-    
     return 'Giày'; 
 }
 function getInitialGender() {
