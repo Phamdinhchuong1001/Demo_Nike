@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sizes.forEach(sizeItem => {
             const sizeDiv = document.createElement('div');
             sizeDiv.classList.add('size-option');
-            sizeDiv.textContent = `EU ${sizeItem.size}`;
+            sizeDiv.textContent = ` ${sizeItem.size}`;
 
             if (!sizeItem.available) {
                 sizeDiv.classList.add('disabled');
@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const productName = document.getElementById('product-name').textContent;
-            alert(`Đã thêm sản phẩm "${productName}" - Size EU ${selectedSize} vào giỏ hàng!`);
+            alert(`Đã thêm sản phẩm "${productName}" - Size  ${selectedSize} vào giỏ hàng!`);
             // TODO: Thêm logic lưu vào LocalStorage/SessionStorage cho Giỏ hàng
         });
     }
