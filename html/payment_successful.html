@@ -116,104 +116,51 @@
         </nav>
     </div>
     <!-- Header End -->
-    <!-- CART PAGE BODY -->
-    <div class="container py-5">
-        <h2 class="fw-bold mb-4">Giỏ hàng</h2>
 
-        <div class="row">
-            <!-- LEFT - PRODUCT LIST -->
-            <div class="col-lg-8">
+    <!-- PAYMENT SUCCESS SECTION -->
+    <div class="container py-5" style="min-height: 60vh;">
 
-                <!-- ITEM -->
-                <div class="d-flex border-bottom pb-4 mb-4">
-                    <img src="../assets/images/product/women/accessory/oder3.avif" alt="Product Image" class="me-4"
-                        style="width:150px; height:150px; object-fit:cover;">
+        <div class="text-center">
 
-                    <div class="flex-grow-1">
-                        <h5 class="fw-bold mb-1">Nike</h5>
-                        <p class="mb-1 text-white">Túi Đeo Hông Heritage Waistpack</p>
-                        <p class="mb-1">Màu: Đen/Trắng</p>
-                        <p class="mb-3">Kích cỡ: One Size</p>
-
-                        <div class="d-flex align-items-center">
-
-                            <!-- REMOVE BUTTON -->
-                            <button class="btn btn-outline-dark me-3">
-                                <i class="fa fa-trash"></i>
-                            </button>
-
-                            <!-- QUANTITY -->
-                            <div class="d-flex align-items-center border rounded-pill px-3 py-1">
-                                <button class="btn p-0 px-2"><i class="fa fa-minus"></i></button>
-                                <span class="px-3 fw-bold">1</span>
-                                <button class="btn p-0 px-2"><i class="fa fa-plus"></i></button>
-                            </div>
-
-                            <!-- HEART -->
-                            <button class="btn ms-3">
-                                <i class="fa fa-heart"></i>
-                            </button>
-                        </div>
-
-                        <p class="text-warning mt-3">
-                            <i class="fa fa-clock"></i> Vừa mới còn hàng. Hãy đặt sớm.
-                        </p>
-                    </div>
-
-                    <div class="text-end">
-                        <h5 class="fw-bold">639,000₫</h5>
-                    </div>
-                </div>
-                <!-- END ITEM -->
-
+            <!-- Icon -->
+            <div class="mb-4">
+                <i class="fa fa-circle-check" style="font-size: 80px; color: #28a745;"></i>
             </div>
 
-            <!-- RIGHT - ORDER SUMMARY -->
-            <div class="col-lg-4">
-                <div class="p-4 rounded-3 shadow-sm" style="background-color: #f5f5f5;">
+            <h2 class="fw-bold mb-3 text-white">Thanh toán thành công!</h2>
+            <p class="text-white">Cảm ơn bạn đã mua sắm tại Nike Store Việt Nam.</p>
 
-                    <h4 class="fw-bold mb-4 text-dark">Tóm tắt đơn hàng</h4>
+            <!-- ORDER BOX -->
+            <div class="mx-auto p-4 rounded-3" 
+                style="max-width: 500px; background: #111; border: 1px solid #333;">
 
-                    <div class="d-flex justify-content-between mb-3">
-                        <span class="text-secondary">Tạm tính</span>
-                        <span class="fw-bold text-dark">639,000₫</span>
-                    </div>
+                <h5 class="text-white mb-3">Mã đơn hàng của bạn</h5>
+                <p class="fw-bold fs-4 text-warning mb-4">#NK-20251201-001</p>
 
-                    <div class="d-flex justify-content-between mb-3">
-                        <span class="text-secondary">Phí giao hàng</span>
-                        <span class="fw-bold text-dark">250,000₫</span>
-                    </div>
+                <p class="text-white mb-1">Thời gian đặt: 01/12/2025 - 22:15</p>
+                <p class="text-white mb-1">Phương thức thanh toán: Ví điện tử MoMo</p>
+                <p class="text-white">Tổng tiền: <span class="fw-bold text-success">889,000₫</span></p>
+            </div>
 
-                    <hr class="my-3">
+            <!-- BUTTONS -->
+            <div class="mt-5 d-flex justify-content-center gap-3">
 
-                    <div class="d-flex justify-content-between mb-4">
-                        <span class="fw-bold fs-5">Tổng cộng</span>
-                        <span class="fw-bold fs-5 text-dark">889,000₫</span>
-                    </div>
+                <a href="index.html" class="btn px-4 py-3"
+                style="background:#fff; color:#000; border-radius:30px; font-weight:600;">
+                    Quay về trang chủ
+                </a>
 
-                    <!-- BUTTONS -->
-                    <button class="btn w-100 py-3 mb-3"
-                        style="background:#000; color:#fff; border-radius:30px; font-weight:600;"
-                        onclick="window.location.href='payment_successful.html';">
-                        Thanh toán nhanh
-                    </button>
+                <a href="donhang.html" class="btn px-4 py-3"
+                style="border:2px solid #fff; color:#fff; border-radius:30px; font-weight:600;">
+                    Xem đơn hàng
+                </a>
 
-
-                    <button class="btn w-100 py-3" style="border:2px solid #000; border-radius:30px; font-weight:600; color: black;">
-                        Thanh toán dành cho thành viên
-                    </button>
-
-
-                </div>
             </div>
 
         </div>
+
     </div>
-    <!-- END CART PAGE BODY -->
-
-
-
-    
+    <!-- END PAYMENT SUCCESS SECTION -->
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer py-5 wow fadeIn" data-wow-delay="0.1s">
