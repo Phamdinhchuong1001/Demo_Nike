@@ -80,19 +80,20 @@
                 </div>
 
                 <div class="d-flex align-items-center ms-auto me-4">
-                    <form class="d-flex me-3">
-                        <div class="input-group">
-                            <input type="text" class="form-control rounded-pill" placeholder="Search"
-                                style="width: 150px;">
-                            <span class="input-group-text border-0 bg-transparent text-white position-absolute end-0"
-                                style="z-index: 1;">
-                                <i class="fa fa-magnifying-glass"></i>
-                            </span>
-                        </div>
-                    </form>
+                    <a href="favorite.html" class="text-white me-3 fs-5 position-relative icon-badge-container">
+                        <i class="fa fa-heart"></i>
+                        <span
+                            class="badge rounded-circle bg-primary text-white position-absolute top-0 start-100 translate-middle"
+                            id="wishlist-count-badge"
+                            style="padding: .3em .6em; font-size: 0.55em; display: none;">0</span>
+                    </a>
 
-                    <a href="favorite.html" class="text-white me-3 fs-5"><i class="fa fa-heart"></i></a>
-                    <a href="../html/cart.html" class="text-white me-3 fs-5"><i class="fa fa-bag-shopping"></i></a>
+                    <a href="cart.html" class="text-white me-3 fs-5 position-relative icon-badge-container">
+                        <i class="fa fa-bag-shopping"></i>
+                        <span
+                            class="badge rounded-circle bg-primary text-white position-absolute top-0 start-100 translate-middle"
+                            id="cart-count-badge" style="padding: .3em .6em; font-size: 0.55em; display: none;">0</span>
+                    </a>
                     <div class="user-control d-flex align-items-center">
                         <a href="../html/login.html" class="text-white me-3 fs-5" id="userLink">
                             <i class="fa fa-user" id="userIcon"></i>
@@ -104,11 +105,12 @@
                                 style="font-size: 1.25rem;">
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userNameDisplay">
-                                <li><a class="dropdown-item" href="donhang.html">Đơn hàng</a></li>
+                                <li><a class="dropdown-item" href="cart.html">Đơn hàng</a></li>
                                 <li><a class="dropdown-item" href="lichsumuahang.html">Lịch sử mua hàng</a></li>
                                 <li><a class="dropdown-item" href="profile.html">Hồ sơ</a></li>
                                 <li><a class="dropdown-item" href="../html/favorite.html">Mục yêu thích</a></li>
-                                <li><a class="dropdown-item" href="caidat.html">Cài đặt</a></li>
+                                <li><a class="dropdown-item" href="../html/localtion_store.html">Cửa hàng gần nhất</a>
+                                </li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -165,11 +167,12 @@
                         </ul>
                         <div class="row wow fadeInUp" data-wow-delay="0.4s">
                             <div class="col-6">
-                                <a href="../html/product.html" class="btn btn-outline-primary border-2 py-3 w-100">Xem
+                                <a href="../html/giaynam.html" class="btn btn-outline-primary border-2 py-3 w-100">Xem
                                     Bộ Sưu Tập</a>
                             </div>
                             <div class="col-6">
-                                <a href="../html/contact.html" class="btn btn-primary py-3 w-100">Tìm Cửa Hàng Gần
+                                <a href="../html/localtion_store.html" class="btn btn-primary py-3 w-100">Tìm Cửa Hàng
+                                    Gần
                                     Nhất</a>
                             </div>
                         </div>
@@ -212,7 +215,7 @@
                                 luôn cảm thấy thoải mái và mát mẻ dưới ánh nắng mặt trời. Hãy sẵn sàng cho một mùa hè
                                 đầy năng động!
                             </p>
-                            <a class="btn btn-outline-primary border-2 px-4" href="#!">Xem Sản Phẩm<i
+                            <a class="btn btn-outline-primary border-2 px-4" href="../html/giaynu.html">Xem Sản Phẩm<i
                                     class="fa fa-arrow-right ms-1"></i></a>
                         </div>
                     </div>
@@ -234,7 +237,7 @@
                                 khô ráo trong mọi cường độ luyện tập. Thiết kế co giãn bốn chiều (four-way stretch) đảm
                                 bảo sự linh hoạt tối đa, giúp bạn tự tin thực hiện mọi động tác mà không bị cản trở.
                             </p>
-                            <a class="btn btn-outline-primary border-2 px-4" href="#!">Xem Sản Phẩm<i
+                            <a class="btn btn-outline-primary border-2 px-4" href="../html/aonu.html">Xem Sản Phẩm<i
                                     class="fa fa-arrow-right ms-1"></i></a>
                         </div>
                     </div>
@@ -257,7 +260,7 @@
                                 chuyển. Đây là lựa chọn lý tưởng để bạn tập trung hoàn toàn vào việc phá vỡ kỷ lục cá
                                 nhân của mình.
                             </p>
-                            <a class="btn btn-outline-primary border-2 px-4" href="#!">Xem Sản Phẩm<i
+                            <a class="btn btn-outline-primary border-2 px-4" href="../html/aonam.html">Xem Sản Phẩm<i
                                     class="fa fa-arrow-right ms-1"></i></a>
                         </div>
                     </div>
@@ -279,8 +282,8 @@
                                 món phụ kiện đều được thiết kế để tối ưu hóa hiệu suất và mang lại sự tiện lợi tối đa.
                                 Hãy chọn cho mình những món đồ bổ trợ hoàn hảo để nâng tầm buổi tập của bạn.
                             </p>
-                            <a class="btn btn-outline-primary border-2 px-4" href="#!">Xem Sản Phẩm<i
-                                    class="fa fa-arrow-right ms-1"></i></a>
+                            <a class="btn btn-outline-primary border-2 px-4" href="../html/phukiennam.html">Xem Sản
+                                Phẩm<i class="fa fa-arrow-right ms-1"></i></a>
                         </div>
                     </div>
                 </div>
@@ -350,7 +353,7 @@
                         <div class="team-body">
                             <img class="img-fluid" src="../assets/images/index/team-1.jpg" alt="">
                         </div>
-                        <a class="team-name" href="#">
+                        <a class="team-name" href="../html/giaynam.html">
                             <h5 class="text-uppercase mb-0">GIÀY THỂ THAO</h5>
                         </a>
                     </div>
@@ -360,7 +363,7 @@
                         <div class="team-body">
                             <img class="img-fluid" src="../assets/images/index/team-2.jpg" alt="">
                         </div>
-                        <a class="team-name" href="#">
+                        <a class="team-name" href="../html/aonam.html">
                             <h5 class="text-uppercase mb-0">ÁO THỂ THAO</h5>
                         </a>
                     </div>
@@ -370,7 +373,7 @@
                         <div class="team-body">
                             <img class="img-fluid" src="../assets/images/index/team-3.jpg" alt="">
                         </div>
-                        <a class="team-name" href="#">
+                        <a class="team-name" href="../html/aonu.html">
                             <h5 class="text-uppercase mb-0">QUẦN THỂ THAO</h5>
                         </a>
                     </div>
@@ -380,7 +383,7 @@
                         <div class="team-body">
                             <img class="img-fluid" src="../assets/images/index/team-4.jpg" alt="">
                         </div>
-                        <a class="team-name" href="#">
+                        <a class="team-name" href="../html/phukiennam.html">
                             <h5 class="text-uppercase mb-0">BALO VÀ PHỤ KIỆN</h5>
                         </a>
                     </div>
@@ -507,5 +510,4 @@
     <script src="../js/main.js"></script>
     <script src="../js/index_logic.js"></script>
 </body>
-
 </html>

@@ -1,6 +1,6 @@
 (function ($) {
     "use strict";
-    // Chức năng nút "Back to top"
+    // Chức năng nút "Back to top" (Giữ nguyên)
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
             $('.back-to-top').fadeIn('slow');
@@ -9,7 +9,7 @@
         }
     });
     $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
         return false;
     });
 
@@ -18,7 +18,7 @@
 
     // Lấy ID người dùng hiện tại (là Email) từ sessionStorage.
     function getCurrentUserId() {
-        return sessionStorage.getItem('loggedInUserEmail'); 
+        return sessionStorage.getItem('loggedInUserEmail');
     }
 
     // Lấy danh sách sản phẩm yêu thích của người dùng dựa trên ID (Email) từ localStorage.
@@ -51,22 +51,83 @@
         if (typeof price === 'number') {
             return price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
         }
-        return price; 
+        return price;
     }
 
-    // --- LOGIC HIỂN THỊ DANH SÁCH YÊU THÍCH ---
+    // --- LOGIC GIỎ HÀNG MỚI THÊM VÀO ---
+
+    // Lấy danh sách giỏ hàng của người dùng.
+    function getCartByUserId(userId) {
+        const cartKey = `cart_${userId}`;
+        const cartJson = localStorage.getItem(cartKey);
+        try {
+            return cartJson ? JSON.parse(cartJson) : [];
+        } catch (e) {
+            console.error("Lỗi phân tích JSON cho giỏ hàng:", e);
+            return [];
+        }
+    }
+
+    // Lưu danh sách giỏ hàng vào localStorage.
+    function saveCartByUserId(userId, cart) {
+        const cartKey = `cart_${userId}`;
+        localStorage.setItem(cartKey, JSON.stringify(cart));
+    }
+
+    // Hàm thêm sản phẩm vào giỏ hàng.
+    function addToCart(userId, product) {
+        let cart = getCartByUserId(userId);
+
+        // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa (dựa trên id, vì ở đây không có size/số lượng).
+        const existingItemIndex = cart.findIndex(item => item.id === product.id);
+
+        if (existingItemIndex > -1) {
+            // Nếu đã có, tăng số lượng lên 1. (Giả định số lượng ban đầu là 1)
+            cart[existingItemIndex].quantity = (cart[existingItemIndex].quantity || 1) + 1;
+        } else {
+            // Nếu chưa có, thêm mới với số lượng là 1.
+            cart.push({
+                ...product,
+                quantity: 1,
+                // Giả định thêm size/color mặc định nếu cần
+                size: 'Mặc định',
+                color: 'Mặc định'
+            });
+        }
+
+        saveCartByUserId(userId, cart);
+        updateCartBadge(cart.length); // Cập nhật số lượng trên biểu tượng giỏ hàng
+        alert(`Đã thêm sản phẩm "${product.name}" vào giỏ hàng!`);
+    }
+
+    // Cập nhật biểu tượng giỏ hàng trên header.
+    function updateCartBadge(count) {
+        const $badge = $('#cart-count-badge');
+        if (count > 0) {
+            $badge.text(count).show();
+        } else {
+            $badge.hide();
+        }
+    }
+
+    // Hàm lấy thông tin sản phẩm từ Favorites để thêm vào giỏ hàng.
+    function getProductFromFavorites(userId, productId) {
+        const favorites = getFavoritesByUserId(userId);
+        return favorites.find(product => product.id === productId);
+    }
+
+    // --- LOGIC HIỂN THỊ DANH SÁCH YÊU THÍCH (CÓ THAY ĐỔI) ---
 
     // Xử lý logic và hiển thị danh sách sản phẩm yêu thích lên giao diện.
-    // Bao gồm kiểm tra trạng thái đăng nhập và danh sách rỗng.
     function displayFavorites() {
         const userId = getCurrentUserId();
         const $container = $('#favorite-products');
         const $emptyMessage = $('#empty-favorite-message');
 
         $container.empty();
-        $emptyMessage.removeClass('d-none').hide(); 
+        $emptyMessage.removeClass('d-none').hide();
 
-        // Hiển thị thông báo nếu chưa đăng nhập.
+        // 1. Xử lý trường hợp chưa đăng nhập (Giữ nguyên)
         if (!userId) {
             $emptyMessage.show();
             $emptyMessage.html(`
@@ -77,12 +138,17 @@
                     <a href="../html/login.html" class="btn btn-primary mt-3 py-2 px-4">Đăng nhập ngay</a>
                 </div>
             `);
-            return; 
+            updateCartBadge(0); // Đảm bảo biểu tượng giỏ hàng được reset nếu chưa đăng nhập
+            return;
         }
 
         const favorites = getFavoritesByUserId(userId);
 
-        // Hiển thị thông báo nếu danh sách yêu thích trống.
+        // Cập nhật số lượng giỏ hàng ban đầu khi tải trang
+        const cart = getCartByUserId(userId);
+        updateCartBadge(cart.length);
+
+        // 2. Xử lý trường hợp danh sách yêu thích trống (Có thay đổi)
         if (favorites.length === 0) {
             $emptyMessage.show();
             $emptyMessage.html(`
@@ -93,12 +159,12 @@
                     <a href="../html/index.html" class="btn btn-primary mt-3 py-2 px-4">Khám phá ngay</a>
                 </div>
             `);
-            return; 
+            return;
         }
 
         $emptyMessage.hide();
 
-        // Lặp qua danh sách và tạo HTML cho từng sản phẩm.
+        // 3. Lặp qua danh sách và tạo HTML cho từng sản phẩm (Giữ nguyên)
         favorites.forEach(product => {
             const productHtml = `
                 <div class="col-lg-4 col-md-6 wow fadeInUp product-item" data-product-id="${product.id}">
@@ -112,28 +178,51 @@
                             <p class="text-muted">${product.gender || ''} - ${product.category || 'Sản phẩm'}</p>
                             <p class="text-primary fw-bold fs-5">${formatCurrency(product.price)}</p>
                         </a>
-                        <button class="btn btn-dark w-100 mt-2 add-to-bag-favorite-btn" data-product-id="${product.id}">Thêm vào giỏ</button>
+                        <button class="btn btn-dark w-100 mt-2 add-to-bag-favorite-btn" data-product-id="${product.id}">Thêm vào giỏ hàng</button>
                     </div>
                 </div>
             `;
             $container.append(productHtml);
         });
 
-        // Gán sự kiện click cho nút xóa sản phẩm khỏi mục yêu thích.
-        $container.off('click', '.btn-remove').on('click', '.btn-remove', function() {
+        // 4. Gán sự kiện click cho nút xóa sản phẩm khỏi mục yêu thích (Giữ nguyên)
+        $container.off('click', '.btn-remove').on('click', '.btn-remove', function () {
             const productId = $(this).data('product-id');
             if (confirm('Bạn có chắc chắn muốn xóa sản phẩm này khỏi mục yêu thích?')) {
                 removeFavoriteProduct(userId, productId);
                 displayFavorites(); // Tải lại danh sách để cập nhật giao diện
             }
         });
-        
-        // TODO: Cần gán sự kiện cho nút Thêm vào giỏ hàng tại đây.
+
+        // 5. Gán sự kiện cho nút "Thêm vào giỏ hàng" (MỚI)
+        $container.off('click', '.add-to-bag-favorite-btn').on('click', '.add-to-bag-favorite-btn', function () {
+            const productId = $(this).data('product-id');
+            const productToAdd = getProductFromFavorites(userId, productId);
+
+            if (productToAdd) {
+                addToCart(userId, productToAdd);
+            } else {
+                alert('Không tìm thấy thông tin sản phẩm để thêm vào giỏ hàng.');
+            }
+        });
     }
-    
+
     // Khởi chạy logic hiển thị danh sách yêu thích khi DOM đã tải xong.
-    $(document).ready(function() {
-        displayFavorites(); 
+    $(document).ready(function () {
+        displayFavorites();
+
+        // Thêm hàm này để cập nhật badge số lượng yêu thích khi tải trang (giả định)
+        // Đây là code cần có trong main.js hoặc index_logic.js, nhưng thêm tạm ở đây:
+        const userId = getCurrentUserId();
+        if (userId) {
+            const favorites = getFavoritesByUserId(userId);
+            const $wishlistBadge = $('#wishlist-count-badge');
+            if (favorites.length > 0) {
+                $wishlistBadge.text(favorites.length).show();
+            } else {
+                $wishlistBadge.hide();
+            }
+        }
     });
 
 })(jQuery);

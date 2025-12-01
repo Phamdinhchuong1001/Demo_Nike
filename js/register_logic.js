@@ -1,4 +1,4 @@
-document.getElementById('registerButton').addEventListener('click', function(e) {
+document.getElementById('registerButton').addEventListener('click', function (e) {
     e.preventDefault();
 
     // 1. Thu thập và làm sạch dữ liệu đầu vào
@@ -8,13 +8,13 @@ document.getElementById('registerButton').addEventListener('click', function(e) 
     const password = document.getElementById('regPassword').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
     const message = document.getElementById('registerMessage');
-    
+
     // Xóa thông báo cũ và reset màu
     message.textContent = '';
     message.style.color = 'red';
 
     // 2. Kiểm tra tính hợp lệ của dữ liệu
-    
+
     // Kiểm tra trường rỗng
     if (!username || !email || !password || !confirmPassword || !phone) {
         message.textContent = 'Vui lòng điền đầy đủ thông tin.';
@@ -22,7 +22,7 @@ document.getElementById('registerButton').addEventListener('click', function(e) 
     }
 
     // Kiểm tra định dạng Email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
         message.textContent = 'Lỗi: Địa chỉ email không hợp lệ.';
         return;
@@ -41,7 +41,7 @@ document.getElementById('registerButton').addEventListener('click', function(e) 
     }
 
     // 3. Kiểm tra và Lưu tài khoản vào Local Storage
-    
+
     // Kiểm tra xem đã tồn tại user với email này chưa
     const storedUser = localStorage.getItem('user_' + email);
     if (storedUser) {
@@ -59,11 +59,11 @@ document.getElementById('registerButton').addEventListener('click', function(e) 
 
     // Lưu user vào Local Storage với key 'user_[email]'
     localStorage.setItem('user_' + email, JSON.stringify(user));
-    
+
     // 4. Thông báo thành công và Chuyển hướng
     message.style.color = 'green';
     message.textContent = 'Đăng ký thành công! Đang chuyển hướng...';
-    
+
     // Chuyển hướng sang trang đăng nhập sau 2 giây
     setTimeout(() => {
         window.location.href = 'login.html';

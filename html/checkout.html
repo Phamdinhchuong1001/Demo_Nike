@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>NIKE - Shop đồ thể thao</title>
+    <title>NIKE - Thanh Toán</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -127,53 +127,140 @@
     </div>
     <!-- Header End -->
 
-    <div class="container py-5">
-        <div class="row g-4">
-            <div class="col-lg-8">
-                <h2 class="text-white mb-4">Giỏ Hàng Của Bạn</h2>
 
-                <div id="cart-items-container" class="bg-dark p-3 rounded shadow-lg">
-                    <p class="text-white empty-cart-message">Giỏ hàng của bạn đang trống.</p>
+    <div class="container py-5">
+        <h2 class="text-white mb-4">🛒 Thanh Toán</h2>
+        <div class="row g-4">
+
+            <div class="col-lg-8">
+
+                <div class="bg-dark p-4 rounded shadow-lg mb-4 border border-secondary">
+                    <form id="checkout-form">
+                        <h5 class="text-white mb-3"><i class="fa fa-user me-2"></i>Chi tiết Khách hàng</h5>
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <label for="fullName" class="form-label text-light">Họ và Tên</label>
+                                <input type="text" class="form-control bg-secondary border-0 text-white" id="fullName"
+                                    name="fullName" placeholder="Nhập họ tên" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label text-light">Số điện thoại</label>
+                                <input type="tel" class="form-control bg-secondary border-0 text-white" id="phone"
+                                    name="phone" placeholder="Nhập số điện thoại" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="email" class="form-label text-light">Email</label>
+                                <input type="email" class="form-control bg-secondary border-0 text-white" id="email"
+                                    name="email" placeholder="Nhập email" required>
+                            </div>
+                        </div>
+
+                        <h5 class="text-white mb-3"><i class="fa fa-truck me-2"></i>Địa chỉ & Vận chuyển</h5>
+                        <div class="col-12 mb-4">
+                            <label for="address" class="form-label text-light">Địa chỉ giao hàng</label>
+                            <input type="text" class="form-control bg-secondary border-0 text-white" id="address"
+                                name="address" placeholder="Số nhà, Tên đường, Phường/Xã" required>
+                        </div>
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-4">
+                                <label for="province" class="form-label text-light">Tỉnh/Thành phố</label>
+                                <select class="form-select bg-secondary border-0 text-white" id="province"
+                                    name="province" required>
+                                    <option selected disabled value="">Chọn...</option>
+                                    <option>TP. Hồ Chí Minh</option>
+                                    <option>Hà Nội</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="district" class="form-label text-light">Quận/Huyện</label>
+                                <select class="form-select bg-secondary border-0 text-white" id="district"
+                                    name="district" required>
+                                    <option selected disabled value="">Chọn...</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="shippingMethod" class="form-label text-light">Phương thức Vận chuyển</label>
+                                <select class="form-select bg-secondary border-0 text-white" id="shippingMethod"
+                                    name="shippingMethod" required>
+                                    <option value="standard">Standard - Miễn Phí</option>
+                                    <option value="express">Express - 45.000 ₫</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <h5 class="text-white mb-3"><i class="fa fa-credit-card me-2"></i>Phương thức Thanh toán</h5>
+                        <div class="mb-3">
+                            <div class="form-check text-light">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="cod" value="cod"
+                                    checked>
+                                <label class="form-check-label" for="cod">
+                                    Thanh toán khi nhận hàng (COD)
+                                </label>
+                            </div>
+                            <div class="form-check text-light">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="visa"
+                                    value="visa">
+                                <label class="form-check-label" for="visa">
+                                    Thẻ Visa/Mastercard
+                                </label>
+                            </div>
+                            <div class="form-check text-light mb-3">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="bankTransfer"
+                                    value="transfer">
+                                <label class="form-check-label" for="bankTransfer">
+                                    Chuyển khoản Ngân hàng
+                                </label>
+                            </div>
+
+                            <div id="payment-details-expansion" class="p-3 mt-3 rounded border border-info"
+                                style="display: none;">
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="orderNotes" class="form-label text-light">Ghi chú (Tùy chọn)</label>
+                            <textarea class="form-control bg-secondary border-0 text-white" id="orderNotes"
+                                name="orderNotes" rows="3" placeholder="Ví dụ: Giao hàng vào buổi tối..."></textarea>
+                        </div>
+                    </form>
                 </div>
+
+                <button type="submit" class="btn btn-primary btn-lg w-100 py-3 fw-bold rounded-pill text-dark"
+                    id="place-order-btn" form="checkout-form">
+                    Đặt Hàng Ngay
+                </button>
             </div>
 
             <div class="col-lg-4">
-                <h2 class="text-white mb-4">Tổng Tiền</h2>
-                <div class="card bg-dark text-white border-secondary shadow-lg">
+                <h2 class="text-white mb-4">Tóm tắt Đơn hàng</h2>
+                <div class="card bg-dark text-white border-secondary shadow-lg mb-4">
                     <div class="card-body">
-                        <div class="d-flex justify-content-between mb-2">
-                            <span>Tổng tiền hàng <i class="text-muted small"></i></span>
-                            <span id="subtotal-amount" class="fw-bold">0 VNĐ</span>
+                        <h5 class="card-title text-white border-bottom border-secondary pb-2 mb-3"><i
+                                class="fa fa-box me-2"></i>Sản phẩm (Đã chọn)</h5>
+                        <div id="checkout-items-summary" class="mb-3">
                         </div>
 
                         <div class="d-flex justify-content-between mb-2">
-                            <span>Phí Vận Chuyển Dự Kiến <i class=" text-muted small"></i></span>
-                            <span class="text-success fw-bold" id="shipping-fee">Miễn Phí</span>
+                            <span>Tổng tiền hàng</span>
+                            <span id="summary-subtotal" class="fw-bold">0 ₫</span>
+                        </div>
+
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Phí Vận Chuyển</span>
+                            <span class="text-success fw-bold" id="summary-shipping-fee">Miễn Phí</span>
                         </div>
 
                         <div class="d-flex justify-content-between border-top border-secondary pt-3 mt-3">
                             <h4 class="mb-0">Tổng Thanh Toán</h4>
-                            <h4 id="cart-total">0 VNĐ</h4>
+                            <h4 id="summary-total">0 ₫</h4>
                         </div>
-
-                        <div class="my-4 text-center">
-
-                            <div class="progress bg-secondary" style="height: 8px;">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 0%;"
-                                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="50"></div>
-                            </div>
-                            <span class="small text-muted float-end">500.000 VNĐ</span>
-                        </div>
-
-                        <button class="btn btn-light w-100 py-3 fw-bold rounded-pill text-dark checkout-btn mt-3">
-                            Thanh Toán
-                        </button>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer py-5 wow fadeIn" data-wow-delay="0.1s">
@@ -252,6 +339,7 @@
     <script src="../js/main.js"></script>
     <script src="../js/index_logic.js"></script>
     <script src="../js/cart_logic.js"></script>
+    <script src="../js/checkout_logic.js"></script>
 </body>
 
 </html>

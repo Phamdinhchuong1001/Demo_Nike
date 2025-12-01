@@ -72,19 +72,20 @@
                 </div>
 
                 <div class="d-flex align-items-center ms-auto me-4">
-                    <form class="d-flex me-3">
-                        <div class="input-group">
-                            <input type="text" class="form-control rounded-pill" placeholder="Search"
-                                style="width: 150px;">
-                            <span class="input-group-text border-0 bg-transparent text-white position-absolute end-0"
-                                style="z-index: 1;">
-                                <i class="fa fa-magnifying-glass"></i>
-                            </span>
-                        </div>
-                    </form>
+                    <a href="favorite.html" class="text-white me-3 fs-5 position-relative icon-badge-container">
+                        <i class="fa fa-heart"></i>
+                        <span
+                            class="badge rounded-circle bg-primary text-white position-absolute top-0 start-100 translate-middle"
+                            id="wishlist-count-badge"
+                            style="padding: .3em .6em; font-size: 0.55em; display: none;">0</span>
+                    </a>
 
-                    <a href="#" class="text-white me-3 fs-5"><i class="fa fa-heart"></i></a>
-                    <a href="#" class="text-white me-3 fs-5"><i class="fa fa-bag-shopping"></i></a>
+                    <a href="cart.html" class="text-white me-3 fs-5 position-relative icon-badge-container">
+                        <i class="fa fa-bag-shopping"></i>
+                        <span
+                            class="badge rounded-circle bg-primary text-white position-absolute top-0 start-100 translate-middle"
+                            id="cart-count-badge" style="padding: .3em .6em; font-size: 0.55em; display: none;">0</span>
+                    </a>
                     <div class="user-control d-flex align-items-center">
                         <a href="../html/login.html" class="text-white me-3 fs-5" id="userLink">
                             <i class="fa fa-user" id="userIcon"></i>
@@ -96,11 +97,12 @@
                                 style="font-size: 1.25rem;">
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userNameDisplay">
-                                <li><a class="dropdown-item" href="donhang.html">Đơn hàng</a></li>
+                                <li><a class="dropdown-item" href="cart.html">Đơn hàng</a></li>
                                 <li><a class="dropdown-item" href="lichsumuahang.html">Lịch sử mua hàng</a></li>
                                 <li><a class="dropdown-item" href="profile.html">Hồ sơ</a></li>
                                 <li><a class="dropdown-item" href="../html/favorite.html">Mục yêu thích</a></li>
-                                <li><a class="dropdown-item" href="caidat.html">Cài đặt</a></li>
+                                <li><a class="dropdown-item" href="../html/localtion_store.html">Cửa hàng gần nhất</a>
+                                </li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -119,10 +121,12 @@
 
             <ul class="nav profile-nav mb-4">
                 <li class="nav-item">
-                    <a class="nav-link active" id="infoTabLink" href="#"><i class="fa fa-user me-2"></i>THÔNG TIN CÁ NHÂN</a>
+                    <a class="nav-link active" id="infoTabLink" href="#"><i class="fa fa-user me-2"></i>THÔNG TIN CÁ
+                        NHÂN</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="updateTabLink" href="#"><i class="fa fa-edit me-2"></i>CẬP NHẬT THÔNG TIN</a>
+                    <a class="nav-link" id="updateTabLink" href="#"><i class="fa fa-edit me-2"></i>CẬP NHẬT THÔNG
+                        TIN</a>
                 </li>
             </ul>
             <hr>
@@ -131,7 +135,8 @@
                 <div class="tab-content active" id="personalInfoTab">
                     <div class="row pt-4">
                         <div class="col-lg-4 text-center border-end">
-                            <img src="../assets/images/profile/avatar.jpg" alt="Avatar" class="profile-avatar mb-3" id="displayAvatar">
+                            <img src="../assets/images/profile/avatar.jpg" alt="Avatar" class="profile-avatar mb-3"
+                                id="displayAvatar">
                             <h4 class="fw-bold" id="userNameProfile"></h4>
                             <p class="text-muted" id="userEmailBasic"></p>
                             <p class="text-muted">VIỆT NAM</p>
@@ -170,25 +175,28 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="tab-content" id="updateInfoTab">
                     <form class="p-4" id="updateProfileForm">
                         <div class="mb-4 text-center">
-                            <img src="../assets/images/profile/avatar.jpg" alt="Avatar" class="profile-avatar-large mb-3" id="previewAvatar">
+                            <img src="../assets/images/profile/avatar.jpg" alt="Avatar"
+                                class="profile-avatar-large mb-3" id="previewAvatar">
                             <input type="file" class="form-control mb-2 w-75 mx-auto" id="avatarInput" accept="image/*">
                             <small class="form-text text-muted">Chọn ảnh đại diện mới.</small>
                         </div>
 
                         <div class="mb-3">
                             <label for="fullNameInput" class="form-label fw-bold">Họ và tên</label>
-                            <input type="text" class="form-control" id="fullNameInput" placeholder="Nhập họ và tên mới" required>
+                            <input type="text" class="form-control" id="fullNameInput" placeholder="Nhập họ và tên mới"
+                                required>
                         </div>
 
                         <div class="mb-3">
                             <label for="phoneNumberInput" class="form-label fw-bold">Số điện thoại</label>
-                            <input type="tel" class="form-control" id="phoneNumberInput" placeholder="Nhập số điện thoại mới" required>
+                            <input type="tel" class="form-control" id="phoneNumberInput"
+                                placeholder="Nhập số điện thoại mới" required>
                         </div>
-                        
+
                         <button type="submit" class="btn btn-dark mt-3">Lưu Thay Đổi</button>
                         <button type="button" class="btn btn-secondary mt-3" id="cancelUpdateButton">Hủy</button>
                     </form>

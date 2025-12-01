@@ -1,8 +1,8 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // 1. Lấy thông tin đăng nhập từ SESSION STORAGE
     const isLoggedIn = sessionStorage.getItem('isLoggedIn');
-    const userEmail = sessionStorage.getItem('loggedInUserEmail'); 
-    
+    const userEmail = sessionStorage.getItem('loggedInUserEmail');
+
     // Kiểm tra bảo mật (tạm thời comment để test)
     if (isLoggedIn !== 'true' || !userEmail) {
         // alert('Vui lòng đăng nhập để truy cập Hồ sơ.');
@@ -23,11 +23,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const cancelUpdateButton = document.getElementById('cancelUpdateButton');
     const displayAvatar = document.getElementById('displayAvatar');
     const logoutButton = document.getElementById('logoutButton');
-    
+
     let userData = {
-        username: sessionStorage.getItem('loggedInUser') || 'Tên Người Dùng', 
-        email: userEmail || 'user@example.com', 
-        phone: '', 
+        username: sessionStorage.getItem('loggedInUser') || 'Tên Người Dùng',
+        email: userEmail || 'user@example.com',
+        phone: '',
         avatar: '../assets/images/profile/avatar.jpg'
     };
 
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('nameDetail').textContent = userData.username;
         document.getElementById('userEmailDetail').textContent = userData.email;
         document.getElementById('userPhoneDetail').textContent = userData.phone;
-        
+
         // Cập nhật ảnh đại diện
         displayAvatar.src = userData.avatar;
         previewAvatar.src = userData.avatar;
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateDisplayInfo();
 
     // 3. Logic Chuyển Tab với Animation
-    
+
     /**
      * Chuyển sang tab Thông tin cá nhân (Info).
      */
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Bật animation trượt ngược (Update -> Info)
         personalInfoTab.classList.remove('slide-out', 'active');
         personalInfoTab.classList.add('active'); // Hiển thị Info
-        
+
         updateInfoTab.classList.remove('slide-in', 'active');
         updateInfoTab.classList.add('slide-out'); // Ẩn Update
 
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Cập nhật trạng thái active của nav link
         updateTabLink.classList.add('active');
         infoTabLink.classList.remove('active');
-        
+
         // Bật animation trượt (Info -> Update)
         personalInfoTab.classList.add('slide-out'); // Ẩn Info
         updateInfoTab.classList.add('slide-in'); // Hiện Update
@@ -109,26 +109,26 @@ document.addEventListener('DOMContentLoaded', function() {
         phoneNumberInput.value = userData.phone;
         previewAvatar.src = userData.avatar;
     }
-    
+
     // Gắn sự kiện click chuyển tab
-    infoTabLink.addEventListener('click', function(e) {
+    infoTabLink.addEventListener('click', function (e) {
         e.preventDefault();
         showPersonalInfoTab();
     });
 
-    updateTabLink.addEventListener('click', function(e) {
+    updateTabLink.addEventListener('click', function (e) {
         e.preventDefault();
         showUpdateInfoTab();
     });
-    
+
     // 4. Xử lý Form Cập nhật
-    
+
     // Xử lý xem trước ảnh đại diện
-    avatarInput.addEventListener('change', function(e) {
+    avatarInput.addEventListener('change', function (e) {
         const file = e.target.files[0];
         if (file) {
             const reader = new FileReader();
-            reader.onload = function(event) {
+            reader.onload = function (event) {
                 previewAvatar.src = event.target.result;
             };
             reader.readAsDataURL(file);
@@ -136,17 +136,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Xử lý submit form cập nhật
-    updateProfileForm.addEventListener('submit', function(e) {
+    updateProfileForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
         // Cập nhật dữ liệu từ form
         userData.username = fullNameInput.value;
         userData.phone = phoneNumberInput.value;
-        
+
         const saveProfile = () => {
-             // Lưu dữ liệu mới vào Local Storage (dùng Base64 cho avatar)
+            // Lưu dữ liệu mới vào Local Storage (dùng Base64 cho avatar)
             localStorage.setItem('user_' + userData.email, JSON.stringify(userData));
-            
+
             // Cập nhật hiển thị và chuyển tab
             updateDisplayInfo();
             showPersonalInfoTab();
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (avatarInput.files.length > 0) {
             const file = avatarInput.files[0];
             const reader = new FileReader();
-            reader.onload = function(event) {
+            reader.onload = function (event) {
                 userData.avatar = event.target.result;
                 saveProfile();
             };
@@ -168,15 +168,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Xử lý nút Hủy: Quay lại tab thông tin cá nhân và reset form.
-    cancelUpdateButton.addEventListener('click', function() {
+    cancelUpdateButton.addEventListener('click', function () {
         // Đặt lại giá trị form về dữ liệu hiện tại (userData)
-        updateDisplayInfo(); 
+        updateDisplayInfo();
         // Quay lại tab thông tin cá nhân
         showPersonalInfoTab();
     });
-    
+
     // 5. LOGIC ĐĂNG XUẤT
-    
+
     /**
      * Xử lý đăng xuất: Xóa session và chuyển hướng về trang chủ.
      */

@@ -9,7 +9,7 @@
 body {
     margin: 0;
     padding: 0;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
 .full-screen-container {
@@ -24,9 +24,11 @@ body {
 
 /* Cột 1: Hình ảnh - Thiết lập nền đỏ cho khoảng trống */
 .image-col {
-    background-color: var(--nike-red); 
-    position: relative; /* Quan trọng cho việc định vị hình ảnh slideshow */
-    overflow: hidden; /* Đảm bảo hình ảnh không tràn ra ngoài */
+    background-color: var(--nike-red);
+    position: relative;
+    /* Quan trọng cho việc định vị hình ảnh slideshow */
+    overflow: hidden;
+    /* Đảm bảo hình ảnh không tràn ra ngoài */
 }
 
 /* Container cho slideshow */
@@ -44,12 +46,15 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    opacity: 0; /* Mặc định ẩn tất cả hình ảnh */
-    transition: opacity 1.5s ease-in-out; /* Hiệu ứng fade mượt mà */
+    opacity: 0;
+    /* Mặc định ẩn tất cả hình ảnh */
+    transition: opacity 1.5s ease-in-out;
+    /* Hiệu ứng fade mượt mà */
 }
 
 .slideshow-image.active {
-    opacity: 1; /* Hiển thị hình ảnh đang active */
+    opacity: 1;
+    /* Hiển thị hình ảnh đang active */
 }
 
 
@@ -62,17 +67,20 @@ body {
 /* Định dạng Input Fields */
 .nike-input {
     max-width: 500px;
-    background-color: var(--nike-light-gray); /* Nền input xám tối */
+    background-color: var(--nike-light-gray);
+    /* Nền input xám tối */
     border: 1px solid var(--nike-light-gray);
     color: #ffffff;
-    border-radius: 0; /* Thiết kế Nike thường dùng cạnh sắc nét */
+    border-radius: 0;
+    /* Thiết kế Nike thường dùng cạnh sắc nét */
 }
 
 /* Hiệu ứng focus cho input */
 .nike-input:focus {
     background-color: var(--nike-light-gray);
     color: #ffffff;
-    border-color: var(--nike-red); /* Viền đỏ khi focus */
+    border-color: var(--nike-red);
+    /* Viền đỏ khi focus */
     box-shadow: 0 0 0 0.25rem rgba(255, 0, 0, 0.25);
 }
 
@@ -92,21 +100,23 @@ body {
 }
 
 .btn-nike-red:hover {
-    background-color: #e60000; /* Đỏ đậm hơn khi hover */
+    background-color: #e60000;
+    /* Đỏ đậm hơn khi hover */
     border-color: #e60000;
     color: #ffffff;
 }
 
 /* Màu cho liên kết Register */
 #register-link {
-    color: var(--nike-red) !important; 
+    color: var(--nike-red) !important;
 }
 
 /* Định dạng cho logo hình ảnh của bạn */
 .your-nike-logo {
-    height: 100px; 
-    width: auto; 
+    height: 100px;
+    width: auto;
 }
- a {
-        color: red;
-    }
+
+a {
+    color: red;
+}

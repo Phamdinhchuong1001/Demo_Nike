@@ -82,10 +82,11 @@
 
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .nav-link.active {
-    color:white;
+    color: white;
 }
 
 @media (max-width: 991.98px) {
+
     .navbar .navbar-nav .nav-link,
     .navbar.bg-dark .navbar-nav .nav-link {
         margin-right: 0;
@@ -158,7 +159,7 @@
         position: relative;
         min-height: 550px;
     }
-    
+
     #header-carousel .carousel-item img {
         position: absolute;
         width: 100%;
@@ -173,7 +174,7 @@
     background-size: cover;
 }
 
-.page-header .breadcrumb-item + .breadcrumb-item::before {
+.page-header .breadcrumb-item+.breadcrumb-item::before {
     color: var(--bs-white);
 }
 
@@ -270,6 +271,7 @@
 }
 
 @media (max-width: 767.98px) {
+
     .service-item.service-item-left,
     .service-item.service-item-right {
         border-radius: 500px 500px 0 0;
@@ -295,24 +297,30 @@
     justify-content: center;
     background: rgba(0, 0, 0, .7);
 }
+
 .team-item .team-body {
     position: relative;
     overflow: hidden;
-    
+
     /* === BỔ SUNG/CHỈNH SỬA ĐỂ ĐỒNG ĐỀU KÍCH THƯỚC ẢNH === */
-    height: 350px; /* Chiều cao cố định (có thể điều chỉnh) */
-    display: flex; 
-    align-items: center; /* Căn giữa ảnh dọc */
-    justify-content: center; /* Căn giữa ảnh ngang */
+    height: 350px;
+    /* Chiều cao cố định (có thể điều chỉnh) */
+    display: flex;
+    align-items: center;
+    /* Căn giữa ảnh dọc */
+    justify-content: center;
+    /* Căn giữa ảnh ngang */
     /* ================================================= */
 }
 
 /* === BỔ SUNG: Quy tắc cho thẻ ảnh bên trong === */
 .team-item .team-body img {
-    width: 100%; 
+    width: 100%;
     height: 100%;
-    object-fit: cover; /* Đảm bảo ảnh phủ đầy khung mà không bị méo */
+    object-fit: cover;
+    /* Đảm bảo ảnh phủ đầy khung mà không bị méo */
 }
+
 /* ============================================== */
 
 .team-item .team-body .team-before,
@@ -322,7 +330,7 @@
     width: 0;
     /* CHỈNH SỬA: Thay thế chiều cao động (calc) bằng 100% 
        để lớp phủ bao phủ toàn bộ chiều cao 350px mới của ảnh */
-    height: 100%; 
+    height: 100%;
     top: 0;
     left: 0;
     background: rgba(0, 0, 0, .7);
@@ -403,18 +411,53 @@
 
 /*** Footer ***/
 @keyframes footerAnimatedBg {
-	0% {
+    0% {
         background-position: 0 0;
     }
 
-	100% {
+    100% {
         background-position: -1000px 0;
     }
 }
 
 .footer {
-	background-image: url(../img/footer-bg.png);
-	background-position: 0px 0px;
+    background-image: url(../img/footer-bg.png);
+    background-position: 0px 0px;
     background-repeat: repeat-x;
-	animation: footerAnimatedBg 50s linear infinite;
+    animation: footerAnimatedBg 50s linear infinite;
+}
+/* --- CSS cho Icon Yêu Thích và Bộ đếm --- */
+
+/* Thiết lập container cho icon để định vị tuyệt đối cho bộ đếm */
+.favorite-icon-container {
+    position: relative; 
+    /* Đảm bảo icon trái tim hiển thị là block/inline-block để position: relative hoạt động tốt */
+    display: inline-block; 
+    text-decoration: none; /* Loại bỏ gạch chân */
+}
+
+/* Định dạng và vị trí cho số lượng sản phẩm */
+#favorite-count {
+    position: absolute;
+    top: -8px; /* Đẩy lên trên */
+    right: -10px; /* Đẩy sang phải */
+    
+    /* Thiết kế hình tròn nhỏ chứa số lượng */
+    background-color: #e31b23; /* Màu đỏ nổi bật (có thể dùng màu chủ đạo của Nike) */
+    color: white; 
+    border-radius: 50%;
+    padding: 1px 5px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    line-height: 1;
+    
+    /* Đảm bảo số lượng hiển thị giữa */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px; /* Kích thước tối thiểu cho số 1 */
+    height: 18px;
+    
+    /* Z-index để đảm bảo nó nằm trên icon trái tim */
+    z-index: 10; 
 }

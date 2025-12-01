@@ -1,0 +1,47 @@
+.map-container {
+    display: flex;
+    height: calc(100vh - 80px);
+}
+
+#sidebar {
+    width: 400px;
+    max-width: 35%;
+    padding: 20px;
+    overflow-y: auto;
+    border-right: 1px solid #ccc;
+    flex-shrink: 0;
+}
+
+#map {
+    flex-grow: 1;
+    height: 100%;
+}
+
+.store-card {
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+    cursor: pointer;
+}
+
+.store-card:hover {
+    background-color: #f8f8f8;
+}
+
+.store-name {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #000;
+}
+
+.store-status {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.status-closed {
+    color: #dc3545;
+}
+
+.status-open {
+    color: #28a745;
+}

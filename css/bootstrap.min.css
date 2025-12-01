@@ -234,7 +234,7 @@ sup {
 }
 
 a {
-    color:white;
+    color: white;
     text-decoration: none
 }
 
@@ -3503,7 +3503,7 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-primary:hover {
-    color:white;
+    color: white;
     background-color: #e41779;
     border-color: #e41779
 }
@@ -3819,7 +3819,7 @@ fieldset:disabled .btn {
 
 .btn-link {
     font-weight: 400;
-    color:white;
+    color: white;
     text-decoration: none
 }
 

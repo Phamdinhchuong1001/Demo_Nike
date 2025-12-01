@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // 1. Định nghĩa các biến trạng thái
     const images = document.querySelectorAll('.slideshow-image');
     let currentIndex = 0;
@@ -26,5 +26,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 3. Thiết lập tự động chuyển đổi
     // Thiết lập interval để gọi hàm showNextImage sau mỗi 5 giây (5000ms)
-    setInterval(showNextImage, 5000); 
+    setInterval(showNextImage, 5000);
 });

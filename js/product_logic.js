@@ -5,15 +5,17 @@
 // Khởi tạo trạng thái lọc và sắp xếp
 let currentFilters = {
     // Loại sản phẩm chính: 'Giày' hoặc 'Quần Áo'
-    productType: 'Giày', 
+    productType: 'Giày',
     gender: 'Nam', // 'Nam', 'Nữ'
-    category: '', 
-    price: 'all', 
+    category: '',
+    price: 'all',
     status: [], // Ví dụ: ['sale', 'new']
-    size: null, 
+    size: null,
+    // THÊM TRƯỜNG TÌM KIẾM
+    searchTerm: '', 
 };
 
-let currentSort = 'newest'; 
+let currentSort = 'newest';
 
 
 // =======================================================
@@ -52,8 +54,8 @@ function createProductHtml(product) {
     }
 
     // Lấy ảnh đầu tiên hoặc ảnh mặc định
-    const imageUrl = product.images?.[0] || product.imageUrl; 
-    
+    const imageUrl = product.images?.[0] || product.imageUrl;
+
     // Tạo HTML tổng thể cho sản phẩm
     return `
         <div class="col-md-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s" data-product-id="${product.id}">
@@ -108,15 +110,27 @@ function renderProducts(products) {
 function applyFilters(data) {
     return data.filter(product => {
         let isMatch = true;
-        
+
         // LỌC 0: LỌC THEO LOẠI SẢN PHẨM (Giày/Quần Áo) - ĐIỀU KIỆN CHÍNH
         if (currentFilters.productType && product.productType !== currentFilters.productType) {
-            return false; 
+            return false;
         }
         // LỌC 0.5: LỌC THEO GIỚI TÍNH (Nam/Nữ) - ĐIỀU KIỆN PHỤ
         if (currentFilters.gender && product.gender !== currentFilters.gender) {
-            return false; 
+            return false;
         }
+
+        // LỌC 0.6: LỌC THEO TỪ KHÓA TÌM KIẾM (Search Term)
+        if (currentFilters.searchTerm) {
+            const normalizedSearchTerm = currentFilters.searchTerm.trim().toLowerCase();
+            const productName = product.name ? product.name.toLowerCase() : '';
+            
+            // Kiểm tra xem tên sản phẩm có chứa từ khóa tìm kiếm hay không
+            if (!productName.includes(normalizedSearchTerm)) {
+                return false;
+            }
+        }
+
 
         // LỌC 1: Lọc theo Danh mục (Category/product.type)
         if (currentFilters.category && product.type !== currentFilters.category) {
@@ -126,7 +140,7 @@ function applyFilters(data) {
         // LỌC 2: Lọc theo Giá (Price Range)
         if (isMatch && currentFilters.price !== 'all') {
             const [min, max] = currentFilters.price.split('-').map(Number);
-            if (product.price < min || product.price > max) { 
+            if (product.price < min || product.price > max) {
                 isMatch = false;
             }
         }
@@ -142,24 +156,24 @@ function applyFilters(data) {
         // LỌC 4: Lọc theo Kích thước (Size) và trạng thái có sẵn
         if (isMatch && currentFilters.size !== null) {
             let hasSize = false;
-            const targetSize = currentFilters.size; 
+            const targetSize = currentFilters.size;
 
             if (Array.isArray(product.sizes)) {
-                 // Kiểm tra trong mảng sizes của sản phẩm
-                 hasSize = product.sizes.some(sizeItem => {
-                    const itemSize = String(sizeItem.size).toUpperCase(); 
+                // Kiểm tra trong mảng sizes của sản phẩm
+                hasSize = product.sizes.some(sizeItem => {
+                    const itemSize = String(sizeItem.size).toUpperCase();
                     const filterSize = String(targetSize).toUpperCase();
-                    
+
                     // Lọc theo kích thước VÀ trạng thái có sẵn (available: true)
                     return itemSize === filterSize && sizeItem.available;
-                 });
+                });
             }
-            
+
             if (!hasSize) {
                 isMatch = false;
             }
         }
-        
+
         return isMatch;
     });
 }
@@ -195,7 +209,7 @@ function updateProductDisplay() {
         console.error("Lỗi: productsData chưa được tải.");
         return;
     }
-    
+
     let filteredProducts = applyFilters(productsData);
     let finalProducts = applySorting(filteredProducts);
     renderProducts(finalProducts);
@@ -210,16 +224,16 @@ function updateProductDisplay() {
  * @returns {string} 'Giày' hoặc 'Quần Áo'.
  */
 function getInitialProductType() {
-    const pathname = window.location.pathname.toLowerCase(); 
-    
+    const pathname = window.location.pathname.toLowerCase();
+
     if (pathname.includes('phukien')) { // <-- THÊM ĐOẠN NÀY
-        return 'Phụ Kiện'; 
+        return 'Phụ Kiện';
     } else if (pathname.includes('ao')) {
-        return 'Quần Áo'; 
+        return 'Quần Áo';
     } else if (pathname.includes('giay')) {
         return 'Giày';
     }
-    return 'Giày'; 
+    return 'Giày';
 }
 function getInitialGender() {
     const pathname = window.location.pathname.toLowerCase();
@@ -236,14 +250,15 @@ function setProductType(type) {
     if (currentFilters.productType === type) return; // Không làm gì nếu loại sản phẩm không đổi
 
     currentFilters.productType = type;
-    
+
     // Reset các bộ lọc khác khi chuyển đổi loại sản phẩm
     currentFilters.category = '';
     currentFilters.price = 'all';
     currentFilters.status = [];
-    currentFilters.size = null; 
+    currentFilters.size = null;
+    currentFilters.searchTerm = ''; // Reset cả thanh tìm kiếm
     currentSort = 'newest';
-    
+
     // Cập nhật giao diện bộ lọc và hiển thị sản phẩm
     resetFilterUI();
     updateProductDisplay();
@@ -261,10 +276,14 @@ function resetFilterUI() {
         btn.classList.remove('active', 'btn-light');
         btn.classList.add('btn-outline-light');
     });
+    
+    // Reset thanh tìm kiếm
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) searchInput.value = '';
 
     const sortByDropdown = document.getElementById('sortByDropdown');
     if (sortByDropdown) {
-        sortByDropdown.textContent = 'Sắp Xếp Theo'; 
+        sortByDropdown.textContent = 'Sắp Xếp Theo';
     }
 }
 
@@ -274,45 +293,62 @@ function resetFilterUI() {
 
 document.addEventListener('DOMContentLoaded', function () {
     // KHỞI TẠO: Thiết lập loại sản phẩm ban đầu và hiển thị.
-    currentFilters.productType = getInitialProductType(); 
+    currentFilters.productType = getInitialProductType();
     currentFilters.gender = getInitialGender();
     updateProductDisplay();
-    
+
     // Logic Gắn sự kiện cho nút chuyển đổi loại sản phẩm (Giày/Quần Áo)
-    document.getElementById('shoesTab')?.addEventListener('click', function(e) {
+    document.getElementById('shoesTab')?.addEventListener('click', function (e) {
         e.preventDefault();
         setProductType('Giày');
     });
 
-    document.getElementById('apparelTab')?.addEventListener('click', function(e) {
+    document.getElementById('apparelTab')?.addEventListener('click', function (e) {
         e.preventDefault();
         setProductType('Quần Áo');
     });
+    
+    // Logic Tìm kiếm (Search)
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        // Sử dụng event 'input' để lọc ngay khi người dùng gõ
+        searchInput.addEventListener('input', function() {
+            // Cập nhật trạng thái tìm kiếm
+            currentFilters.searchTerm = this.value; 
+            // Gọi hàm tổng hợp để lọc lại và hiển thị kết quả
+            updateProductDisplay();
+        });
+        
+        // Ngăn chặn việc gửi form khi nhấn Enter trong ô tìm kiếm
+        searchInput.closest('form')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+        });
+    }
 
     // Logic Ẩn/Hiện Bộ Lọc (Sidebar) và điều chỉnh kích thước lưới sản phẩm.
     const toggleButton = document.getElementById('hideFiltersToggle');
     const filterSidebar = document.getElementById('filterSidebar')?.parentElement;
     const productGridContainer = document.getElementById('productGridContainer');
-    
+
     if (toggleButton && filterSidebar && productGridContainer) {
-        toggleButton.addEventListener('click', function() {
-            filterSidebar.classList.toggle('d-none'); 
+        toggleButton.addEventListener('click', function () {
+            filterSidebar.classList.toggle('d-none');
 
             if (filterSidebar.classList.contains('d-none')) {
                 productGridContainer.classList.remove('col-lg-9');
                 productGridContainer.classList.add('col-lg-12');
-                toggleButton.textContent = 'Hiện Bộ Lọc'; 
+                toggleButton.textContent = 'Hiện Bộ Lọc';
             } else {
                 productGridContainer.classList.remove('col-lg-12');
                 productGridContainer.classList.add('col-lg-9');
-                toggleButton.textContent = 'Ẩn Bộ Lọc'; 
+                toggleButton.textContent = 'Ẩn Bộ Lọc';
             }
         });
     }
 
     // Tùy chọn: Thêm xoay biểu tượng chevron khi mở/đóng bộ lọc (Collapse).
     document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(toggler => {
-        toggler.addEventListener('click', function() {
+        toggler.addEventListener('click', function () {
             const icon = this.querySelector('.fa-chevron-down');
             if (icon) {
                 icon.classList.toggle('fa-rotate-180');
@@ -322,10 +358,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Logic Lọc theo Danh mục (Category)
     document.querySelectorAll('#categoryFilter a').forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
             const category = this.getAttribute('data-filter-value');
-            
+
             document.querySelectorAll('#categoryFilter a').forEach(a => a.classList.remove('active-filter'));
             this.classList.add('active-filter');
 
@@ -336,7 +372,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Logic Lọc theo Giá (Price)
     document.querySelectorAll('#priceFilter input[type="radio"]').forEach(radio => {
-        radio.addEventListener('change', function() {
+        radio.addEventListener('change', function () {
             currentFilters.price = this.value;
             updateProductDisplay();
         });
@@ -344,7 +380,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Logic Lọc theo Trạng thái (Status)
     document.querySelectorAll('#saleFilter input[type="checkbox"]').forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
+        checkbox.addEventListener('change', function () {
             const statusValue = this.value;
             if (this.checked) {
                 if (!currentFilters.status.includes(statusValue)) {
@@ -356,13 +392,13 @@ document.addEventListener('DOMContentLoaded', function () {
             updateProductDisplay();
         });
     });
-    
+
     // Logic Lọc theo Kích thước (Size)
     document.querySelectorAll('#sizeFilter .size-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            const size = this.getAttribute('data-size'); 
+        button.addEventListener('click', function () {
+            const size = this.getAttribute('data-size');
             const isActive = this.classList.contains('active');
-            
+
             // Xóa active của tất cả các nút
             document.querySelectorAll('#sizeFilter .size-btn').forEach(btn => btn.classList.remove('active', 'btn-light'));
             document.querySelectorAll('#sizeFilter .size-btn').forEach(btn => btn.classList.add('btn-outline-light'));
@@ -383,10 +419,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Logic Sắp xếp (Sort By)
     document.querySelectorAll('#sortByDropdown + .dropdown-menu a').forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
             currentSort = this.getAttribute('data-sort-by');
-            
+
             const dropdownToggle = document.getElementById('sortByDropdown');
             dropdownToggle.textContent = 'Sắp Xếp Theo: ' + this.textContent;
 

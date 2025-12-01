@@ -37,7 +37,7 @@ const productsData = [
     {
         id: 'tantum-4-pf-st-louis-jordan',
         name: 'Jordan Tatum 4 PF "St. Louis"',
-        productType: 'Giày', 
+        productType: 'Giày',
         type: 'Jordan',
         category: "Giày Nam | Hàng Mới Về",
         gender: 'Nam',
@@ -92,7 +92,7 @@ const productsData = [
     {
         id: 'field-general-brown',
         name: 'Nike Dunk Low Retro Limited',
-        productType: 'Giày', 
+        productType: 'Giày',
         type: 'Chạy Bộ',
         category: "Giày Nam | Hàng Mới Về",
         gender: 'Nam',
@@ -117,7 +117,7 @@ const productsData = [
     {
         id: 'kobe-air-force-1-low',
         name: 'Kobe Air Force 1 Low',
-        productType: 'Giày', 
+        productType: 'Giày',
         type: 'Chạy Bộ',
         category: "Giày Nam | Hàng Mới Về",
         gender: 'Nam',
@@ -142,13 +142,13 @@ const productsData = [
     {
         id: 'nike-air-force-1-gore-tex',
         name: 'Nike Air Force 1 GORE-TEX ®',
-        productType: 'Giày', 
+        productType: 'Giày',
         type: 'Chạy Bộ',
         category: "Giày Nam | Hàng Mới Về",
         gender: 'Nam',
         price: 4699000,
         originalPrice: null,
-        status:["memberExclusive"],
+        status: ["memberExclusive"],
         description: 'Nike Air Force 1 GORE-TEX® làm mới mẫu Air Force 1 huyền thoại với thiết kế đậm chất đường phố nhưng vẫn đáp ứng tiêu chuẩn chống thấm nước của công nghệ GORE-TEX®. Giày được trang bị dây dẹt chống thấm, lớp lót bootie GORE-TEX® và logo GORE-TEX® ở phần gót.',
         images: [
             '../assets/images/product/men/shoe/product_10.avif',
@@ -170,7 +170,7 @@ const productsData = [
     {
         id: 'acg-zoom-gaiadome',
         name: 'Nike Shox Ride 2 Premium',
-        productType: 'Giày', 
+        productType: 'Giày',
         type: 'Bóng Rổ',
         category: "Giày Nam | Chống Nước",
         gender: 'Nam',
@@ -194,7 +194,7 @@ const productsData = [
     {
         id: 'ja-3-sail-ep',
         name: 'Ja 3 "Sail" EP',
-        productType: 'Giày', 
+        productType: 'Giày',
         type: 'Bóng Rổ',
         category: "Giày Nam | Bóng Rổ",
         gender: 'Nam',
@@ -220,7 +220,7 @@ const productsData = [
     {
         id: 'lebron-xxi-prime-96-ep',
         name: 'LeBron XXI Prime 96" EP',
-        productType: 'Giày', 
+        productType: 'Giày',
         type: 'Bóng Rổ',
         category: "Giày Nam | Bóng Rổ",
         gender: 'Nam',
@@ -247,7 +247,7 @@ const productsData = [
     {
         id: 'air-max-sc',
         name: 'Nike Total 90',
-        productType: 'Giày', 
+        productType: 'Giày',
         type: 'Phong cách sống',
         category: "Giày Nam | Giảm Giá",
         gender: 'Nam',
@@ -271,7 +271,7 @@ const productsData = [
     {
         id: 'air-force-1-07',
         name: 'Nike Cortez SE',
-        productType: 'Giày', 
+        productType: 'Giày',
         type: 'Phong cách sống',
         category: "Giày Nam | Phong cách sống",
         gender: 'Nam',
@@ -295,7 +295,7 @@ const productsData = [
     {
         id: 'dunk-low-retro',
         name: 'Nike Field General Leather',
-        productType: 'Giày', 
+        productType: 'Giày',
         type: 'Phong cách sống',
         category: "Giày Nam | Phong cách sống",
         gender: 'Nam',
@@ -320,7 +320,7 @@ const productsData = [
     {
         id: 'nike-phantom-6-high-elite-ea-sports-fc',
         name: 'Nike Phantom 6 High Elite "EA SPORTS FC"',
-        productType: 'Giày', 
+        productType: 'Giày',
         type: 'Bóng Đá',
         category: "Giày Nam | Giày Bóng Đá",
         gender: 'Nam',
@@ -346,7 +346,7 @@ const productsData = [
     {
         id: 'nike-united-mercurial-vapor-16-academy',
         name: 'Nike United Mercurial Vapor 16 Academy',
-        productType: 'Giày', 
+        productType: 'Giày',
         type: 'Bóng Đá',
         category: "Giày Nam | Giày Bóng Đá",
         gender: 'Nam',
@@ -363,7 +363,7 @@ const productsData = [
         sizes: [
             { size: 40, available: true },
             { size: 41, available: true },
-            { size: 42, available: false},
+            { size: 42, available: false },
             { size: 43, available: true },
             { size: 44, available: true },
             { size: 45, available: false },
@@ -373,7 +373,7 @@ const productsData = [
     {
         id: 'nike-mercurial-superfly-10-elite-kylian-mbappe',
         name: 'Nike Mercurial Superfly 10 Elite "Kylian Mbappé"',
-        productType: 'Giày', 
+        productType: 'Giày',
         type: 'Bóng Đá',
         category: "Giày Nam | Giày Bóng Đá",
         gender: 'Nam',
@@ -398,7 +398,7 @@ const productsData = [
     {
         id: 'nike-mind-001',
         name: 'Nike Mind 001',
-        productType: 'Giày', 
+        productType: 'Giày',
         type: 'Đi Bộ',
         category: "Giày Nam | Dép & Sandal",
         gender: 'Nam',
@@ -425,7 +425,7 @@ const productsData = [
     {
         id: 'nike-offcourt-easyon',
         name: 'Nike Offcourt EasyOn',
-        productType: 'Giày', 
+        productType: 'Giày',
         type: 'Đi Bộ',
         category: "Giày Nam | Dép & Sandal",
         gender: 'Nam',
@@ -450,7 +450,7 @@ const productsData = [
     {
         id: 'air-jordan-mule-shoe',
         name: 'Air Jordan Mule',
-        productType: 'Giày', 
+        productType: 'Giày',
         type: 'Đi Bộ',
         category: "Giày Nam | Dép & Sandal",
         gender: 'Nam',
@@ -472,7 +472,7 @@ const productsData = [
             { size: 44, available: false },
         ],
     },
-    
+
     // ============================================== SẢN PHẨM QUẦN ÁO NAM ====================================================
     //----------------------------------- Áo Thun --------------------------------------------//
     {
@@ -502,7 +502,7 @@ const productsData = [
     {
         id: 'nike-sportswear-premium-essentials',
         name: 'Nike Sportswear Premium Essentials',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Áo Thun',
         category: "Quần Áo Nam | Áo Thun",
         gender: 'Nam',
@@ -526,7 +526,7 @@ const productsData = [
     {
         id: 'nike-club-fleece',
         name: 'Nike Club Fleece',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Áo Thun',
         category: "Quần Áo Nam | sweatshirt",
         gender: 'Nam',
@@ -551,7 +551,7 @@ const productsData = [
     {
         id: 'nike-stride-eliud-kipchoge',
         name: 'Nike Stride "Eliud Kipchoge"',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Chạy Bộ',
         category: "Quần Áo Nam | Áo Khoác Chạy Bộ",
         gender: 'Nam',
@@ -574,7 +574,7 @@ const productsData = [
     {
         id: 'stride-eliud-kipchoge',
         name: 'Nike Stride "Eliud Kipchoge"',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Chạy Bộ',
         category: "Quần Áo Nam | Áo Chạy Bộ",
         gender: 'Nam',
@@ -598,7 +598,7 @@ const productsData = [
     {
         id: 'eliud-kipchoge-nike-stride',
         name: 'Nike Stride Eliud Kipchoge',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Chạy Bộ',
         category: "Quần Áo Nam | Áo Thun Chạy Bộ",
         gender: 'Nam',
@@ -622,7 +622,7 @@ const productsData = [
     {
         id: 'dri-fit-adv-shorts',
         name: 'Nike Tech Pack',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Bóng Rổ',
         category: "Quần Áo Nam | Tập Luyện",
         gender: 'Nam',
@@ -646,7 +646,7 @@ const productsData = [
     {
         id: 'just-do-it-nike-basketball',
         name: 'Just Do It: Nike Basketball',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Bóng Rổ',
         category: "Quần Áo Nam | Áo Thun Bóng Rổ",
         gender: 'Nam',
@@ -670,7 +670,7 @@ const productsData = [
     {
         id: 'lebron-point-forward',
         name: 'LeBron "Point Forward"',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Bóng Rổ',
         category: "Quần Áo Nam | Tập Luyện",
         gender: 'Nam',
@@ -695,7 +695,7 @@ const productsData = [
     {
         id: 'nike-solo-swoosh',
         name: 'Nike Solo Swoosh',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Áo Khoác',
         category: "Quần Áo Nam | Hoodie Zip",
         gender: 'Nam',
@@ -719,7 +719,7 @@ const productsData = [
     {
         id: 'nike-air',
         name: 'Nike Air',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Áo Khoác',
         category: "Quần Áo Nam | Jacket",
         gender: 'Nam',
@@ -744,7 +744,7 @@ const productsData = [
     {
         id: 'nike-club',
         name: 'Nike Club',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Áo Khoác',
         category: "Quần Áo Nam | Jacket",
         gender: 'Nam',
@@ -770,7 +770,7 @@ const productsData = [
     {
         id: 'nike-dri-fit-challenger',
         name: 'Nike Dri-FIT Challenger',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Quần Short',
         category: "Quần Áo Nam | Quần Nỉ Ngắn",
         gender: 'Nam',
@@ -794,7 +794,7 @@ const productsData = [
     {
         id: 'jordan-brooklyn-fleece',
         name: 'Jordan Brooklyn Fleece',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Quần Short',
         category: "Quần Áo Nam | Quần Ngắn Thể Thao",
         gender: 'Nam',
@@ -818,7 +818,7 @@ const productsData = [
     {
         id: 'jordan-sport-diamond',
         name: 'Jordan Sport Diamond',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Quần Short',
         category: "Quần Áo Nam | Quần Ngắn",
         gender: 'Nam',
@@ -843,7 +843,7 @@ const productsData = [
     {
         id: 'jordan-essentials',
         name: 'Jordan Essentials',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Quần Dài',
         category: "Quần Áo Nam | Quần Dài Chống Thấm",
         gender: 'Nam',
@@ -867,7 +867,7 @@ const productsData = [
     {
         id: 'nike-solo-swoosh-pants-fleece-warm',
         name: 'Nike Solo Swoosh',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Quần Dài',
         category: "Quần Áo Nam | Quần Dài Thời Trang",
         gender: 'Nam',
@@ -891,7 +891,7 @@ const productsData = [
     {
         id: 'nike-dri-fit',
         name: 'Nike Dri-FIT',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Quần Dài',
         category: "Quần Áo Nam | Quần Dài Tập Luyện",
         gender: 'Nam',
@@ -938,7 +938,7 @@ const productsData = [
     {
         id: 'heritage-backpack',
         name: 'Nike Heritage',
-        productType: 'Phụ Kiện', 
+        productType: 'Phụ Kiện',
         type: 'Túi & Ba Lô',
         category: "Phụ Kiện Nam | Ba Lô",
         gender: 'Nam',
@@ -947,19 +947,19 @@ const productsData = [
         status: ["sale"],
         description: 'Chiếc balo này luôn đồng hành cùng bạn. Ngăn chính giúp bạn để laptop tách biệt với các vật dụng lớn, ngăn trước có khóa kéo giữ an toàn cho những đồ nhỏ cần thiết, và bên hông có ngăn để chai nước.',
         images: [
-            '../assets/images/product/men/accessory/pk2bag.avif', 
+            '../assets/images/product/men/accessory/pk2bag.avif',
             '../assets/images/product/men/product_detail_accessory/pk2_1bag.avif',
             '../assets/images/product/men/product_detail_accessory/pk2_2bag.avif',
             '../assets/images/product/men/product_detail_accessory/pk2_3bag.avif'
         ],
         sizes: [
-            { size: 'OS', available: true }, 
+            { size: 'OS', available: true },
         ],
     },
     {
         id: 'academy-team-bagback',
         name: 'Nike Academy Team',
-        productType: 'Phụ Kiện', 
+        productType: 'Phụ Kiện',
         type: 'Túi & Ba Lô',
         category: "Phụ Kiện Nam | Ba Lô",
         gender: 'Nam',
@@ -968,20 +968,20 @@ const productsData = [
         status: ["new"],
         description: 'Chiếc balo này luôn đồng hành cùng bạn. Ngăn chính giúp bạn để laptop tách biệt với các vật dụng lớn, ngăn trước có khóa kéo giữ an toàn cho những đồ nhỏ cần thiết, và bên hông có ngăn để chai nước.',
         images: [
-            '../assets/images/product/men/accessory/pk3bag.avif', 
+            '../assets/images/product/men/accessory/pk3bag.avif',
             '../assets/images/product/men/product_detail_accessory/pk3_1bag.avif',
             '../assets/images/product/men/product_detail_accessory/pk3_2bag.avif',
             '../assets/images/product/men/product_detail_accessory/pk3_3bag.avif'
         ],
         sizes: [
-            { size: 'OS', available: true }, 
+            { size: 'OS', available: true },
         ],
     },
     //---------------------------------- Vớ (Tất) Nam --------------------------------------------//
     {
         id: 'multiplier-socks',
         name: 'Nike Multiplier',
-        productType: 'Phụ Kiện', 
+        productType: 'Phụ Kiện',
         type: 'Vớ (Tất)',
         category: "Phụ Kiện Nam | Vớ (Tất)",
         gender: 'Nam',
@@ -990,20 +990,20 @@ const productsData = [
         status: ["new"],
         description: 'Chiếc balo này luôn đồng hành cùng bạn. Ngăn chính giúp bạn để laptop tách biệt với các vật dụng lớn, ngăn trước có khóa kéo giữ an toàn cho những đồ nhỏ cần thiết, và bên hông có ngăn để chai nước.',
         images: [
-            '../assets/images/product/men/accessory/pk1socks.avif', 
+            '../assets/images/product/men/accessory/pk1socks.avif',
             '../assets/images/product/men/product_detail_accessory/pk1_1socks.avif',
             '../assets/images/product/men/product_detail_accessory/pk1_2socks.avif',
             '../assets/images/product/men/product_detail_accessory/pk1_3socks.avif',
-            
+
         ],
         sizes: [
-            { size: 'OS', available: true }, 
+            { size: 'OS', available: true },
         ],
     },
     {
         id: 'everyday-lightweight-socks',
         name: 'Nike Everyday Lightweight',
-        productType: 'Phụ Kiện', 
+        productType: 'Phụ Kiện',
         type: 'Vớ (Tất)',
         category: "Phụ Kiện Nam | Vớ (Tất)",
         gender: 'Nam',
@@ -1012,8 +1012,8 @@ const productsData = [
         status: ["new"],
         description: 'Hãy bứt phá trong buổi tập của bạn với vớ Nike Everyday. Sợi vải mềm kết hợp công nghệ thấm hút mồ hôi giúp giữ cho đôi chân của bạn luôn thoải mái và khô ráo.',
         images: [
-            '../assets/images/product/men/accessory/pk2socks.avif', 
-            '../assets/images/product/men/product_detail_accessory/pk2_1socks.avif', 
+            '../assets/images/product/men/accessory/pk2socks.avif',
+            '../assets/images/product/men/product_detail_accessory/pk2_1socks.avif',
         ],
         sizes: [
             { size: 'OS', available: true },
@@ -1022,7 +1022,7 @@ const productsData = [
     {
         id: 'everyday-plus-cushioned-socks',
         name: 'Nike Everyday Plus Cushioned',
-        productType: 'Phụ Kiện', 
+        productType: 'Phụ Kiện',
         type: 'Vớ (Tất)',
         category: "Phụ Kiện Nam | Vớ (Tất)",
         gender: 'Nam',
@@ -1031,7 +1031,7 @@ const productsData = [
         status: ["sale"],
         description: 'Vớ Nike Everyday Plus Cushioned mang lại sự thoải mái cho buổi tập của bạn nhờ lớp đệm bổ sung ở gót và phần trước bàn chân, cùng với dải ôm hỗ trợ ở giữa bàn chân. Khả năng thấm hút mồ hôi và độ thoáng khí ở phần mặt trên giúp giữ cho đôi chân của bạn luôn khô thoáng và mát mẻ, hỗ trợ bạn chinh phục thêm những bài tập tiếp theo.',
         images: [
-            '../assets/images/product/men/accessory/pk3socks.avif', 
+            '../assets/images/product/men/accessory/pk3socks.avif',
             '../assets/images/product/men/product_detail_accessory/pk3_1socks.avif',
             '../assets/images/product/men/product_detail_accessory/pk3_2socks.avif',
             '../assets/images/product/men/product_detail_accessory/pk3_3socks.avif',
@@ -1044,7 +1044,7 @@ const productsData = [
     {
         id: 'dri-fit-club-hat',
         name: 'Nike Dri-FIT Club',
-        productType: 'Phụ Kiện', 
+        productType: 'Phụ Kiện',
         type: 'Mũ & Phụ kiện đầu',
         category: "Phụ Kiện Nam | Mũ ",
         gender: 'Nam',
@@ -1053,7 +1053,7 @@ const productsData = [
         status: ["memberExclusive"]["new"],
         description: 'Nâng tầm phong cách Swoosh của bạn với chiếc mũ Club Cap dáng trung, form mềm không cấu trúc. Vành mũ cong và logo Swoosh kim loại mang đến vẻ ngoài gọn gàng, tinh tế, trong khi chất liệu thấm hút mồ hôi giúp bạn luôn mát mẻ và thoải mái trong những ngày nắng ấm.',
         images: [
-            '../assets/images/product/men/accessory/pk1hat.avif', 
+            '../assets/images/product/men/accessory/pk1hat.avif',
             '../assets/images/product/men/product_detail_accessory/pk1_1hat.avif',
             '../assets/images/product/men/product_detail_accessory/pk1_2hat.avif',
         ],
@@ -1066,7 +1066,7 @@ const productsData = [
     {
         id: 'dri-fit-adv-rise-hat',
         name: 'Nike Dri-FIT ADV Rise',
-        productType: 'Phụ Kiện', 
+        productType: 'Phụ Kiện',
         type: 'Mũ & Phụ kiện đầu',
         category: "Phụ Kiện Nam | Mũ ",
         gender: 'Nam',
@@ -1075,7 +1075,7 @@ const productsData = [
         status: ["memberExclusive"],
         description: 'Thiết kế dáng cao, form cứng cáp của mũ Nike Rise sử dụng chất liệu thấm hút mồ hôi tiên tiến, giúp bạn luôn mát mẻ và thoáng sạch suốt cả ngày. Mũ được hoàn thiện với vành AeroBill linh hoạt và độ thoáng khí tuyệt vời, để bạn có thể tập trung hoàn toàn vào từng lần lặp và chinh phục mục tiêu tiếp theo.',
         images: [
-            '../assets/images/product/men/accessory/pk2hat.avif', 
+            '../assets/images/product/men/accessory/pk2hat.avif',
             '../assets/images/product/men/product_detail_accessory/pk2_1hat.avif',
         ],
         sizes: [
@@ -1087,7 +1087,7 @@ const productsData = [
     {
         id: 'jordan-rise-hat',
         name: 'Jordan Rise',
-        productType: 'Phụ Kiện', 
+        productType: 'Phụ Kiện',
         type: 'Mũ & Phụ kiện đầu',
         category: "Phụ Kiện Nam | Mũ ",
         gender: 'Nam',
@@ -1096,7 +1096,7 @@ const productsData = [
         status: ["new"],
         description: 'Nylon dệt bền bỉ cùng vành mũ cong mang đến cho chiếc mũ vẻ ngoài cổ điển. Logo Jumpman kim loại tạo điểm nhấn đậm chất Jordan mà bạn có thể tự tin đội mỗi ngày.',
         images: [
-            '../assets/images/product/men/accessory/pk3hat.avif', 
+            '../assets/images/product/men/accessory/pk3hat.avif',
             '../assets/images/product/men/product_detail_accessory/pk3_1hat.avif',
             '../assets/images/product/men/product_detail_accessory/pk3_2hat.avif',
             '../assets/images/product/men/product_detail_accessory/pk3_3hat.avif',
@@ -1112,7 +1112,7 @@ const productsData = [
     {
         id: 'mbappe-training-cap',
         name: 'Nike Mercurial Lite Kylian Mbappé',
-        productType: 'Phụ Kiện', 
+        productType: 'Phụ Kiện',
         type: 'Thiết Bị Tập Luyện',
         category: "Phụ Kiện Nam | Nẹp Ống Đồng",
         gender: 'Nam',
@@ -1121,7 +1121,7 @@ const productsData = [
         status: ["new"],
         description: 'Mê tốc độ? Tụi mình cũng vậy. Được thiết kế mỏng nhẹ và gọn gàng, miếng bảo vệ ống đồng Mbappé PE này giúp hấp thụ lực va chạm mà không ảnh hưởng đến khả năng di chuyển linh hoạt của bạn.',
         images: [
-            '../assets/images/product/men/accessory/pk1tranning.avif', 
+            '../assets/images/product/men/accessory/pk1tranning.avif',
         ],
         sizes: [
             { size: 'S', available: true },
@@ -1133,7 +1133,7 @@ const productsData = [
     {
         id: 'academy-training-cap',
         name: 'Nike Academy',
-        productType: 'Phụ Kiện', 
+        productType: 'Phụ Kiện',
         type: 'Thiết Bị Tập Luyện',
         category: "Phụ Kiện Nam | Quả Bóng",
         gender: 'Nam',
@@ -1142,7 +1142,7 @@ const productsData = [
         status: ["memberExclusive"],
         description: 'Mê tốc độ? Tụi mình cũng vậy. Được thiết kế mỏng nhẹ và gọn gàng, miếng bảo vệ ống đồng Mbappé PE này giúp hấp thụ lực va chạm mà không ảnh hưởng đến khả năng di chuyển linh hoạt của bạn.',
         images: [
-            '../assets/images/product/men/accessory/pk2tranning.avif', 
+            '../assets/images/product/men/accessory/pk2tranning.avif',
             '../assets/images/product/men/product_detail_accessory/pk2_1tranning.avif',
         ],
         sizes: [
@@ -1154,7 +1154,7 @@ const productsData = [
     {
         id: 'match-training-cap',
         name: 'Nike Match',
-        productType: 'Phụ Kiện', 
+        productType: 'Phụ Kiện',
         type: 'Thiết Bị Tập Luyện',
         category: "Phụ Kiện Nam | Găng tay Thủ Môn",
         gender: 'Nam',
@@ -1163,7 +1163,7 @@ const productsData = [
         status: ["new"],
         description: 'Hãy tự tin cản phá mọi cú sút với lòng bàn tay được đệm mút giúp hấp thụ lực từ những pha dứt điểm mạnh nhất. Bề mặt trơn giúp bạn bắt bóng chắc hơn, và các phần lưới thoáng khí giúp bàn tay luôn mát mẻ nhờ lưu thông không khí tốt.',
         images: [
-            '../assets/images/product/men/accessory/pk3tranning.avif', 
+            '../assets/images/product/men/accessory/pk3tranning.avif',
             '../assets/images/product/men/product_detail_accessory/pk3_1tranning.avif',
         ],
         sizes: [
@@ -1179,7 +1179,7 @@ const productsData = [
     {
         id: 'heritage-other-accessory',
         name: 'Nike Heritage',
-        productType: 'Phụ Kiện', 
+        productType: 'Phụ Kiện',
         type: 'Phụ Kiện Khác',
         category: "Phụ Kiện Nam | Túi Rút",
         gender: 'Nam',
@@ -1188,7 +1188,7 @@ const productsData = [
         status: ["memberExclusive"]["new"],
         description: 'Hãy mang đồ và lên đường với túi rút Nike Heritage Gymsack. Nhẹ và đơn giản, đây là cách tiện lợi để cất giữ và mang theo những vật dụng bạn cần cho việc tập luyện, vui chơi và tận hưởng ngày dài. Sản phẩm được làm từ ít nhất 65% polyester tái chế.',
         images: [
-            '../assets/images/product/men/accessory/pk1oder.avif', 
+            '../assets/images/product/men/accessory/pk1oder.avif',
             '../assets/images/product/men/product_detail_accessory/pk1_1oder.avif',
             '../assets/images/product/men/product_detail_accessory/pk1_2oder.avif',
             '../assets/images/product/men/product_detail_accessory/pk1_3oder.avif',
@@ -1201,7 +1201,7 @@ const productsData = [
     {
         id: 'nike-other-accessory',
         name: 'Nike',
-        productType: 'Phụ Kiện', 
+        productType: 'Phụ Kiện',
         type: 'Phụ Kiện Khác',
         category: "Phụ Kiện Nam | Vớ Nẹp Ống Đồng",
         gender: 'Nam',
@@ -1210,7 +1210,7 @@ const productsData = [
         status: ["memberExclusive"],
         description: 'Miếng bảo vệ ống đồng Nike Football có thiết kế dạng tất độc đáo với lớp vỏ cứng tích hợp và đệm mút giúp giảm chấn tại những vị trí bạn cần nhất. Phần mút bổ sung ở hai bên mắt cá chân tạo cảm giác ôm vừa vặn và thoải mái.',
         images: [
-            '../assets/images/product/men/accessory/pk2oder.avif', 
+            '../assets/images/product/men/accessory/pk2oder.avif',
             '../assets/images/product/men/product_detail_accessory/pk2_1oder.avif',
         ],
         sizes: [
@@ -1222,7 +1222,7 @@ const productsData = [
     {
         id: 'apex-other-accessory',
         name: 'Nike Apex',
-        productType: 'Phụ Kiện', 
+        productType: 'Phụ Kiện',
         type: 'Phụ Kiện Khác',
         category: "Phụ Kiện Nam | Mũ Tai Bèo",
         gender: 'Nam',
@@ -1231,7 +1231,7 @@ const productsData = [
         status: ["new"],
         description: 'Chào đón mũ Nike Apex Bucket vào bộ sưu tập của bạn. Thiết kế dáng trung được làm từ cotton mềm, đi kèm logo Futura thêu tinh tế, mang đến vẻ hoàn thiện đặc trưng của Nike. Quá trình xử lý vải giúp mũ mềm mại hơn và tạo phong cách cổ điển, càng đội càng có vẻ “cũ kỹ” hoàn hảo theo thời gian.',
         images: [
-            '../assets/images/product/men/accessory/pk3oder.avif', 
+            '../assets/images/product/men/accessory/pk3oder.avif',
             '../assets/images/product/men/product_detail_accessory/pk3_1oder.avif',
         ],
         sizes: [
@@ -1243,16 +1243,16 @@ const productsData = [
     // Thêm các sản phẩm phụ kiện khác ở đây...
     //===================================================== Giày Nữ ====================================================//
     //---------------------------------- Phong Cách Sống --------------------------------------------//
-    { 
-        id: 'nike-air-max-muse-women', 
-        name: 'Nike Air Max Muse', 
-        productType: 'Giày', 
-        type: 'Phong Cách Sống', 
+    {
+        id: 'nike-air-max-muse-women',
+        name: 'Nike Air Max Muse',
+        productType: 'Giày',
+        type: 'Phong Cách Sống',
         category: "Giày Nữ | Hàng Mới ",
-        gender: 'Nữ', 
-        price: 4409000, 
+        gender: 'Nữ',
+        price: 4409000,
         status: ["new"],
-        description:'Air Max Muse là một thành viên táo bạo và mang hơi hướng tương lai trong đại gia đình Air Max. Tỷ lệ thiết kế phóng đại, các chi tiết sắc nét và phần vòm chân cao bất ngờ tôn lên công nghệ Air đặc trưng của dòng giày. Hãy sẵn sàng—một kỷ nguyên thể hiện mới đã bắt đầu.',
+        description: 'Air Max Muse là một thành viên táo bạo và mang hơi hướng tương lai trong đại gia đình Air Max. Tỷ lệ thiết kế phóng đại, các chi tiết sắc nét và phần vòm chân cao bất ngờ tôn lên công nghệ Air đặc trưng của dòng giày. Hãy sẵn sàng—một kỷ nguyên thể hiện mới đã bắt đầu.',
         images: [
             '../assets/images/product/women/shoes/product1.avif',
             '../assets/images/product/women/product_detail_shoes/product1_1.avif',
@@ -1263,19 +1263,19 @@ const productsData = [
             { size: 36, available: true },
             { size: 37, available: true },
             { size: 38, available: true },
-            {size: 39, available: true },
+            { size: 39, available: true },
         ]
     },
-    { 
-        id: 'nike-air-superfly-women', 
-        name: 'Nike Air Superfly', 
-        productType: 'Giày', 
-        type: 'Phong Cách Sống', 
+    {
+        id: 'nike-air-superfly-women',
+        name: 'Nike Air Superfly',
+        productType: 'Giày',
+        type: 'Phong Cách Sống',
         category: "Giày Nữ | Hàng Mới ",
-        gender: 'Nữ', 
-        price: 3239000, 
+        gender: 'Nữ',
+        price: 3239000,
         status: ["memberExclusive"],
-        description:'Superfly mở ra một kỷ nguyên mới của thiết kế lấy cảm hứng từ chạy bộ. Nó trở lại từ kho lưu trữ giày chạy với công nghệ Air mới và phong thái mới. Phom dáng thấp và họa tiết đế ngoài gợi lại di sản điền kinh, trong khi các bề mặt có họa tiết mang đến diện mạo hiện đại, năng động hơn cho bạn.',
+        description: 'Superfly mở ra một kỷ nguyên mới của thiết kế lấy cảm hứng từ chạy bộ. Nó trở lại từ kho lưu trữ giày chạy với công nghệ Air mới và phong thái mới. Phom dáng thấp và họa tiết đế ngoài gợi lại di sản điền kinh, trong khi các bề mặt có họa tiết mang đến diện mạo hiện đại, năng động hơn cho bạn.',
         images: [
             '../assets/images/product/women/shoes/product2.avif',
             '../assets/images/product/women/product_detail_shoes/product2_1.avif',
@@ -1286,19 +1286,19 @@ const productsData = [
             { size: 36, available: true },
             { size: 37, available: true },
             { size: 38, available: true },
-            {size: 39, available: true },
+            { size: 39, available: true },
         ]
     },
-    { 
-        id: 'nike-air-max-muse-se-women', 
-        name: 'Nike Air Max Muse SE', 
-        productType: 'Giày', 
-        type: 'Phong Cách Sống', 
+    {
+        id: 'nike-air-max-muse-se-women',
+        name: 'Nike Air Max Muse SE',
+        productType: 'Giày',
+        type: 'Phong Cách Sống',
         category: "Giày Nữ | Hàng Mới ",
-        gender: 'Nữ', 
-        price: 4699000, 
+        gender: 'Nữ',
+        price: 4699000,
         status: ["new"]["memberExclusive"],
-        description:'Air Max Muse là một bổ sung táo bạo và mang hơi hướng tương lai cho gia đình Air Max. Thiết kế tỷ lệ phóng đại, các chi tiết hoàn thiện sắc nét và phần vòm chân cao đầy bất ngờ làm nổi bật công nghệ Air đặc trưng của dòng sản phẩm. Hãy sẵn sàng—một kỷ nguyên thể hiện mới đã bắt đầu.',
+        description: 'Air Max Muse là một bổ sung táo bạo và mang hơi hướng tương lai cho gia đình Air Max. Thiết kế tỷ lệ phóng đại, các chi tiết hoàn thiện sắc nét và phần vòm chân cao đầy bất ngờ làm nổi bật công nghệ Air đặc trưng của dòng sản phẩm. Hãy sẵn sàng—một kỷ nguyên thể hiện mới đã bắt đầu.',
         images: [
             '../assets/images/product/women/shoes/product3.avif',
             '../assets/images/product/women/product_detail_shoes/product3_1.avif',
@@ -1310,20 +1310,20 @@ const productsData = [
             { size: 36, available: true },
             { size: 37, available: true },
             { size: 38, available: true },
-            {size: 39, available: true },   
+            { size: 39, available: true },
         ]
     },
     //---------------------------------- Jordan--------------------------------------------//
-    { 
-        id: 'air-jordan-1-brooklyn-low-women', 
-        name: 'Air Jordan 1 Brooklyn Low', 
-        productType: 'Giày', 
-        type: 'Jordan', 
+    {
+        id: 'air-jordan-1-brooklyn-low-women',
+        name: 'Air Jordan 1 Brooklyn Low',
+        productType: 'Giày',
+        type: 'Jordan',
         category: "Giày Nữ | Jordan 1",
-        gender: 'Nữ', 
-        price: 4699000, 
+        gender: 'Nữ',
+        price: 4699000,
         status: ["memberExclusive"]["new"],
-        description:'Da full-grain cao cấp kết hợp cùng đế platform dày giúp nâng tầm phong cách cá nhân của bạn. Các rãnh đế phóng đại và đệm Nike Air hỗ trợ từng bước chân. Và đừng quên DNA của AJ1: chi tiết hình kim cương ở gót với biểu tượng Jumpman, khẳng định di sản bóng rổ trong phong cách của bạn.',
+        description: 'Da full-grain cao cấp kết hợp cùng đế platform dày giúp nâng tầm phong cách cá nhân của bạn. Các rãnh đế phóng đại và đệm Nike Air hỗ trợ từng bước chân. Và đừng quên DNA của AJ1: chi tiết hình kim cương ở gót với biểu tượng Jumpman, khẳng định di sản bóng rổ trong phong cách của bạn.',
         images: [
             '../assets/images/product/women/shoes/product4.avif',
             '../assets/images/product/women/product_detail_shoes/product4_1.avif',
@@ -1335,19 +1335,19 @@ const productsData = [
             { size: 36, available: true },
             { size: 37, available: true },
             { size: 38, available: true },
-            {size: 39, available: true },
+            { size: 39, available: true },
         ]
     },
-    { 
-        id: 'air-jordan-1-brooklyn-low-women-2', 
-        name: 'Air Jordan 1 Brooklyn Low', 
-        productType: 'Giày', 
-        type: 'Jordan', 
+    {
+        id: 'air-jordan-1-brooklyn-low-women-2',
+        name: 'Air Jordan 1 Brooklyn Low',
+        productType: 'Giày',
+        type: 'Jordan',
         category: "Giày Nữ | Jordan 1",
-        gender: 'Nữ', 
-        price: 4699000, 
+        gender: 'Nữ',
+        price: 4699000,
         status: ["new"],
-        description:'Da full-grain cao cấp kết hợp với đế platform dày giúp tôn lên phong cách cá nhân của bạn. Các rãnh đế phóng đại cùng đệm Nike Air hỗ trợ từng bước đi. Đặc trưng AJ1 vẫn hiện hữu: chi tiết kim cương ở gót với logo Jumpman, khẳng định di sản bóng rổ trong phong cách của bạn.',
+        description: 'Da full-grain cao cấp kết hợp với đế platform dày giúp tôn lên phong cách cá nhân của bạn. Các rãnh đế phóng đại cùng đệm Nike Air hỗ trợ từng bước đi. Đặc trưng AJ1 vẫn hiện hữu: chi tiết kim cương ở gót với logo Jumpman, khẳng định di sản bóng rổ trong phong cách của bạn.',
         images: [
             '../assets/images/product/women/shoes/product5.avif',
             '../assets/images/product/women/product_detail_shoes/product5_1.avif',
@@ -1359,19 +1359,19 @@ const productsData = [
             { size: 36, available: true },
             { size: 37, available: true },
             { size: 38, available: true },
-            {size: 39, available: true },
+            { size: 39, available: true },
         ]
     },
-    { 
-        id: 'air-jordan-mule-women', 
-        name: 'Air Jordan Mule', 
-        productType: 'Giày', 
-        type: 'Jordan', 
+    {
+        id: 'air-jordan-mule-women',
+        name: 'Air Jordan Mule',
+        productType: 'Giày',
+        type: 'Jordan',
         category: "Giày Nữ | jordan Mule",
-        gender: 'Nữ', 
-        price: 2500000, 
+        gender: 'Nữ',
+        price: 2500000,
         status: ["memberExclusive"],
-        description:'Air Jordan Mule kết hợp phần trên kiểu loafer cổ điển, đế platform đệm mút mềm và phong cách di sản Jordan. Kết quả là một đôi giày gọn gàng, thoải mái và đủ bền cho việc mang hàng ngày. Thành bên bằng cao su tạo vẻ đế dày, trong khi chi tiết kim loại cao cấp thêm nét thanh lịch.',
+        description: 'Air Jordan Mule kết hợp phần trên kiểu loafer cổ điển, đế platform đệm mút mềm và phong cách di sản Jordan. Kết quả là một đôi giày gọn gàng, thoải mái và đủ bền cho việc mang hàng ngày. Thành bên bằng cao su tạo vẻ đế dày, trong khi chi tiết kim loại cao cấp thêm nét thanh lịch.',
         images: [
             '../assets/images/product/women/shoes/product6.avif',
             '../assets/images/product/women/product_detail_shoes/product6_1.avif',
@@ -1383,20 +1383,20 @@ const productsData = [
             { size: 36, available: true },
             { size: 37, available: true },
             { size: 38, available: true },
-            {size: 39, available: true },
+            { size: 39, available: true },
         ]
     },
     //-------------------------------------------------Chạy Bộ --------------------------------------------//
-    { 
-        id: 'air-force-1-low-women', 
-        name: 'Air Force 1 Low', 
-        productType: 'Giày', 
-        type: 'Chạy Bộ', 
+    {
+        id: 'air-force-1-low-women',
+        name: 'Air Force 1 Low',
+        productType: 'Giày',
+        type: 'Chạy Bộ',
         category: "Giày Nữ | Air Force 1",
-        gender: 'Nữ', 
-        price: 2500000, 
+        gender: 'Nữ',
+        price: 2500000,
         status: ['new'],
-        description:'',
+        description: '',
         images: [
             '../assets/images/product/women/shoes/product7.avif',
             '../assets/images/product/women/product_detail_shoes/product7_1.avif',
@@ -1410,16 +1410,16 @@ const productsData = [
             { size: 38, available: true }
         ]
     },
-    { 
-        id: 'nike-vomero-premium-women', 
-        name: 'Nike Vomero Premium', 
-        productType: 'Giày', 
-        type: 'Chạy Bộ', 
-        category: "Giày Nữ | Chạy Bộ", 
-        gender: 'Nữ', 
-        price: 6459000, 
+    {
+        id: 'nike-vomero-premium-women',
+        name: 'Nike Vomero Premium',
+        productType: 'Giày',
+        type: 'Chạy Bộ',
+        category: "Giày Nữ | Chạy Bộ",
+        gender: 'Nữ',
+        price: 6459000,
         status: ['new'],
-        description:'',
+        description: '',
         images: [
             '../assets/images/product/women/shoes/product8.avif',
             '../assets/images/product/women/product_detail_shoes/product8_1.avif',
@@ -1431,19 +1431,19 @@ const productsData = [
             { size: 36, available: true },
             { size: 37, available: true },
             { size: 38, available: true },
-            {size: 39, available: true },
+            { size: 39, available: true },
         ]
     },
-    { 
-        id: 'nike-vomero-premium-women-2', 
-        name: 'Nike Vomero Premium', 
-        productType: 'Giày', 
-        type: 'Chạy Bộ', 
+    {
+        id: 'nike-vomero-premium-women-2',
+        name: 'Nike Vomero Premium',
+        productType: 'Giày',
+        type: 'Chạy Bộ',
         category: "Giày Nữ | Chạy Bộ",
-        gender: 'Nữ', 
-        price: 6459000, 
+        gender: 'Nữ',
+        price: 6459000,
         status: ['new'],
-        description:'',
+        description: '',
         images: [
             '../assets/images/product/women/shoes/product9.avif',
             '../assets/images/product/women/product_detail_shoes/product9_1.avif',
@@ -1455,20 +1455,20 @@ const productsData = [
             { size: 36, available: true },
             { size: 37, available: true },
             { size: 38, available: true },
-            {size: 39, available: true },
+            { size: 39, available: true },
         ]
     },
     //------------------------------------------------Tập Luyện --------------------------------------------//
-    { 
-        id: 'nike-metcon-10-women', 
-        name: 'Nike Metcon 10', 
-        productType: 'Giày', 
-        type: 'Training', 
+    {
+        id: 'nike-metcon-10-women',
+        name: 'Nike Metcon 10',
+        productType: 'Giày',
+        type: 'Training',
         category: "Giày Nữ | Tập Luyện",
-        gender: 'Nữ', 
-        price: 4409000, 
+        gender: 'Nữ',
+        price: 4409000,
         status: ["new"],
-        description:'Tăng cường khả năng tập luyện đa năng với Metcon 10. Giày tối ưu sự ổn định cho các bài nâng tạ nặng nhờ đế Hyperlift siêu bền và nâng tầm khả năng linh hoạt với đệm ReactX phản hồi nhanh. Với khả năng trả năng lượng cao hơn và trọng lượng nhẹ hơn Metcon 9, đôi giày giúp bạn chinh phục mọi chuyển động mà buổi tập yêu cầu.',
+        description: 'Tăng cường khả năng tập luyện đa năng với Metcon 10. Giày tối ưu sự ổn định cho các bài nâng tạ nặng nhờ đế Hyperlift siêu bền và nâng tầm khả năng linh hoạt với đệm ReactX phản hồi nhanh. Với khả năng trả năng lượng cao hơn và trọng lượng nhẹ hơn Metcon 9, đôi giày giúp bạn chinh phục mọi chuyển động mà buổi tập yêu cầu.',
         images: [
             '../assets/images/product/women/shoes/product10.avif',
             '../assets/images/product/women/product_detail_shoes/product10_1.avif',
@@ -1480,19 +1480,19 @@ const productsData = [
             { size: 36, available: true },
             { size: 37, available: true },
             { size: 38, available: true },
-            {size: 39, available: true },
+            { size: 39, available: true },
         ]
     },
-    { 
-        id: 'nike-metcon-10-women-2', 
-        name: 'Nike Metcon 10', 
-        productType: 'Giày', 
-        type: 'Training', 
+    {
+        id: 'nike-metcon-10-women-2',
+        name: 'Nike Metcon 10',
+        productType: 'Giày',
+        type: 'Training',
         category: "Giày Nữ | Tập Luyện",
-        gender: 'Nữ', 
-        price: 4409000, 
+        gender: 'Nữ',
+        price: 4409000,
         status: ["new"]["memberExclusive"],
-        description:'Tăng cường khả năng tập luyện đa năng với Metcon 10. Giày tối ưu sự ổn định cho các bài nâng tạ nặng nhờ đế Hyperlift siêu bền và nâng tầm khả năng linh hoạt với đệm ReactX phản hồi nhanh. Với khả năng trả năng lượng cao hơn và trọng lượng nhẹ hơn Metcon 9, đôi giày giúp bạn chinh phục mọi chuyển động mà buổi tập yêu cầu.',
+        description: 'Tăng cường khả năng tập luyện đa năng với Metcon 10. Giày tối ưu sự ổn định cho các bài nâng tạ nặng nhờ đế Hyperlift siêu bền và nâng tầm khả năng linh hoạt với đệm ReactX phản hồi nhanh. Với khả năng trả năng lượng cao hơn và trọng lượng nhẹ hơn Metcon 9, đôi giày giúp bạn chinh phục mọi chuyển động mà buổi tập yêu cầu.',
         images: [
             '../assets/images/product/women/shoes/product11.avif',
             '../assets/images/product/women/product_detail_shoes/product11_1.avif',
@@ -1504,19 +1504,19 @@ const productsData = [
             { size: 36, available: true },
             { size: 37, available: true },
             { size: 38, available: true },
-            {size: 39, available: true },
+            { size: 39, available: true },
         ]
     },
-    { 
-        id: 'nike-metcon-10-women-3', 
-        name: 'Nike Metcon 10', 
-        productType: 'Giày', 
-        type: 'Training', 
+    {
+        id: 'nike-metcon-10-women-3',
+        name: 'Nike Metcon 10',
+        productType: 'Giày',
+        type: 'Training',
         category: "Giày Nữ | ",
-        gender: 'Nữ', 
-        price: 2500000, 
+        gender: 'Nữ',
+        price: 2500000,
         status: ["new"],
-        description:'Tăng cường khả năng tập luyện đa năng với Metcon 10. Giày tối ưu sự ổn định cho các bài nâng tạ nặng nhờ đế Hyperlift siêu bền và nâng tầm khả năng linh hoạt với đệm ReactX phản hồi nhanh. Với khả năng trả năng lượng cao hơn và trọng lượng nhẹ hơn Metcon 9, đôi giày giúp bạn chinh phục mọi chuyển động mà buổi tập yêu cầu.',
+        description: 'Tăng cường khả năng tập luyện đa năng với Metcon 10. Giày tối ưu sự ổn định cho các bài nâng tạ nặng nhờ đế Hyperlift siêu bền và nâng tầm khả năng linh hoạt với đệm ReactX phản hồi nhanh. Với khả năng trả năng lượng cao hơn và trọng lượng nhẹ hơn Metcon 9, đôi giày giúp bạn chinh phục mọi chuyển động mà buổi tập yêu cầu.',
         images: [
             '../assets/images/product/women/shoes/product12.avif',
             '../assets/images/product/women/product_detail_shoes/product12_1.avif',
@@ -1528,20 +1528,20 @@ const productsData = [
             { size: 36, available: true },
             { size: 37, available: true },
             { size: 38, available: true },
-            {size: 39, available: true },
+            { size: 39, available: true },
         ]
     },
     //-------------------------------------------------Đi Bộ--------------------------------------------//
-    { 
-        id: 'nike-air-superfly-women', 
-        name: 'Nike Air Superfly', 
-        productType: 'Giày', 
-        type: 'Đi Bộ', 
+    {
+        id: 'nike-air-superfly-women',
+        name: 'Nike Air Superfly',
+        productType: 'Giày',
+        type: 'Đi Bộ',
         category: "Giày Nữ | Đi Bộ",
-        gender: 'Nữ', 
-        price: 2929000, 
+        gender: 'Nữ',
+        price: 2929000,
         status: ["new"],
-        description:'Superfly mở ra kỷ nguyên mới của thiết kế lấy cảm hứng từ chạy bộ. Nó trở lại từ kho lưu trữ với công nghệ Air mới và phong thái mới. Form dáng thấp và họa tiết đế gợi lại di sản điền kinh, trong khi các bề mặt có kết cấu mang đến diện mạo năng động, hiện đại hơn cho bạn.',
+        description: 'Superfly mở ra kỷ nguyên mới của thiết kế lấy cảm hứng từ chạy bộ. Nó trở lại từ kho lưu trữ với công nghệ Air mới và phong thái mới. Form dáng thấp và họa tiết đế gợi lại di sản điền kinh, trong khi các bề mặt có kết cấu mang đến diện mạo năng động, hiện đại hơn cho bạn.',
         images: [
             '../assets/images/product/women/shoes/product13.avif',
             '../assets/images/product/women/product_detail_shoes/product13_1.avif',
@@ -1553,19 +1553,19 @@ const productsData = [
             { size: 36, available: true },
             { size: 37, available: true },
             { size: 38, available: true },
-            {size: 39, available: true },
+            { size: 39, available: true },
         ]
     },
-    { 
-        id: 'nike-air-superfly-women-2', 
-        name: 'Nike Air Superfly', 
-        productType: 'Giày', 
-        type: 'Đi Bộ', 
+    {
+        id: 'nike-air-superfly-women-2',
+        name: 'Nike Air Superfly',
+        productType: 'Giày',
+        type: 'Đi Bộ',
         category: "Giày Nữ | Hàng Mới Về ",
-        gender: 'Nữ', 
-        price: 2929000, 
+        gender: 'Nữ',
+        price: 2929000,
         status: ["memberExclusive"]["new"],
-        description:'Superfly mở ra kỷ nguyên mới của thiết kế lấy cảm hứng từ chạy bộ. Nó trở lại từ kho lưu trữ với công nghệ Air mới và phong thái mới. Form dáng thấp và họa tiết đế gợi lại di sản điền kinh, trong khi các bề mặt có kết cấu mang đến diện mạo năng động, hiện đại hơn cho bạn.',
+        description: 'Superfly mở ra kỷ nguyên mới của thiết kế lấy cảm hứng từ chạy bộ. Nó trở lại từ kho lưu trữ với công nghệ Air mới và phong thái mới. Form dáng thấp và họa tiết đế gợi lại di sản điền kinh, trong khi các bề mặt có kết cấu mang đến diện mạo năng động, hiện đại hơn cho bạn.',
         images: [
             '../assets/images/product/women/shoes/product14.avif',
             '../assets/images/product/women/product_detail_shoes/product14_1.avif',
@@ -1576,20 +1576,20 @@ const productsData = [
             { size: 36, available: true },
             { size: 37, available: true },
             { size: 38, available: true },
-            {size: 39, available: true },
+            { size: 39, available: true },
         ]
     },
-    { 
-        id: 'nike-field-general-suede-women', 
-        name: 'Nike Field General Suede', 
-        productType: 'Giày', 
-        type: 'Đi Bộ', 
+    {
+        id: 'nike-field-general-suede-women',
+        name: 'Nike Field General Suede',
+        productType: 'Giày',
+        type: 'Đi Bộ',
         category: "Giày Nữ | Giảm Giá",
-        gender: 'Nữ', 
-        price: 2519000, 
+        gender: 'Nữ',
+        price: 2519000,
         originalPrice: 3239000,
         status: ["sale"],
-        description:'Field General trở lại từ những gốc rễ của bóng bầu dục Mỹ đầy thách thức để làm mới sân chơi sneaker. Phần trên bằng da lộn mềm kết hợp với đế Waffle sần tạo nên vẻ cổ điển của sân cỏ. Hãy bước vào một mảnh lịch sử giày thể thao và tự tạo dấu ấn riêng cho tương lai.',
+        description: 'Field General trở lại từ những gốc rễ của bóng bầu dục Mỹ đầy thách thức để làm mới sân chơi sneaker. Phần trên bằng da lộn mềm kết hợp với đế Waffle sần tạo nên vẻ cổ điển của sân cỏ. Hãy bước vào một mảnh lịch sử giày thể thao và tự tạo dấu ấn riêng cho tương lai.',
         images: [
             '../assets/images/product/women/shoes/product15.avif',
             '../assets/images/product/women/product_detail_shoes/product15_1.avif',
@@ -1601,7 +1601,7 @@ const productsData = [
             { size: 36, available: true },
             { size: 37, available: true },
             { size: 38, available: true },
-            {size: 39, available: true },
+            { size: 39, available: true },
         ]
     },
     //=============================================================Quần Áo Nữ =====================================================================//
@@ -1633,7 +1633,7 @@ const productsData = [
     {
         id: 'nike-sportswear-chill-knit-tshirt-women',
         name: 'Nike Sportswear Chill Knit',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Áo Thun',
         category: "Quần Áo Nữ | Baby Tee",
         gender: 'Nữ',
@@ -1657,7 +1657,7 @@ const productsData = [
     {
         id: 'nike-essential-tshirt-women',
         name: 'Nike',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Áo Thun',
         category: "Quần Áo Nữ | Hàng Mới Về",
         gender: 'Nữ',
@@ -1682,7 +1682,7 @@ const productsData = [
     {
         id: 'nike-sb-women',
         name: 'Nike SB',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Áo Khoác',
         category: "Quần Áo Nữ | Hàng Mới Về",
         gender: 'Nữ',
@@ -1706,7 +1706,7 @@ const productsData = [
     {
         id: 'nike-247-impossiblysoft-women',
         name: 'Nike 24.7 ImpossiblySoft',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Áo Khoác',
         category: "Quần Áo Nữ | Hàng Mới Về",
         gender: 'Nữ',
@@ -1730,7 +1730,7 @@ const productsData = [
     {
         id: 'nike-sportswear-phoenix-fleece-women',
         name: 'Nike Sportswear Phoenix Fleece',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Áo Khoác',
         category: "Quần Áo Nữ | Hàng Mới Về",
         gender: 'Nữ',
@@ -1755,7 +1755,7 @@ const productsData = [
     {
         id: 'nike-dri-fit-women',
         name: 'Nike Dri-FIT One',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Quần Short',
         category: "Quần Áo Nữ | Hàng Mới Về",
         gender: 'Nữ',
@@ -1775,10 +1775,10 @@ const productsData = [
             { size: 'L', available: true },
             { size: 'XL', available: false }
         ],
-    },{
+    }, {
         id: 'nike-aeroswift-women',
         name: 'Nike AeroSwift',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Quần Short',
         category: "Quần Áo Nữ | Hàng Mới Về",
         gender: 'Nữ',
@@ -1802,7 +1802,7 @@ const productsData = [
     {
         id: 'nike-swift-women',
         name: 'Nike Swift',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Quần Short',
         category: "Quần Áo Nữ | Hàng Mới Về",
         gender: 'Nữ',
@@ -1827,7 +1827,7 @@ const productsData = [
     {
         id: 'nike-sportswear-everything-wovens',
         name: 'Nike Sportswear Everything Wovens',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Quần Dài',
         category: "Quần Áo Nữ | Hàng Mới Về",
         gender: 'Nữ',
@@ -1851,7 +1851,7 @@ const productsData = [
     {
         id: 'jordan-brooklyn-fleece-women',
         name: 'Jordan Brooklyn Fleece',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Quần Dài',
         category: "Quần Áo Nữ | Quần Dài Vải Dù",
         gender: 'Nữ',
@@ -1875,7 +1875,7 @@ const productsData = [
     {
         id: 'jordan-flight-women',
         name: 'Jordan Flight',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Quần Dài',
         category: "Quần Áo Nữ | Hàng Mới Về",
         gender: 'Nữ',
@@ -1900,7 +1900,7 @@ const productsData = [
     {
         id: 'nike-swoosh-women-running-top',
         name: 'Nike Swoosh',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Chạy Bộ',
         category: "Quần Áo Nữ | Giảm giá",
         gender: 'Nữ',
@@ -1924,7 +1924,7 @@ const productsData = [
     {
         id: 'nike-trail-women-running-top',
         name: 'Nike Trail',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Chạy Bộ',
         category: "Quần Áo Nữ | Hàng Mới Về",
         gender: 'Nữ',
@@ -1948,7 +1948,7 @@ const productsData = [
     {
         id: 'nike-swift-women-running-top',
         name: 'Nike Swift',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Chạy Bộ',
         category: "Quần Áo Nữ | Hàng Mới Về",
         gender: 'Nữ',
@@ -1973,7 +1973,7 @@ const productsData = [
     {
         id: 'nikecourt-advantage-women',
         name: 'NikeCourt Advantage',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Váy',
         category: "Quần Áo Nữ | Hàng Mới Về",
         gender: 'Nữ',
@@ -1997,7 +1997,7 @@ const productsData = [
     {
         id: 'nike-victory-women',
         name: 'Nike Victory',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Váy',
         category: "Quần Áo Nữ | Hàng Mới Về",
         gender: 'Nữ',
@@ -2021,7 +2021,7 @@ const productsData = [
     {
         id: 'nikecourt-slam-women',
         name: 'NikeCourt Slam',
-        productType: 'Quần Áo', 
+        productType: 'Quần Áo',
         type: 'Váy',
         category: "Quần Áo Nữ | Hàng Mới Về",
         gender: 'Nữ',
@@ -2042,7 +2042,7 @@ const productsData = [
             { size: 'XL', available: false }
         ],
     },
-    
+
     //==================================================Phụ Kiện Nữ =====================================================================//
     //---------------------------------- Túi & Ba Lô --------------------------------------------//
     {
@@ -2063,7 +2063,7 @@ const productsData = [
             '../assets/images/product/women/product_detail_accessory/bag1_3.avif'
         ],
         sizes: [
-            { size: 'One Size', available: true }, 
+            { size: 'One Size', available: true },
         ],
     },
     {
@@ -2084,7 +2084,7 @@ const productsData = [
             '../assets/images/product/women/product_detail_accessory/bag2_3.avif'
         ],
         sizes: [
-            { size: 'One Size', available: true }, 
+            { size: 'One Size', available: true },
         ],
     },
     {
@@ -2105,7 +2105,7 @@ const productsData = [
             '../assets/images/product/women/product_detail_accessory/bag3_3.avif'
         ],
         sizes: [
-            { size: 'One Size', available: true }, 
+            { size: 'One Size', available: true },
         ],
     },
     //-----------------------------------Mũ & phụ kiện đầu----------------------------------------------------------//
@@ -2125,7 +2125,7 @@ const productsData = [
             '../assets/images/product/women/product_detail_accessory/hat1_1.avif',
         ],
         sizes: [
-            { size: 'S/M', available: true }, 
+            { size: 'S/M', available: true },
             { size: 'M/L', available: true },
             { size: 'L/XL', available: true },
         ],
@@ -2146,7 +2146,7 @@ const productsData = [
             '../assets/images/product/women/product_detail_accessory/hat2_1.avif',
         ],
         sizes: [
-            { size: 'S/M', available: true }, 
+            { size: 'S/M', available: true },
             { size: 'M/L', available: true },
             { size: 'L/XL', available: true },
         ],
@@ -2169,7 +2169,7 @@ const productsData = [
             '../assets/images/product/women/product_detail_accessory/hat3_3.avif'
         ],
         sizes: [
-            { size: 'S/M', available: true }, 
+            { size: 'S/M', available: true },
             { size: 'M/L', available: true },
             { size: 'L/XL', available: true },
         ],
@@ -2193,9 +2193,9 @@ const productsData = [
             '../assets/images/product/women/product_detail_accessory/socks1_3.avif'
         ],
         sizes: [
-            { size: '34-38', available: true }, 
-            { size: '38-42', available: true }, 
-            { size: '42-46', available: true }, 
+            { size: '34-38', available: true },
+            { size: '38-42', available: true },
+            { size: '42-46', available: true },
         ],
     },
     {
@@ -2216,9 +2216,9 @@ const productsData = [
             '../assets/images/product/women/product_detail_accessory/socks2_3.avif'
         ],
         sizes: [
-            { size: '34-38', available: true }, 
-            { size: '38-42', available: true }, 
-            { size: '42-46', available: true }, 
+            { size: '34-38', available: true },
+            { size: '38-42', available: true },
+            { size: '42-46', available: true },
         ],
     },
     {
@@ -2239,9 +2239,9 @@ const productsData = [
             '../assets/images/product/women/product_detail_accessory/socks3_3.avif'
         ],
         sizes: [
-            { size: '34-38', available: true }, 
-            { size: '38-42', available: true }, 
-            { size: '42-46', available: true }, 
+            { size: '34-38', available: true },
+            { size: '38-42', available: true },
+            { size: '42-46', available: true },
         ],
     },
     //-----------------------------------Thiết bị tập-------------------------------------------------//
@@ -2263,7 +2263,7 @@ const productsData = [
             '../assets/images/product/women/product_detail_accessory/trainning1_3.avif'
         ],
         sizes: [
-            { size: 'One Size', available: true }, 
+            { size: 'One Size', available: true },
         ],
     },
     {
@@ -2284,7 +2284,7 @@ const productsData = [
             '../assets/images/product/women/product_detail_accessory/trainning2_3.avif'
         ],
         sizes: [
-            { size: 'One Size', available: true }, 
+            { size: 'One Size', available: true },
         ],
     },
     {
@@ -2305,7 +2305,7 @@ const productsData = [
             '../assets/images/product/women/product_detail_accessory/trainning3_3.avif'
         ],
         sizes: [
-            { size: 'One Size', available: true }, 
+            { size: 'One Size', available: true },
         ],
     },
     //--------------------------------------Phụ Kiện Khác------------------------------------//
@@ -2327,7 +2327,7 @@ const productsData = [
             '../assets/images/product/women/product_detail_accessory/oder1_3.avif'
         ],
         sizes: [
-            { size: 'One Size', available: true }, 
+            { size: 'One Size', available: true },
         ],
     },
     {
@@ -2348,8 +2348,8 @@ const productsData = [
         ],
         sizes: [
             { size: 'S/M', available: true },
-            { size: 'M/L', available: false }, 
-            { size: 'L/XL', available: true },  
+            { size: 'M/L', available: false },
+            { size: 'L/XL', available: true },
         ],
     },
     {
@@ -2370,7 +2370,7 @@ const productsData = [
             '../assets/images/product/women/product_detail_accessory/oder3_3.avif'
         ],
         sizes: [
-            { size: 'One Size', available: true }, 
+            { size: 'One Size', available: true },
         ],
     },
 

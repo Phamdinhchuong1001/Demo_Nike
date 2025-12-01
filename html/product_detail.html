@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-     <meta charset="utf-8">
+    <meta charset="utf-8">
     <title>NIKE - chi tiết sản phẩm</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
@@ -33,6 +34,7 @@
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/product_detail.css" rel="stylesheet">
 </head>
+
 <body>
     <!-- Spinner Start -->
     <div id="spinner"
@@ -90,8 +92,20 @@
                         </div>
                     </form>
 
-                    <a href="favorite.html" class="text-white me-3 fs-5"><i class="fa fa-heart"></i></a>
-                    <a href="#" class="text-white me-3 fs-5"><i class="fa fa-bag-shopping"></i></a>
+                    <a href="favorite.html" class="text-white me-3 fs-5 position-relative icon-badge-container">
+                        <i class="fa fa-heart"></i>
+                        <span
+                            class="badge rounded-circle bg-primary text-white position-absolute top-0 start-100 translate-middle"
+                            id="wishlist-count-badge"
+                            style="padding: .3em .6em; font-size: 0.55em; display: none;">0</span>
+                    </a>
+
+                    <a href="cart.html" class="text-white me-3 fs-5 position-relative icon-badge-container">
+                        <i class="fa fa-bag-shopping"></i>
+                        <span
+                            class="badge rounded-circle bg-primary text-white position-absolute top-0 start-100 translate-middle"
+                            id="cart-count-badge" style="padding: .3em .6em; font-size: 0.55em; display: none;">0</span>
+                    </a>
                     <div class="user-control d-flex align-items-center">
                         <a href="../html/login.html" class="text-white me-3 fs-5" id="userLink">
                             <i class="fa fa-user" id="userIcon"></i>
@@ -103,7 +117,7 @@
                                 style="font-size: 1.25rem;">
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userNameDisplay">
-                                <li><a class="dropdown-item" href="donhang.html">Đơn hàng</a></li>
+                                <li><a class="dropdown-item" href="cart.html">Đơn hàng</a></li>
                                 <li><a class="dropdown-item" href="lichsumuahang.html">Lịch sử mua hàng</a></li>
                                 <li><a class="dropdown-item" href="profile.html">Hồ sơ</a></li>
                                 <li><a class="dropdown-item" href="../html/favorite.html">Mục yêu thích</a></li>
@@ -125,103 +139,111 @@
 
 
     <div class="container py-5">
-    <div class="row g-5">
-        
-        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-            <div class="row g-2">
-                
-                <div class="col-2">
-                    <div id="thumbnail-gallery" class="d-flex flex-column gap-2">
+        <div class="row g-5">
+
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                <div class="row g-2">
+
+                    <div class="col-2">
+                        <div id="thumbnail-gallery" class="d-flex flex-column gap-2">
                         </div>
-                </div>
+                    </div>
 
-                <div class="col-10">
-                    <div id="product-gallery-container" class="position-relative">
-                        <img id="main-product-image" class="img-fluid w-100" src="" alt="Ảnh sản phẩm chính">
+                    <div class="col-10">
+                        <div id="product-gallery-container" class="position-relative">
+                            <img id="main-product-image" class="img-fluid w-100" src="" alt="Ảnh sản phẩm chính">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s">
+
+                <p id="product-category" class="text-muted mb-1 fw-bold small"></p>
+                <h1 id="product-name" class="fw-bolder mb-2 display-6"></h1>
+                <p id="product-gender" class="text-white-50 mb-3 small"></p>
+                <p id="product-price" class="fs-4 fw-bold mb-4"></p>
+
+                <div id="product-colors" class="mb-4" style="display: none;">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h5 class="fw-bold m-0">Màu sắc: <span id="current-color" class="fw-normal text-muted"></span>
+                        </h5>
+                    </div>
+                    <div id="color-options-container" class="d-flex gap-2 mt-2">
                     </div>
                 </div>
 
+                <div class="mb-4">
+                    <div id="size-options-container" class="d-flex flex-wrap gap-2">
+                    </div>
+                    <p id="size-error" class="text-danger mt-2" style="display: none;">Vui lòng chọn một kích thước.</p>
+                </div>
+
+                <div class="d-grid gap-3 mb-5">
+                    <button id="add-to-bag-btn" class="btn btn-primary btn-lg py-3 rounded-pill fw-bold"
+                        type="button">Thêm vào Giỏ Hàng</button>
+                    <button id="favorite-btn" class="btn btn-outline-light btn-lg py-3 rounded-pill fw-bold"
+                        type="button">
+                        Yêu thích <i class="fa fa-heart ms-2"></i>
+                    </button>
+                </div>
+
+                <div class="mt-4 border-top pt-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fa fa-truck-fast fs-4 me-3 text-primary"></i>
+                        <div>
+                            <h6 class="fw-bold m-0">Giao hàng Miễn phí</h6>
+                            <p class="text-muted m-0 small">Hoàn trả dễ dàng trong 30 ngày.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <i class="fa fa-shield-halved fs-4 me-3 text-primary"></i>
+                        <div>
+                            <h6 class="fw-bold m-0">Thanh toán An toàn</h6>
+                            <p class="text-muted m-0 small">Bảo mật giao dịch của bạn tuyệt đối.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s">
-            
-            <p id="product-category" class="text-muted mb-1 fw-bold small"></p>
-            <h1 id="product-name" class="fw-bolder mb-2 display-6"></h1>
-            <p id="product-gender" class="text-white-50 mb-3 small"></p>
-            <p id="product-price" class="fs-4 fw-bold mb-4"></p>
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="accordion accordion-dark" id="productDetailAccordion">
 
-            <div id="product-colors" class="mb-4" style="display: none;">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <h5 class="fw-bold m-0">Màu sắc: <span id="current-color" class="fw-normal text-muted"></span></h5>
-                </div>
-                <div id="color-options-container" class="d-flex gap-2 mt-2">
-                    </div>
-            </div>
-
-            <div class="mb-4">
-                <div id="size-options-container" class="d-flex flex-wrap gap-2">
-                    </div>
-                <p id="size-error" class="text-danger mt-2" style="display: none;">Vui lòng chọn một kích thước.</p>
-            </div>
-
-            <div class="d-grid gap-3 mb-5">
-                <button id="add-to-bag-btn" class="btn btn-primary btn-lg py-3 rounded-pill fw-bold" type="button">Thêm vào Giỏ</button>
-                <button id="favorite-btn" class="btn btn-outline-light btn-lg py-3 rounded-pill fw-bold" type="button">
-                    Yêu thích <i class="fa fa-heart ms-2"></i>
-                </button>
-            </div>
-            
-            <div class="mt-4 border-top pt-4">
-                <div class="d-flex align-items-center mb-3">
-                    <i class="fa fa-truck-fast fs-4 me-3 text-primary"></i>
-                    <div>
-                        <h6 class="fw-bold m-0">Giao hàng Miễn phí</h6>
-                        <p class="text-muted m-0 small">Hoàn trả dễ dàng trong 30 ngày.</p>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center">
-                    <i class="fa fa-shield-halved fs-4 me-3 text-primary"></i>
-                    <div>
-                        <h6 class="fw-bold m-0">Thanh toán An toàn</h6>
-                        <p class="text-muted m-0 small">Bảo mật giao dịch của bạn tuyệt đối.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row mt-5">
-        <div class="col-12">
-            <div class="accordion accordion-dark" id="productDetailAccordion">
-                
-                <div class="accordion-item bg-dark border-bottom border-secondary">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button bg-dark text-white fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Mô Tả Sản Phẩm
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#productDetailAccordion">
-                        <div class="accordion-body text-white-50" id="product-description">
+                    <div class="accordion-item bg-dark border-bottom border-secondary">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button bg-dark text-white fw-bold" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                                aria-controls="collapseOne">
+                                Mô Tả Sản Phẩm
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#productDetailAccordion">
+                            <div class="accordion-body text-white-50" id="product-description">
                             </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item bg-dark border-bottom border-secondary">
-                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#productDetailAccordion">
-                        <div class="accordion-body text-white-50">
-                            <p>Đây là khu vực hiển thị các đánh giá chi tiết của khách hàng. Chúng tôi sẽ thêm logic để hiển thị các đánh giá thực tế sau.</p>
-                            <a href="#" class="text-white text-decoration-underline small">Xem tất cả đánh giá</a>
                         </div>
                     </div>
-                </div>
 
+                    <div class="accordion-item bg-dark border-bottom border-secondary">
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#productDetailAccordion">
+                            <div class="accordion-body text-white-50">
+                                <p>Đây là khu vực hiển thị các đánh giá chi tiết của khách hàng. Chúng tôi sẽ thêm logic
+                                    để hiển thị các đánh giá thực tế sau.</p>
+                                <a href="#" class="text-white text-decoration-underline small">Xem tất cả đánh giá</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
+
+
     </div>
-
-
-</div>
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer py-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
@@ -290,17 +312,28 @@
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../lib/wow/wow.min.js"></script>
-    <script src="../lib/easing/easing.min.js"></script>
-    <script src="../lib/waypoints/waypoints.min.js"></script>
-    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="../lib/lightbox/js/lightbox.min.js"></script>
+       
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+       
+    <script src="../lib/wow/wow.min.js"></script>
+       
+    <script src="../lib/easing/easing.min.js"></script>
+       
+    <script src="../lib/waypoints/waypoints.min.js"></script>
+       
+    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+       
+    <script src="../lib/lightbox/js/lightbox.min.js"></script>
 
-        <script src="../js/main.js"></script>
-    <script src="../js/index_logic.js"></script>
-    <script src="../js/product_data.js"></script>     <script src="../js/product_logic.js"></script>
-    <script src="../js/product_detail_logic.js"></script>
+           
+    <script src="../js/main.js"></script>
+       
+    <script src="../js/index_logic.js"></script>
+    <script src="../js/product_data.js"></script>    
+    <script src="../js/product_logic.js"></script>
+       
+    <script src="../js/product_detail_logic.js"></script>
 
 </body>
+
 </html>
