@@ -2,16 +2,14 @@
 // Code Logic Giỏ Hàng - cart_logic.js (Đơn giản hóa)
 // ===================================================================================
 
-const SHIPPING_FEE = 0; // Đặt phí vận chuyển là 0 (Miễn Phí)
+const SHIPPING_FEE = 0;
 
 function getCurrentUserId() {
-    // Hàm này giả định người dùng đã đăng nhập, nếu không có thì là 'guest'
     return sessionStorage.getItem('loggedInUserEmail');
 }
 
 function formatCurrency(amount) {
     const numberAmount = Number(amount) || 0;
-    // Sử dụng tùy chọn minimumFractionDigits: 0 để loại bỏ số 0 sau dấu thập phân
     return numberAmount.toLocaleString('vi-VN', { style: 'currency', currency: 'VND', minimumFractionDigits: 0, maximumFractionDigits: 0 });
 }
 
@@ -48,7 +46,7 @@ function updateIconCounts() {
 }
 
 // -----------------------------------------------------------------------
-// --- LOGIC GIỎ HÀNG (CHỈ TÍNH TỔNG GIÁ GỐC) ---
+// --- LOGIC CẬP NHẬT/XÓA SẢN PHẨM TRONG GIỎ HÀNG ---
 // -----------------------------------------------------------------------
 
 
@@ -96,7 +94,7 @@ window.decreaseQuantity = function (index) {
         }
     }
 }
-// --- THÊM HÀM LƯU LỊCH SỬ MUA HÀNG VÀO cart_logic.js ---
+// --- THÊM HÀM LƯU LỊCH SỬ MUA HÀNG ---
 window.saveOrderToHistory = function (orderData) {
     const userId = getCurrentUserId();
     const historyKey = userId ? `history_${userId}` : 'history_guest';
@@ -119,15 +117,12 @@ window.saveOrderToHistory = function (orderData) {
     console.log(`Đã lưu đơn hàng ${orderData.orderId} vào lịch sử.`);
 }
 
-// Giữ nguyên tất cả các hàm và logic còn lại của cart_logic.js
-// ...
-
 function renderCart() {
     const cart = getCartItems();
     const container = document.getElementById('cart-items-container');
     const checkoutButton = document.querySelector('.checkout-btn');
 
-    let subtotal = 0; // Tổng tiền hàng (chỉ tính giá gốc)
+    let subtotal = 0;
 
     container.innerHTML = '';
 
@@ -152,9 +147,6 @@ function renderCart() {
             checkoutButton.disabled = false;
         }
 
-        // Thêm tiêu đề (nếu cần, nhưng nó đã có trong HTML gốc)
-        // container.insertAdjacentHTML('afterbegin', `<h2 class="text-white mb-4">Giỏ Hàng</h2>`);
-
         cart.forEach((item, index) => {
             const price = Number(item.price) || 0;
             const quantity = Number(item.quantity) || 1;
@@ -167,8 +159,8 @@ function renderCart() {
             const itemHTML = `
                 <div class="cart-item d-flex border-bottom border-secondary py-3 mb-3 align-items-center" data-index="${index}">
                     <img src="${imageSrc}" alt="${item.name}" 
-                         class="cart-item-image me-4 rounded" 
-                         style="width: 120px; height: 120px; object-fit: cover;">
+                          class="cart-item-image me-4 rounded" 
+                          style="width: 120px; height: 120px; object-fit: cover;">
                     <div class="flex-grow-1 text-white">
                         <h5 class="mb-1">${item.name}</h5>
                         <p class="mb-1 text-muted small">Mã SP: ${item.id}</p>
@@ -208,15 +200,13 @@ function renderCart() {
     // --- Cập nhật Summary ---
     const finalTotal = subtotal + SHIPPING_FEE;
 
-    // Chỉ cập nhật nếu các phần tử này tồn tại (đảm bảo nó không báo lỗi nếu code này được gọi ở trang khác)
     if (document.getElementById('subtotal-amount')) {
         document.getElementById('subtotal-amount').textContent = formatCurrency(subtotal);
-        // Vận chuyển luôn là Miễn Phí
         document.getElementById('shipping-fee').textContent = "Miễn Phí";
         document.getElementById('cart-total').textContent = formatCurrency(finalTotal);
     }
 
-    // Ẩn thanh tiến trình vận chuyển miễn phí (Đoạn này đã đúng theo yêu cầu)
+    // Ẩn thanh tiến trình vận chuyển miễn phí
     const progressContainer = document.querySelector('.my-4.text-center');
     if (progressContainer) progressContainer.style.display = 'none';
 
@@ -245,7 +235,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Ngăn chặn chuyển hướng và thông báo nếu giỏ hàng trống
                 e.preventDefault();
                 alert("Giỏ hàng của bạn đang trống. Vui lòng thêm sản phẩm để thanh toán.");
-                // Đồng thời, gọi renderCart lần nữa để đảm bảo nút bị disable nếu chưa được disable
                 renderCart();
             }
         });

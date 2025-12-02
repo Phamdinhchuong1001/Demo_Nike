@@ -1,6 +1,5 @@
-// Các cửa hàng NIKE cố định tại Việt Nam (TP.HCM)
+
 const NIKE_STORES = [
-    // --- TP. HỒ CHÍ MINH ---
     { name: "Nike SC VivoCity", lat: 10.7303, lng: 106.7029, address: "Tầng trệt, SC VivoCity, Quận 7" },
     { name: "Nike Vincom Center (Quận 1)", lat: 10.7788, lng: 106.7005, address: "Tầng 3, Vincom Center, Quận 1" },
     { name: "Nike Crescent Mall", lat: 10.7317, lng: 106.7126, address: "Tầng 2, Crescent Mall, Quận 7" },

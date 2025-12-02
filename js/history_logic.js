@@ -1,11 +1,6 @@
 // ===================================================================================
 // Code Logic Lịch Sử Mua Hàng - history_logic.js
 // ===================================================================================
-
-// Giả định các hàm sau được định nghĩa trong cart_logic.js
-// - getCurrentUserId()
-// - formatCurrency(amount)
-
 function getOrderHistory() {
     const userId = getCurrentUserId();
     const historyKey = userId ? `history_${userId}` : 'history_guest';

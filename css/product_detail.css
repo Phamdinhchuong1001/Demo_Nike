@@ -1,25 +1,19 @@
-/* Chi tiết Sản Phẩm - Cập nhật cho giao diện mới */
 
-/* Thiết lập màu chữ chính cho khu vực nội dung */
 .container {
     color: #fff;
-    /* Đảm bảo tất cả chữ mặc định là trắng */
 }
 
-/* Kiểu dáng cho ảnh thu nhỏ (thumbnail) */
 #thumbnail-gallery .thumbnail-item {
     border: 2px solid transparent;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     border-radius: 8px;
-    /* Bo góc ảnh */
     overflow: hidden;
 }
 
 #thumbnail-gallery .thumbnail-item:hover,
 #thumbnail-gallery .thumbnail-item.active {
     border-color: #fff;
-    /* Viền trắng khi hover hoặc active */
 }
 
 #thumbnail-gallery .thumbnail-item img {
@@ -28,13 +22,11 @@
     display: block;
 }
 
-/* Kiểu dáng cho ảnh sản phẩm chính */
 #main-product-image {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Tùy chọn Màu sắc */
 #color-options-container .color-option {
     width: 30px;
     height: 30px;
@@ -42,27 +34,22 @@
     cursor: pointer;
     border: 3px solid transparent;
     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.5);
-    /* Viền ngoài mờ */
     transition: all 0.2s;
 }
 
 #color-options-container .color-option.active {
     border-color: #fff;
-    /* Viền nổi bật màu trắng khi active */
     box-shadow: 0 0 0 1px #fff;
 }
 
-/* Tùy chọn Kích thước */
 #size-options-container .size-option {
     display: inline-block;
     padding: 10px 15px;
     border: 1px solid #495057;
-    /* Viền xám tối */
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s;
     background-color: #212529;
-    /* Nền tối */
     color: #fff;
     font-weight: bold;
 }
@@ -74,7 +61,6 @@
 #size-options-container .size-option.active {
     border-color: #fff;
     background-color: #495057;
-    /* Nền xám đậm hơn khi được chọn */
 }
 
 /* Kích thước hết hàng */

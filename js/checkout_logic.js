@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Cập nhật lại số lượng icon (nếu cần)
             if (typeof updateIconCounts === 'function') updateIconCounts();
 
-            // Chuyển hướng đến trang lịch sử
+            // Chuyển hướng đến trang thanh toán thành công
             window.location.href = 'payment_successful.html';
         });
     }
